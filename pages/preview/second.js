@@ -1,28 +1,26 @@
-import Cover from '../../components/Pattaya/Cover'
+import Cover from '../../components/wedding/Pattaya/Cover'
 import Head from 'next/head'
-import Content from '../../components/Pattaya/Content'
-import ContentTwo from '../../components/Pattaya/ContentTwo'
-import ContentTwoJoint from '../../components/Pattaya/ContentTwoJoint'
-import ContentThree from '../../components/Pattaya/ContentThree'
-import ContentFour from '../../components/Pattaya/ContentFour'
-import ContentFive from '../../components/Pattaya/ContentFive'
-import MapsLocation from '../../components/Pattaya/MapsLocation'
-import Comment from '../../components/Pattaya/Comment'
-import Countdown from '../../components/Pattaya/Countdown'
-import ContentSeven from '../../components/Pattaya/ContentSeven'
-import Footer from '../../components/Pattaya/Footer'
-import ContentSix from '../../components/Pattaya/ContentSix'
+import Content from '../../components/wedding/Pattaya/Content'
+import ContentTwo from '../../components/wedding/Pattaya/ContentTwo'
+import ContentTwoJoint from '../../components/wedding/Pattaya/ContentTwoJoint'
+import ContentThree from '../../components/wedding/Pattaya/ContentThree'
+import ContentFive from '../../components/wedding/Pattaya/ContentFive'
+import Comment from '../../components/wedding/Pattaya/Comment'
+import Countdown from '../../components/wedding/Pattaya/Countdown'
+import ContentSeven from '../../components/wedding/Pattaya/ContentSeven'
+import Footer from '../../components/wedding/Pattaya/Footer'
+import ContentSix from '../../components/wedding/Pattaya/ContentSix'
 import { useState } from 'react'
-import MusicComponent from '../../components/MusicComponent'
+import MusicComponent from '../../components/subComponents/MusicComponent'
 
 const PreviewSecond = () => {
 
-    const WalletContents = [
+    const walletContents = [
         { name: "Putri Tanjung", number: "08635536262", src: "/static/wallet/bca.png" },
         { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/mandiri.png" },
     ]
 
-    const GiftContents = {
+    const giftContents = {
         name: "Garox Tanjung",
         number: "086535553533",
         address: `Jl. Sisingamangaraja No. 1
@@ -35,6 +33,7 @@ const PreviewSecond = () => {
     }
 
     const [playMusic, setPlayMusic] = useState(false)
+    const [isPlayerReady, setPlayerReady] = useState(false)
 
     return (
         <div className="flex justify-center">
@@ -47,8 +46,8 @@ const PreviewSecond = () => {
                     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                     <title>BridesVow - Template</title>
                 </Head>
-                <Cover playMusicCallback={setPlayMusic} weddingDate={{ day: "01", month: "05", year: "2022" }}></Cover>
-                <MusicComponent musicUrl={"https://soundcloud.com/reminiscience/chopin-nocturne-op-9-no-2?si=8b120b1b0c874fff9169b9850f9aeeec&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"} isMusicPlaying={playMusic} playMusicCallback={setPlayMusic}></MusicComponent>
+                <Cover isPlayerReady={isPlayerReady} playMusicCallback={setPlayMusic} weddingDate={{ day: "01", month: "05", year: "2022" }}></Cover>
+                <MusicComponent playerReadyCallback={setPlayerReady} musicUrl={"https://soundcloud.com/reminiscience/chopin-nocturne-op-9-no-2?si=8b120b1b0c874fff9169b9850f9aeeec&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing"} isMusicPlaying={playMusic} playMusicCallback={setPlayMusic}></MusicComponent>
                 <Countdown expiryTimestamp={new Date(2022, 9, 30, 8, 0, 0, 0)}></Countdown>
                 <Content></Content>
                 <ContentTwo></ContentTwo>
@@ -56,7 +55,7 @@ const PreviewSecond = () => {
                 <ContentThree></ContentThree>
                 <ContentFive></ContentFive>
                 <Comment></Comment>
-                <ContentSix WalletContents={WalletContents} GiftContents={GiftContents}></ContentSix>
+                <ContentSix walletContents={walletContents} giftContents={giftContents}></ContentSix>
                 <ContentSeven></ContentSeven>
                 <Footer></Footer>
             </div>
