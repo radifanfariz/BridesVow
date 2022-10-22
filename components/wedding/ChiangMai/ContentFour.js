@@ -3,6 +3,7 @@ import BgBase from "../../../public/static/1/New/bgbiru.png"
 import ContentImage from "../../../public/static/1/content.jpg"
 import ContentImage2 from "../../../public/static/1/content2.jpg"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import imageLoader from "../../../utils/imageLoader"
 
 const ContentFour = ({ contents }) => {
 
@@ -19,7 +20,7 @@ const ContentFour = ({ contents }) => {
                         </div>
                         <div className="relative mt-5 flex items-start justify-center">
                             <div className="absolute z-10 opacity-50 w-[300px] h-[250px] rounded-tl-[4rem] rounded-br-[4rem] bg-black "></div>
-                            <Image priority='true' className="rounded-tl-[4rem] rounded-br-[4rem]" width="300px" height="250px" src={contents.akad.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                            <Image priority='true' className="rounded-tl-[4rem] rounded-br-[4rem]" width="300px" height="250px" loader={imageLoader} src={contents.akad.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                             <div className="absolute mt-20 z-20 flex flex-col items-center justify-center text-center w-full px-5 text-white">
                                 <span className="text-lg mb-2">{contents.akad.date.fullDate2}</span>
                                 <span>{contents.akad.address}</span>
@@ -32,7 +33,7 @@ const ContentFour = ({ contents }) => {
                         </div>
                         <div className="relative mt-5 flex items-start justify-center">
                             <div className="absolute z-10 opacity-50 w-[300px] h-[250px] rounded-tl-[4rem] rounded-br-[4rem] bg-black "></div>
-                            <Image priority='true' className="rounded-tl-[4rem] rounded-br-[4rem]" width="300px" height="250px" src={contents.wedding.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                            <Image priority='true' className="rounded-tl-[4rem] rounded-br-[4rem]" width="300px" height="250px" loader={imageLoader} src={contents.wedding.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                             <div className="absolute mt-20 z-20 flex flex-col items-center justify-center text-center w-full px-5 text-white">
                                 <span className="text-lg mb-2">{contents.wedding.date.fullDate2}</span>
                                 <span>{contents.wedding.address}</span>

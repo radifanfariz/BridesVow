@@ -11,7 +11,7 @@ import WalletModal from "../../subComponents/WalletModal"
 import GiftModal from "../../subComponents/GiftModal"
 
 
-const ContentSix = ({walletContents, giftContents}) => {
+const ContentSix = ({contents}) => {
     const [isOpenWallet, setIsOpenWallet] = useState(false)
     const [isOpenGift, setIsOpenGift] = useState(false)
     const closeWalletModal = () => setIsOpenWallet(false);
@@ -41,8 +41,8 @@ const ContentSix = ({walletContents, giftContents}) => {
                                 </div>
                             </div>
                         </div>
-                        <WalletModal isOpen={isOpenWallet} closeModal={closeWalletModal} contents={walletContents} />
-                        <GiftModal isOpen={isOpenGift} closeModal={closeGiftModal} contents={giftContents}/>
+                        <WalletModal isOpen={isOpenWallet} closeModal={closeWalletModal} contents={contents.walletContents} />
+                        <GiftModal isOpen={isOpenGift} closeModal={closeGiftModal} contents={contents.giftContents}/>
                         <Image priority='true' className="" width="100px" height="70px" src={ContentImage2.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
                     </div>
                     <div className="flex justify-center items-center my-10 ml-5">

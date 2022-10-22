@@ -7,7 +7,9 @@ import Image from 'next/image'
 import BgBase from "../../../public/static/1/New/gelombang.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import MapsLocation from "./MapsLocation";
-
+import imageLoader from "../../../utils/imageLoader";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ContentFive = ({ contents }) => {
     return (
@@ -18,13 +20,15 @@ const ContentFive = ({ contents }) => {
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="mt-10">
                     <MapsLocation contents={
-                        {locationUrl: contents.locationUrl}
-                        }></MapsLocation>
+                        { locationUrl: contents.locationUrl }
+                    }></MapsLocation>
                 </div>
                 <div className="flex flex-col justify-around h-[600px] relative">
                     <div className="flex justify-center text-xl font-[adelia] mt-48 mb-10 text-black">Galeri Foto</div>
                     <div className="flex justify-center w-full mb-72">
                         <Swiper
+                            centeredSlides={true}
+                            centeredSlidesBounds={true}
                             effect={"coverflow"}
                             grabCursor={true} navigation={true} modules={[EffectCoverflow, Pagination, Navigation]}
                             spaceBetween={-80} slidesPerView={"auto"} coverflowEffect={{
@@ -38,8 +42,12 @@ const ContentFive = ({ contents }) => {
                             {contents.gallery.length > 0 && contents.gallery.map((item) => {
                                 return (
                                     <SwiperSlide>
-                                        <div className='w-72 h-[350px] relative ml-11'>
-                                            <Image className='rounded-3xl' layout='fill' src={item} alt='template' objectFit="cover" />
+                                        <div className='w-72 h-[350px] relative translate-x-14'>
+                                            <PhotoProvider>
+                                                <PhotoView src={item}>
+                                                    <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
+                                                </PhotoView>
+                                            </PhotoProvider>
                                         </div>
                                     </SwiperSlide>
                                 )
@@ -48,7 +56,7 @@ const ContentFive = ({ contents }) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </main >
     )
 }
 

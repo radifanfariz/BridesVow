@@ -4,6 +4,7 @@ import Man from '../../../public/static/1/cowok.jpg'
 import Woman from '../../../public/static/1/cewek.jpg'
 import BgBase from '../../../public/static/1/New/pengantin.png'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import imageLoader from '../../../utils/imageLoader'
 
 
 const Content = ({contents}) => {
@@ -35,7 +36,7 @@ const Content = ({contents}) => {
                                 <div className="relative">
                                     <div className="flex justify-center p-28 pb-20">
                                         <div className="relative">
-                                            <Image layout="fixed" priority='true' className="rounded-full" src={contents.cewek.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
+                                            <Image layout="fixed" priority='true' className="rounded-full" loader={imageLoader} src={contents.cewek.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
                                         </div>
                                         <div className="absolute">
                                             <div className="relative top-[120px] left-[-80px] rotate-[64deg] transform-gpu">
@@ -63,7 +64,7 @@ const Content = ({contents}) => {
                                 <div className="relative">
                                     <div className="flex justify-center p-28 pb-20 pt-0">
                                         <div className="relative">
-                                            <Image layout="fixed" priority='true' className="rounded-full" src={contents.cowok.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
+                                            <Image layout="fixed" priority='true' className="rounded-full" loader={imageLoader} src={contents.cowok.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
                                         </div>
                                         <div className="absolute">
                                             <div className="relative top-[120px] left-[-80px] rotate-[64deg] transform-gpu">

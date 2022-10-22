@@ -7,6 +7,7 @@ import Image from "next/image";
 import BgPhoto from '../../../public/static/1/bg2.jpg'
 import Ring from '../../../public/static/1/ring.png'
 import { GrClose } from "react-icons/gr";
+import imageLoader from "../../../utils/imageLoader";
 
 const Countdown = ({ contents }) => {
 
@@ -17,7 +18,7 @@ const Countdown = ({ contents }) => {
     const [minutes, setMinutes] = useState('')
     const [seconds, setSeconds] = useState('')
 
-    const timerObj = useTimer({ expiryTimestamp: contents.expiryTimestamp, onExpire: () => setOpen(o => !o) })
+    const timerObj = useTimer({ expiryTimestamp: contents.weddingDate.date, onExpire: () => setOpen(o => !o) })
 
     const weddingDate = `${contents.weddingDate.day} ${contents.weddingDate.monthName} ${contents.weddingDate.year} | Pukul ${contents.weddingDate.clock} WIB`
 
@@ -34,7 +35,7 @@ const Countdown = ({ contents }) => {
 
     return (
         <main className={"relative"}>
-            <Image layout='fill' priority='true' src={BgPhoto.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
+            <Image layout='fill' priority='true' loader={imageLoader} src={contents.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col justify-center pt-56 h-full min-h-screen">
                 <div className="flex justify-center z-10">
                     <div className="text-lg text-center font-semibold text-white">Nantikan hari bahagia kami</div>

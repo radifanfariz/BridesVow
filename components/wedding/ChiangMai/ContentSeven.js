@@ -4,6 +4,7 @@ import Ava from "../../../public/static/1/avatar.jpg"
 import Bunga from "../../../public/static/1/bunga5.png"
 import Divider from "../../../public/static/1/garislove.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import imageLoader from "../../../utils/imageLoader"
 
 const ContentSeven = ({contents}) => {
     return (
@@ -17,7 +18,7 @@ const ContentSeven = ({contents}) => {
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col justify-start h-[50%]">
                     <div className="flex justify-center p-24">
-                        <Image layout="fixed" priority='true' className="rounded-full object-fit max-w-full h-auto" src={contents.src} alt='avatar' width={200} height={200} />
+                        <Image layout="fixed" priority='true' className="rounded-full object-fit max-w-full h-auto" loader={imageLoader} src={contents.src} alt='avatar' width={200} height={200} />
                     </div>
                     <div className="absolute">
                         <div className="relative xl:left-[125px] left-[60px] top-[160px] transform-gpu">

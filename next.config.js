@@ -3,8 +3,17 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images:{
-    domains:['192.168.100.40:3000','flowbite.com'],
+    domains:['localhost','47ee-104-28-194-247.ap.ngrok.io','flowbite.com'],
   }
 }
 
-module.exports = nextConfig
+const rewrites = async () => {
+  return [
+    {
+      source:'/:path*',
+      destination: '/post/:path*',
+    }
+  ]
+}
+
+module.exports = {nextConfig, rewrites}
