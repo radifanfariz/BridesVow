@@ -23,7 +23,7 @@ const Countdown = ({ expiryTimestamp }) => {
     setHours(timerObj.hours)
     setMinutes(timerObj.minutes)
     setSeconds(timerObj.seconds)
-  });
+  },[timerObj.days, timerObj.hours, timerObj.minutes, timerObj.seconds]);
 
   const uniqueId = () => {
     return "id" + Math.random().toString(16).slice(2)

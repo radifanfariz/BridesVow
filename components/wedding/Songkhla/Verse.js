@@ -12,7 +12,7 @@ const ContentTwo = () => {
                     <div className="flex flex-col justify-between relative items-center mx-5 px-2 py-2 rounded-3xl bg-[#D9D9D9]">
                         <div className="flex z-10">
                             <div className="flex justify-center w-[25px] mb-2">
-                                <Image src={Ring.src} width={100} height={100} />
+                                <Image src={Ring.src} alt={"ring"} width={100} height={100} />
                             </div>
                         </div>
                         <div className="flex z-10">

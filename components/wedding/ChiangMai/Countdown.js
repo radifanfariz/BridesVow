@@ -1,10 +1,8 @@
-import { BiTimeFive } from "react-icons/bi"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { useTimer } from "react-timer-hook"
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import Image from "next/image";
-import BgPhoto from '../../../public/static/1/bg2.jpg'
 import Ring from '../../../public/static/1/ring.png'
 import { GrClose } from "react-icons/gr";
 import imageLoader from "../../../utils/imageLoader";
@@ -27,7 +25,7 @@ const Countdown = ({ contents }) => {
         setHours(timerObj.hours)
         setMinutes(timerObj.minutes)
         setSeconds(timerObj.seconds)
-    });
+    },[timerObj.days, timerObj.hours, timerObj.minutes, timerObj.seconds]);
 
     const uniqueId = () => {
         return "id" + Math.random().toString(16).slice(2)

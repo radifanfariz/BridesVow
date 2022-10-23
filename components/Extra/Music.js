@@ -9,7 +9,7 @@ const playerStyle = {
     'position': 'fixed',
 }
 
-const MusicComponent = ({ playerReadyCallback, musicUrl, isMusicPlaying, playMusicCallback }) => {
+const Music = ({ playerReadyCallback, musicUrl, isMusicPlaying, playMusicCallback }) => {
 
     const handlePlayMusic = () => {
         playMusicCallback(!isMusicPlaying)
@@ -45,4 +45,4 @@ const MusicComponent = ({ playerReadyCallback, musicUrl, isMusicPlaying, playMus
 }
 
 
-export default MusicComponent
+export default Music

@@ -7,17 +7,19 @@ import Link from 'next/link';
 import Image from 'next/image'
 import BgBase from "../../../public/static/3/7harapan.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
-import MapsLocation from "./MapsLocation";
+import MapsLocation from "../../Extra/MapsLocation";
 
 
-const ContentFive = () => {
+const ContentFive = ({contents}) => {
     return (
         <main className="relative">
             <div className="absolute h-full w-full min-h-screen">
                 <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
-                <MapsLocation></MapsLocation>
+                <MapsLocation contents={
+                        { locationUrl: contents.locationUrl }
+                    }></MapsLocation>
                 <div className="flex flex-col justify-around h-[600px] relative">
                     <div className="flex justify-center text-[#FFFDE3] text-xl font-[adelia] mt-48 mb-10">Galeri Foto</div>
                     <div className="flex justify-center w-full mb-44">

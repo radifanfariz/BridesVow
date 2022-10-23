@@ -63,7 +63,7 @@ const Content = () => {
                                             </div>
                                             <div className="flex flex-col font-[belgrano] capitalize">
                                                 <div className="flex justify-center text-black font-extrabold">Pulin Sianipar, S.Kom.</div>
-                                                <div className="flex justify-center text-center">'
+                                                <div className="flex justify-center text-center">
                                                     <div className=" text-black w-[70%]">
                                                         <span className="block">putri dari</span>
                                                         <span>Bapak Garox Panjaitan</span>
@@ -82,7 +82,7 @@ const Content = () => {
                                             </div>
                                             <div className="flex flex-col font-[belgrano] capitalize">
                                                 <div className="flex justify-center text-black font-extrabold">Pulin Sianipar, S.Kom.</div>
-                                                <div className="flex justify-center text-center">'
+                                                <div className="flex justify-center text-center">
                                                     <div className="text-black w-[70%]">
                                                         <span className="block">putra dari</span>
                                                         <span>Bapak Garox Panjaitan</span>

@@ -9,12 +9,10 @@ class MyDocument extends Document {
                 <Head>
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
                     <link rel='icon' href='/bridesvow.ico' />
-                </Head>
-                <head>
                     <style>
                         {loader}
                     </style>
-                </head>
+                </Head>
                 <body>
                     <div id={'globalLoader'}>
                         <div className="loader">

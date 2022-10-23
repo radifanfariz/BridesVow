@@ -6,12 +6,12 @@ import "swiper/css/navigation";
 import Image from 'next/image'
 import BgBase from "../../../public/static/1/New/gelombang.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
-import MapsLocation from "./MapsLocation";
+import MapsLocation from "../../Extra/MapsLocation";
 import imageLoader from "../../../utils/imageLoader";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import 'react-photo-view/dist/react-photo-view.css';
 
-const ContentFive = ({ contents }) => {
+const Album = ({ contents }) => {
     return (
         <main className="relative">
             <div className="absolute h-full w-full min-h-screen">
@@ -39,15 +39,17 @@ const ContentFive = ({ contents }) => {
                                 slideShadows: false,
                             }}
                             pagination={true} className="mySwiper">
-                            {contents.gallery.length > 0 && contents.gallery.map((item) => {
+                            {contents.gallery.length > 0 && contents.gallery.map((item, index) => {
                                 return (
-                                    <SwiperSlide>
-                                        <div className='w-72 h-[350px] relative translate-x-14'>
-                                            <PhotoProvider>
-                                                <PhotoView src={item}>
-                                                    <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
-                                                </PhotoView>
-                                            </PhotoProvider>
+                                    <SwiperSlide key={index}>
+                                        <div className="flex justify-center">
+                                            <div className='w-72 h-[350px] relative'>
+                                                <PhotoProvider>
+                                                    <PhotoView src={item}>
+                                                        <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
+                                                    </PhotoView>
+                                                </PhotoProvider>
+                                            </div>
                                         </div>
                                     </SwiperSlide>
                                 )
@@ -60,7 +62,7 @@ const ContentFive = ({ contents }) => {
     )
 }
 
-export default ContentFive
+export default Album
 
 
 {/* <SwiperSlide>

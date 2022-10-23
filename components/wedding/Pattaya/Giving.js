@@ -1,17 +1,17 @@
 import Image from "next/image"
-import BgTexture from "../../../public/static/3/7harapan.png"
-import ContentImage from "../../../public/static/3/floralatas.png"
-import ContentImage2 from "../../../public/static/3/floralbawah.png"
-import Dompet from "../../../public/static/3/wallet.png"
-import Kado from "../../../public/static/3/gift.png"
-import Covid from "../../../public/static/3/covid.png"
+import BgTexture from "../../../public/static/2/harapan.png"
+import ContentImage from "../../../public/static/2/floralatas.png"
+import ContentImage2 from "../../../public/static/2/floralbawah.png"
+import Dompet from "../../../public/static/2/wallet.png"
+import Kado from "../../../public/static/2/gift.png"
+import Covid from "../../../public/static/2/covid.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useState } from "react"
-import WalletModal from "../../subComponents/WalletModal"
-import GiftModal from "../../subComponents/GiftModal"
+import WalletModal from "../../SubComponents/WalletModal"
+import GiftModal from "../../SubComponents/GiftModal"
 
 
-const ContentSix = ({contents}) => {
+const ContentSix = ({walletContents, giftContents}) => {
     const [isOpenWallet, setIsOpenWallet] = useState(false)
     const [isOpenGift, setIsOpenGift] = useState(false)
     const closeWalletModal = () => setIsOpenWallet(false);
@@ -20,7 +20,7 @@ const ContentSix = ({contents}) => {
     return (
         <main className="relative">
             <div className="absolute min-h-screen h-full w-full flex flex-col justify-center">
-                <Image priority='true' width={500} height={1500} src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image priority='true' width={500} height={1800} src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <div className="flex flex-col justify-start items-center h-full min-h-screen relative">
@@ -41,8 +41,8 @@ const ContentSix = ({contents}) => {
                                 </div>
                             </div>
                         </div>
-                        <WalletModal isOpen={isOpenWallet} closeModal={closeWalletModal} contents={contents.walletContents} />
-                        <GiftModal isOpen={isOpenGift} closeModal={closeGiftModal} contents={contents.giftContents}/>
+                        <WalletModal isOpen={isOpenWallet} closeModal={closeWalletModal} contents={walletContents} />
+                        <GiftModal isOpen={isOpenGift} closeModal={closeGiftModal} contents={giftContents}/>
                         <Image priority='true' className="" width="100px" height="70px" src={ContentImage2.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
                     </div>
                     <div className="flex justify-center items-center my-10 ml-5">

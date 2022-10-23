@@ -24,7 +24,7 @@ const Countdown = ({ expiryTimestamp }) => {
     setHours(timerObj.hours)
     setMinutes(timerObj.minutes)
     setSeconds(timerObj.seconds)
-  });
+  },[timerObj.days, timerObj.hours, timerObj.minutes, timerObj.seconds]);
 
     return (
         <main className={"relative"}>

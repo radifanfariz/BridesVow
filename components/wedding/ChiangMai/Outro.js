@@ -6,7 +6,7 @@ import Divider from "../../../public/static/1/garislove.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from "../../../utils/imageLoader"
 
-const ContentSeven = ({contents}) => {
+const Outro = ({contents}) => {
     return (
         <main className="relative">
             {/* <div className="absolute h-full w-full min-h-screen flex flex-col justify-start">
@@ -20,8 +20,8 @@ const ContentSeven = ({contents}) => {
                     <div className="flex justify-center p-24">
                         <Image layout="fixed" priority='true' className="rounded-full object-fit max-w-full h-auto" loader={imageLoader} src={contents.src} alt='avatar' width={200} height={200} />
                     </div>
-                    <div className="absolute">
-                        <div className="relative xl:left-[125px] left-[60px] top-[160px] transform-gpu">
+                    <div className="relative">
+                        <div className="absolute flex justify-center w-full bottom-[0px]">
                             <Image layout="fixed" priority='true' className="" src={Bunga.src} alt='bunga' width={250} height={200} />
                         </div>
                     </div>
@@ -40,4 +40,4 @@ const ContentSeven = ({contents}) => {
     )
 }
 
-export default ContentSeven
+export default Outro

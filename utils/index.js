@@ -1,4 +1,4 @@
-import { dataUndanganParams, dataUndanganParams2, getDataUndanganParams } from "./queryParams";
+import { dataUndanganParams, getDataUndanganParams } from "./queryParams";
 
 const URL = process.env.STRAPIBASEURL
 
@@ -13,7 +13,7 @@ export async function getDataUndangan(slug=""){
 export async function getDataUndangan2(){
 
 
-    const res = await fetch(`${URL}/graphql`,dataUndanganParams2)
+    const res = await fetch(`${URL}/graphql`,dataUndanganParams)
     const data = await res.json()
 
     return data

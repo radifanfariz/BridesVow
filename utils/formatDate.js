@@ -1,4 +1,4 @@
-const formatDate = (date) => {
+export const formatDate = (date) => {
     const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const weddingDateElements = {
         clock: `${("0" + date.getHours()).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`,
@@ -8,10 +8,14 @@ const formatDate = (date) => {
         year: date.getFullYear(),
         fullDate: `${("0" + date.getDate()).slice(-2)} ${("0" + date.getMonth()).slice(-2)} ${date.getFullYear()}`,
         fullDate2: `${("0" + date.getDate()).slice(-2)} ${ monthNames[date.getMonth()]} ${date.getFullYear()}`,
-        date:date,
+        date:Date.parse(date),
     }
 
     return weddingDateElements
 }
 
-export default formatDate
+export const toDateTime = (secs) => {
+    const t = new Date()
+    t.setSeconds(secs)
+    return t
+}

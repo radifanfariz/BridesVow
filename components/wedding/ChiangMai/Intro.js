@@ -7,7 +7,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from '../../../utils/imageLoader'
 
 
-const Content = ({contents}) => {
+const Intro = ({contents}) => {
 
     // const [animate, setAnimate] = useState("hidden")
 
@@ -52,7 +52,7 @@ const Content = ({contents}) => {
                                         </div>
                                         <div className="flex flex-col font-[montserrat]">
                                             <div className="flex justify-center text-black font-extrabold">{contents.cewek.fullName}</div>
-                                            <div className="flex justify-center text-center">'
+                                            <div className="flex justify-center text-center">
                                                 <div className="flex justify-center text-black w-[70%]">putri dari {contents.cewek.ayahName} dan {contents.cewek.ibuName}</div>
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@ const Content = ({contents}) => {
                                         </div>
                                         <div className="flex flex-col font-[montserrat]">
                                             <div className="flex justify-center text-black font-extrabold">{contents.cowok.fullName}</div>
-                                            <div className="flex justify-center text-center">'
+                                            <div className="flex justify-center text-center">
                                                 <div className="flex justify-center text-black w-[70%]">putri dari {contents.cowok.ayahName} dan {contents.cowok.ibuName}</div>
                                             </div>
                                         </div>
@@ -95,4 +95,4 @@ const Content = ({contents}) => {
     )
 }
 
-export default Content
+export default Intro

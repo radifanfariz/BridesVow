@@ -7,11 +7,11 @@ import Kado from "../../../public/static/1/kado.png"
 import Covid from "../../../public/static/1/covid.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useState } from "react"
-import WalletModal from "../../subComponents/WalletModal"
-import GiftModal from "../../subComponents/GiftModal"
+import WalletModal from "../../Extra/WalletModal"
+import GiftModal from "../../Extra/GiftModal"
 
 
-const ContentSix = ({contents}) => {
+const Giving = ({contents}) => {
     const [isOpenWallet, setIsOpenWallet] = useState(false)
     const [isOpenGift, setIsOpenGift] = useState(false)
     const closeWalletModal = () => setIsOpenWallet(false);
@@ -54,4 +54,4 @@ const ContentSix = ({contents}) => {
     )
 }
 
-export default ContentSix
+export default Giving

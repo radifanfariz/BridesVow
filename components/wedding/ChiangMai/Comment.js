@@ -6,9 +6,14 @@ import { app, database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import Moment from 'react-moment'
+import moment from 'moment';
+import { toDateTime } from '../../../utils/formatDate'
 
 
-const CommentView = ({ name, isHadir, comment }) => {
+const CommentView = ({ name, isHadir, comment, createdAt }) => {
+
+    const dateTime = toDateTime(Timestamp.now().seconds - createdAt.seconds)
 
 
     return (
@@ -30,7 +35,7 @@ const CommentView = ({ name, isHadir, comment }) => {
                         </div>
                         <div className="flex items-center text-[8px]">
                             <span className="pr-1"><BiTimeFive /></span>
-                            4 hari yang lalu
+                            {moment().from(dateTime)}
                         </div>
                         <div className="text-[10px]">
                             {comment}
@@ -45,9 +50,9 @@ const CommentView = ({ name, isHadir, comment }) => {
 // const uniqueId = () => {
 //     return "id" + Math.random().toString(16).slice(2)
 // }
+const Comment = ({contents}) => {
 
-const dbInstance = collection(database, 'user1')
-const Comment = () => {
+    const dbInstance = collection(database, contents.dbName)
 
     const getData = async () => {
         await getDocs(query(dbInstance, orderBy("createdAt", "desc")))
@@ -67,6 +72,7 @@ const Comment = () => {
     const [name, setName] = useState('')
     const [isHadir, setIsHadir] = useState(false)
     const [commentText, setCommentText] = useState('')
+    const [createdAt, setCreatedAt] = useState(Timestamp.now().toDate())
     const [userChoice, setUserChoice] = useState('tidakHadir')
 
     const hadirFunc = (value) => {
@@ -83,12 +89,13 @@ const Comment = () => {
         setName('')
         setIsHadir(false)
         setCommentText('')
+        setCreatedAt(Timestamp.now().toDate())
 
         let commentData = {
             name: name,
             isHadir: isHadir,
             commentText: commentText,
-            createdAt: Timestamp.now().toDate()
+            createdAt: createdAt,
         }
 
         /* without database(firebase) */
@@ -139,7 +146,7 @@ const Comment = () => {
                         <div className="flex flex-col h-[350px] overflow-auto text-black">
                             {commentItems.length > 0 && commentItems.map((item) => {
                                 return (
-                                    <CommentView key={item.id} name={item.name} isHadir={item.isHadir} comment={item.commentText} />
+                                    <CommentView key={item.id} name={item.name} isHadir={item.isHadir} comment={item.commentText} createdAt={item.createdAt}/>
                                 )
                             })}
                         </div>

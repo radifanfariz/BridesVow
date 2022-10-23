@@ -3,7 +3,7 @@ import Ring from "../../../public/static/ring.svg"
 import BgTexture from "../../../public/static/1/bgtexture.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const ContentTwo = ({contents}) => {
+const Verse = ({contents}) => {
     return (
         <main className="">
             <div className="bg-[#2A5D87] py-8 px-4">
@@ -12,7 +12,7 @@ const ContentTwo = ({contents}) => {
                         <Image priority='true' className='flex rounded-full absolute' layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                         <div className="flex z-10">
                             <div className="flex justify-center w-[25px] mb-2">
-                                <Image src={Ring.src} width={100} height={100} />
+                                <Image src={Ring.src} alt={"ring"} width={100} height={100} />
                             </div>
                         </div>
                         <div className="flex z-10">
@@ -28,4 +28,4 @@ const ContentTwo = ({contents}) => {
     )
 }
 
-export default ContentTwo
+export default Verse

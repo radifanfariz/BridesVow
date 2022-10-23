@@ -3,7 +3,7 @@ import Image from "next/image"
 import BgBase from "../../../public/static/1/New/love.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const ContentThree = ({ contents }) => {
+const Storyboards = ({ contents }) => {
     return (
         <main className="relative">
             <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
@@ -59,4 +59,4 @@ const ContentThree = ({ contents }) => {
     )
 }
 
-export default ContentThree
+export default Storyboards

@@ -1,11 +1,9 @@
 import Image from "next/image"
 import BgBase from "../../../public/static/1/New/bgbiru.png"
-import ContentImage from "../../../public/static/1/content.jpg"
-import ContentImage2 from "../../../public/static/1/content2.jpg"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from "../../../utils/imageLoader"
 
-const ContentFour = ({ contents }) => {
+const Agenda = ({ contents }) => {
 
     return (
         <main className="relative">
@@ -46,4 +44,4 @@ const ContentFour = ({ contents }) => {
     )
 }
 
-export default ContentFour
+export default Agenda
