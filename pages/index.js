@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import Content from '../components/landing/Content'
-import Header from '../components/landing/Header'
-import Footer from '../components/landing/Footer'
-import ContentTwo from '../components/landing/ContentTwo'
-import ContentThree from '../components/landing/ContentThree'
-import ContentFour from '../components/landing/ContentFour'
+import Content from '../components/Landing/Content'
+import Header from '../components/Landing/Header'
+import Footer from '../components/Landing/Footer'
+import ContentTwo from '../components/Landing/ContentTwo'
+import ContentThree from '../components/Landing/ContentThree'
+import ContentFour from '../components/Landing/ContentFour'
 
 export default function Home() {
 

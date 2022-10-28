@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import BgBase from '../../../public/static/1/New/kepala.png'
+import BgBase from '../../../public/static/1/New/cover-bg.png'
 import { HiOutlineMailOpen } from 'react-icons/hi'
 
 const Cover = ({contents,isPlayerReady,playMusicCallback}) => {

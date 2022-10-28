@@ -1,15 +1,18 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/4/harapan.png'
+import BgBase from '../../../public/static/4/comment-bg.png'
 import { AiFillCheckCircle } from "react-icons/ai"
 import { BiTimeFive } from "react-icons/bi"
 import { app, database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import moment from 'moment'
+import { toDateTime } from '../../../utils/formatDate'
 
 
-const CommentView = ({ name, isHadir, comment }) => {
+const CommentView = ({ name, isHadir, comment, createdAt }) => {
 
+    const dateTime = toDateTime(Timestamp.now().seconds - createdAt.seconds)
 
     return (
         <div className="bg-white">
@@ -30,7 +33,7 @@ const CommentView = ({ name, isHadir, comment }) => {
                         </div>
                         <div className="flex items-center text-[8px]">
                             <span className="pr-1"><BiTimeFive /></span>
-                            4 hari yang lalu
+                            {moment().from(dateTime)}
                         </div>
                         <div className="text-[10px]">
                             {comment}
@@ -46,8 +49,9 @@ const CommentView = ({ name, isHadir, comment }) => {
 //     return "id" + Math.random().toString(16).slice(2)
 // }
 
-const dbInstance = collection(database, 'user1')
-const Comment = () => {
+const Comment = ({contents}) => {
+
+    const dbInstance = collection(database, `comment_${contents.dbName}`)
 
     const getData = async () => {
         await getDocs(query(dbInstance, orderBy("createdAt", "desc")))
@@ -65,30 +69,20 @@ const Comment = () => {
 
     const [commentItems, setCommentItems] = useState([])
     const [name, setName] = useState('')
-    const [isHadir, setIsHadir] = useState(false)
     const [commentText, setCommentText] = useState('')
-    const [userChoice, setUserChoice] = useState('tidakHadir')
+    const [createdAt, setCreatedAt] = useState(Timestamp.now().toDate())
 
-    const hadirFunc = (value) => {
-        setUserChoice(value)
-        if (value == 'tidakHadir') {
-            setIsHadir(false)
-        } else {
-            setIsHadir(true)
-        }
-    }
 
     const addComment = () => {
 
         setName('')
-        setIsHadir(false)
         setCommentText('')
+        setCreatedAt(Timestamp.now().toDate())
 
         let commentData = {
             name: name,
-            isHadir: isHadir,
             commentText: commentText,
-            createdAt: Timestamp.now().toDate()
+            createdAt: createdAt,
         }
 
         /* without database(firebase) */
@@ -102,7 +96,9 @@ const Comment = () => {
 
     return (
         <main className="relative">
-            <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <div className="absolute h-full w-full min-h-screen">
+                <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col items-center mt-10">
                     <div className="flex justify-center mt-8 z-10">
@@ -116,30 +112,24 @@ const Comment = () => {
                             <div className="flex">
                                 <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl" type="text" name="nama" id="nama" placeholder="Nama" value={name} />
                             </div>
-                            <div className="flex items-center mt-5">
-                                <select name="" id="" className="rounded-xl p-2 w-full bg-white" defaultValue={userChoice} onChange={(e) => hadirFunc(e.target.value)}>
-                                    <option value="hadir">Hadir</option>
-                                    <option value="tidakHadir">Tidak Hadir</option>
-                                </select>
-                            </div>
                             <div className="pt-5">
                                 <textarea onChange={(e) => setCommentText(e.target.value)} className="w-full p-1 px-5 rounded-xl" name="comment" id="comment" cols="30" rows="5" placeholder="Berikan Harapan dan Doa" value={commentText}></textarea>
                             </div>
                             <div className="flex justify-center pt-5">
                                 {(name === '' || commentText === '') ?
-                                    <button disabled onClick={addComment} className="bg-[#FAEBCD] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
+                                    <button disabled className="bg-[#FAEBCD] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-black border-[1px] border-black">
                                         Disabled
                                     </button> :
-                                    <button onClick={addComment} className="bg-[#FAEBCD] w-[200px] h-[30px] font-bold text-sm hover:bg-[#fef2da] rounded-full text-white border-[1px] border-black">
+                                    <button onClick={addComment} className="bg-[#FAEBCD] w-[200px] h-[30px] font-bold text-sm hover:bg-[#fef2da] rounded-full text-black border-[1px] border-black">
                                         Kirim
                                     </button>
                                 }
                             </div>
                         </div>
-                        <div className="flex flex-col h-[350px] overflow-auto text-black">
+                        <div className="flex flex-col max-h-[350px] overflow-auto text-black">
                             {commentItems.length > 0 && commentItems.map((item) => {
                                 return (
-                                    <CommentView key={item.id} name={item.name} isHadir={item.isHadir} comment={item.commentText} />
+                                    <CommentView key={item.id} name={item.name} isHadir={item.isHadir} comment={item.commentText} createdAt={item.createdAt} />
                                 )
                             })}
                         </div>

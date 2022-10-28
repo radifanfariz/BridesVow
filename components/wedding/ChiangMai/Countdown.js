@@ -1,13 +1,13 @@
-import { BiTimeFive } from "react-icons/bi"
 import { FaRegCalendarAlt } from "react-icons/fa"
 import { useTimer } from "react-timer-hook"
 import React, { useEffect, useState } from 'react';
-import Popup from 'reactjs-popup';
 import Image from "next/image";
-import BgPhoto from '../../../public/static/1/bg2.jpg'
-import Ring from '../../../public/static/1/ring.png'
-import { GrClose } from "react-icons/gr";
+import Ring from '../../../public/static/1/New/countdown-ring.png'
 import imageLoader from "../../../utils/imageLoader";
+import { atcb_action } from "add-to-calendar-button";
+import 'add-to-calendar-button/assets/css/atcb.css';
+import Popup from "reactjs-popup";
+import { GrClose } from "react-icons/gr";
 
 const Countdown = ({ contents }) => {
 
@@ -27,11 +27,28 @@ const Countdown = ({ contents }) => {
         setHours(timerObj.hours)
         setMinutes(timerObj.minutes)
         setSeconds(timerObj.seconds)
-    });
+    }, [timerObj.days, timerObj.hours, timerObj.minutes, timerObj.seconds]);
 
     const uniqueId = () => {
         return "id" + Math.random().toString(16).slice(2)
     }
+
+    // add to calender 
+
+    useEffect(() => {
+        const addToCalenderConfig = {
+            name: `Resepsi Pernikahan ${contents.cewekName} & ${contents.cowokName}`,
+            description: `Hari ini adalah hari pernikahan ${contents.cewekName} & ${contents.cowokName}. Kehadiran kamu sangat berarti 😊`,
+            startDate: contents.weddingDate.fullDateStandart,
+            options: ['Apple', 'Google'],
+            timeZone: "Asia/Jakarta",
+            location: contents.locationUrl,
+            iCalFileName: "Reminder-Event",
+            listStyle: "modal",
+        }
+        const addToCalenderButton = document.querySelector('#default-button')
+        addToCalenderButton.addEventListener('click', () => atcb_action(addToCalenderConfig, addToCalenderButton))
+    }, [contents])
 
     return (
         <main className={"relative"}>
@@ -68,7 +85,7 @@ const Countdown = ({ contents }) => {
                 </div>
                 <div className="flex flex-col justify-center z-10 font-[montserrat] mx-5 my-5">
                     <div className="flex justify-center">
-                        <button onClick={() => setOpen(o => !o)} className="flex justify-center items-center bg-white w-[210px] h-[30px] font-bold text-xs hover:bg-blue-200 rounded-xl text-black border-[1px]">
+                        <button id="default-button" className="flex justify-center items-center bg-white w-[210px] h-[30px] font-bold text-xs hover:bg-blue-200 rounded-xl text-black border-[1px]">
                             <span className="pr-1"><FaRegCalendarAlt /></span>
                             <span>save the date</span>
                         </button>

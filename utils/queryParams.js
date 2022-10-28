@@ -1,12 +1,12 @@
-export const getDataUndanganParams = (slug="") => {
-     return {
+export const getDataUndanganParams = (slug = "") => {
+  return {
 
     method: "post",
     headers: {
-        "Content-Type": "application/json"
+      "Content-Type": "application/json"
     },
     body: JSON.stringify({
-        query: `
+      query: `
      {
             dataUndangans (filters: {
               Slug:{
@@ -62,6 +62,7 @@ export const getDataUndanganParams = (slug="") => {
                     Waktu
                     Lokasi
                     URL_Lokasi
+                    Iframe_Lokasi
                   }
                   Galeri_Foto{
                     Foto{
@@ -91,6 +92,40 @@ export const getDataUndanganParams = (slug="") => {
                     Perjalanan_2
                     Perjalanan_3 
                   }
+                  Foto_Tambahan{
+                    Foto_Countdown{
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    Foto_Akad{
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    Foto_Resepsi{
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    Foto_Outro{
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -99,17 +134,17 @@ export const getDataUndanganParams = (slug="") => {
 
         `
     })
-}
+  }
 }
 
 
 export const dataUndanganParams = {
-   method: "post",
-   headers: {
-       "Content-Type": "application/json"
-   },
-   body: JSON.stringify({
-       query: `
+  method: "post",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    query: `
      {
            dataUndangans {
              data {
@@ -190,6 +225,32 @@ export const dataUndanganParams = {
                    Perjalanan_2
                    Perjalanan_3 
                  }
+                 Foto_Tambahan{
+                  Foto_Countdown{
+                    data {
+                      id
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  Foto_Akad{
+                    data {
+                      id
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                  Foto_Resepsi{
+                    data {
+                      id
+                      attributes {
+                        url
+                      }
+                    }
+                  }
+                }
                }
              }
            }
@@ -197,5 +258,5 @@ export const dataUndanganParams = {
          
 
        `
-   })
+  })
 }

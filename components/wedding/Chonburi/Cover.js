@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import BgBase from '../../../public/static/3/1cover.png'
+import BgBase from '../../../public/static/3/cover-bg.png'
 import { HiOutlineMailOpen } from 'react-icons/hi'
 
 const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
@@ -11,7 +11,7 @@ const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
         style: "bg-white opacity-50 w-[185px] h-[36px] hover:opacity-25 p-2 m-5 mt-4 rounded-full text-black border-[1px] border-black",
     })
 
-    const animateHeader = () => {
+    const handleClick = () => {
         setOpen("fixed w-full max-w-[400px] xl:max-w-[500px] z-50 animate-fly")
         setTimeout(() => {
             setOpen("hidden")
@@ -61,7 +61,7 @@ const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
                     </div>
                 </div>
                 <div className="flex justify-center z-10">
-                    <button disabled={isBtnDisabled} className={btnStyle.style} onClick={animateHeader}>
+                    <button disabled={isBtnDisabled} className={btnStyle.style} onClick={handleClick}>
                         <div className="flex justify-center">
                             <HiOutlineMailOpen />
                             <span className="pl-1 text-[12px] font-extrabold">

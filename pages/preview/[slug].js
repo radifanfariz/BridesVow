@@ -1,59 +1,60 @@
-import Header from '../../components/landing/Header'
+import Header from '../../components/Landing/Header'
 import { useRouter } from 'next/router'
-import { async } from '@firebase/util'
 import { getDataUndangan } from '../../utils';
+import { defaultContents, getDefaultContents, previewPages, previewSlug } from '../../utils/defaultContents';
+import { templateAllDefault } from '../../templates/TemplateAll';
 
 
-export async function getStaticProps() {
+export async function getStaticProps({params}) {
 
-    const data = await getDataUndangan()
+    try {
 
-    return {
-        props: data,
-        revalidate: 10,
-    };
+        const { slug } = params
+
+        const data = JSON.parse(JSON.stringify(getDefaultContents(slug)))
+    
+        return {
+            notFound: false,
+            props: {data,slug},
+            revalidate: 10,
+        };
+        
+    } catch (err) {
+        return {
+            notFound: true,
+            revalidate: 10,
+        };
+    }
 }
 
 export async function getStaticPaths() {
 
-    const data = await getDataUndangan()
-    const actualData = data.data.dataUndangans.data
-
-    const paths = actualData.map((item) => ({
-        params: {slug: item.attributes.Slug},
-    }))
-
-    return {
-        paths,
-        fallback: 'blocking',
-    };
-}
-
-
-const Preview = ({ link,data }) => {
-
-    console.log(data)
-
-    const router = useRouter()
-    link = router.query.slug
-
-    if (link === '1') {
-        return (
-            <Header></Header>
-        )
-    } else {
-        return (
-            <h1 className="bg-blue-400">{router.query.slug}</h1>
-
-        )
+    try {
+        const paths = Object.keys(templateAllDefault).map((item) => ({
+            params: {slug: item},
+        }))
+    
+        return {
+            paths,
+            fallback: 'blocking',
+        };
+        
+    } catch (err) {
+        return {
+            paths: [],
+            fallback: 'false',
+        };
     }
 }
 
+
+const Preview = ({ data, slug }) => {
+
+    const getTemplateDefault = templateAllDefault[slug]
+
+    return(
+        getTemplateDefault(data)
+    )
+}
+
 export default Preview
-
-
-// export default function Preview(){
-//     return (
-//         <h1>Test</h1>
-//     )
-// }
