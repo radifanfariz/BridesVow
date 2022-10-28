@@ -30,7 +30,7 @@ const GiftModal = ({ isOpen = false, closeModal, contents }) => {
                     Alamat Kirim
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                    <div className="flex flex-col my-5 w-[300px] h-[220px] rounded-3xl shadow-2xl">
+                    <div className="flex flex-col my-5  w-[300px] rounded-3xl shadow-2xl">
                         <div className="flex justify-center">
                             <div className="flex flex-col items-center text-black">
                                 <div className="text-[13px] font-bold p-5 pb-0">{contents.name}</div>
@@ -40,8 +40,8 @@ const GiftModal = ({ isOpen = false, closeModal, contents }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex justify-center">
-                            <button onClick={() => copyToClipboard(contents.address)} className="w-[150px] bg-[#2A5D87] text-white rounded-full p-1 hover:bg-blue-200">
+                        <div className="flex justify-center mb-5">
+                            <button onClick={() => copyToClipboard(contents.address)} className="w-[150px] bg-black text-white rounded-full p-1 hover:bg-blue-200">
                                 <div className="flex justify-center items-center">
                                     <RiFileCopyLine />
                                     <span className="text-[12px] ml-2">salin alamat</span>

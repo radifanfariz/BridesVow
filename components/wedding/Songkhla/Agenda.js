@@ -1,9 +1,9 @@
 import Image from "next/image"
-import BgBase from "../../../public/static/4/akad.png"
-import Bunga from "../../../public/static/4/bunga2.png"
+import BgBase from "../../../public/static/4/agenda-bg.png"
+import Bunga from "../../../public/static/4/agenda-bunga.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const ContentFour = () => {
+const Agenda = ({ contents }) => {
     return (
         <main className="relative">
             <div className="absolute">
@@ -16,15 +16,15 @@ const ContentFour = () => {
                         <div className="flex flex-col z-10">
                             <div className="flex flex-col items-center justify-center">
                                 <div className="z-20 flex justify-center font-[damion] font-bold text-black text-4xl">Akad Nikah</div>
-                                <div className="mt-10 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{"Senin,01 Agustus 2022"}</div>
-                                <div className="mt-5 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{"Jl.Brigjen Katamso No.20"}</div>
+                                <div className="mt-10 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{contents.akad.date.fullDate2}</div>
+                                <div className="mt-5 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{ contents.akad.address}</div>
                             </div>
                         </div>
                         <div className="flex flex-col z-10 mt-10">
                             <div className="flex flex-col items-center justify-center">
                                 <div className="z-20 flex justify-center font-[damion] font-bold text-black text-4xl">Resepsi</div>
-                                <div className="mt-10 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{"Senin,01 Agustus 2022"}</div>
-                                <div className="mt-5 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{"Jl.Brigjen Katamso No.20"}</div>
+                                <div className="mt-10 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{ contents.wedding.date.fullDate2}</div>
+                                <div className="mt-5 z-20 flex justify-center font-[abhayalibre] font-bold text-black text-xl">{contents.wedding.address}</div>
                             </div>
                         </div>
                     </div>
@@ -34,4 +34,4 @@ const ContentFour = () => {
     )
 }
 
-export default ContentFour
+export default Agenda

@@ -1,17 +1,17 @@
 import Image from "next/image"
-import BgTexture from "../../../public/static/2/harapan.png"
-import ContentImage from "../../../public/static/2/floralatas.png"
-import ContentImage2 from "../../../public/static/2/floralbawah.png"
-import Dompet from "../../../public/static/2/wallet.png"
-import Kado from "../../../public/static/2/gift.png"
-import Covid from "../../../public/static/2/covid.png"
+import BgTexture from "../../../public/static/2/giving-bg.png"
+import ContentImage from "../../../public/static/2/giving-floralatas.png"
+import ContentImage2 from "../../../public/static/2/giving-floralbawah.png"
+import Dompet from "../../../public/static/2/giving-wallet.png"
+import Kado from "../../../public/static/2/giving-gift.png"
+import Covid from "../../../public/static/2/giving-covid.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useState } from "react"
-import WalletModal from "../../SubComponents/WalletModal"
-import GiftModal from "../../SubComponents/GiftModal"
+import WalletModal from "../../Extra/WalletModal"
+import GiftModal from "../../Extra/GiftModal"
 
 
-const ContentSix = ({walletContents, giftContents}) => {
+const ContentSix = ({contents}) => {
     const [isOpenWallet, setIsOpenWallet] = useState(false)
     const [isOpenGift, setIsOpenGift] = useState(false)
     const closeWalletModal = () => setIsOpenWallet(false);
@@ -41,8 +41,8 @@ const ContentSix = ({walletContents, giftContents}) => {
                                 </div>
                             </div>
                         </div>
-                        <WalletModal isOpen={isOpenWallet} closeModal={closeWalletModal} contents={walletContents} />
-                        <GiftModal isOpen={isOpenGift} closeModal={closeGiftModal} contents={giftContents}/>
+                        <WalletModal isOpen={isOpenWallet} closeModal={closeWalletModal} contents={contents.walletContents} />
+                        <GiftModal isOpen={isOpenGift} closeModal={closeGiftModal} contents={contents.giftContents}/>
                         <Image priority='true' className="" width="100px" height="70px" src={ContentImage2.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
                     </div>
                     <div className="flex justify-center items-center my-10 ml-5">

@@ -26,6 +26,11 @@ export const getWeddingContents = (data) => {
         })
     })
 
+    let countdownSrc = (data.Foto_Tambahan) ? (((data.Foto_Tambahan.Foto_Countdown.data)) ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Foto_Tambahan.Foto_Countdown.data.attributes.url}` : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[0].attributes.url}`) : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[0].attributes.url}`
+    let akadSrc = (data.Foto_Tambahan) ? (((data.Foto_Tambahan.Foto_Akad.data)) ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Foto_Tambahan.Foto_Akad.data.attributes.url}` : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[3].attributes.url}`) : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[3].attributes.url}`
+    let weddingSrc = (data.Foto_Tambahan) ? (((data.Foto_Tambahan.Foto_Resepsi.data)) ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Foto_Tambahan.Foto_Resepsi.data.attributes.url}` : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[2].attributes.url}`) : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[2].attributes.url}`
+    let outroSrc = (data.Foto_Tambahan) ? (((data.Foto_Tambahan.Foto_Outro.data)) ? `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Foto_Tambahan.Foto_Outro.data.attributes.url}` : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[4].attributes.url}`) : `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[4].attributes.url}`
+
     const contents = {
         cover: {
             cewekName: data.Pengantin_Wanita.Nama_Panggilan,
@@ -39,7 +44,8 @@ export const getWeddingContents = (data) => {
             cewekName: data.Pengantin_Wanita.Nama_Panggilan,
             cowokName: data.Pengantin_Pria.Nama_Panggilan,
             weddingDate: formatDate(date.wedding),
-            src: `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[0].attributes.url}`,
+            locationUrl: data.Acara_Resepsi.URL_Lokasi,
+            src: countdownSrc,
         },
     
         intro : {
@@ -75,17 +81,20 @@ export const getWeddingContents = (data) => {
             akad: {
                 date: formatDate(date.akad),
                 address: data.Acara_Akad.Lokasi,
-                src: `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[3].attributes.url}`
+                src: akadSrc
             },
             wedding: {
                 date: formatDate(date.wedding),
                 address: data.Acara_Resepsi.Lokasi,
-                src: `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[2].attributes.url}`
+                src: weddingSrc
             }
         },
     
         album : {
-            locationUrl: data.Acara_Resepsi.URL_Lokasi,
+            maps:{
+                locationUrl: data.Acara_Resepsi.URL_Lokasi,
+                iframe: data.Acara_Resepsi.Iframe_Lokasi,
+            },
             gallery: gallery,
         },
 
@@ -102,11 +111,15 @@ export const getWeddingContents = (data) => {
     
             }
         },
+
+        rsvp:{
+            dbName: data.Slug,
+        },
     
         outro : {
             cewekName: data.Pengantin_Wanita.Nama_Panggilan,
             cowokName: data.Pengantin_Pria.Nama_Panggilan,
-            src: `${process.env.NEXT_PUBLIC_IMAGE_URL}${data.Galeri_Foto.Foto.data[1].attributes.url}`
+            src: outroSrc
         }
     }
 

@@ -1,23 +1,23 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import BgBase from '../../../public/static/4/cover.png'
+import BgBase from '../../../public/static/4/cover-bg.png'
 import { HiOutlineMailOpen } from 'react-icons/hi'
 
-const Cover = ({ isPlayerReady,playMusicCallback,weddingDate }) => {
+const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
     const [open, setOpen] = useState("fixed w-full max-w-[400px] xl:max-w-[500px] z-50 animate-fall")
     const [isBtnDisabled, setBtnDisabled] = useState(true)
     const [btnStyle, setBtnStyle] = useState({
-        title:"Loading...",
-        style:"bg-white opacity-50 w-[185px] h-[36px] hover:opacity-25 p-2 m-5 mt-4 rounded-full text-black border-[1px] border-black",
+        title: "Loading...",
+        style: "bg-white opacity-50 w-[185px] h-[36px] hover:opacity-25 p-2 m-5 mt-4 rounded-full text-black border-[1px] border-black",
     })
-    
+
     const animateHeader = () => {
         setOpen("fixed w-full max-w-[400px] xl:max-w-[500px] z-50 animate-fly")
         setTimeout(() => {
             setOpen("hidden")
         }, 800)
         scrollToTop()
-        if(isPlayerReady){
+        if (isPlayerReady) {
             playMusicCallback(true)
         }
     }
@@ -30,14 +30,14 @@ const Cover = ({ isPlayerReady,playMusicCallback,weddingDate }) => {
     }
 
     useEffect(() => {
-        if(isPlayerReady){
+        if (isPlayerReady) {
             setBtnStyle({
-                title:"Buka Undangan",
-                style:"bg-[#FAEBCD] w-[185px] h-[36px] hover:opacity-25 p-2 m-5 mt-4 rounded-full text-black border-[1px] border-black",
+                title: "Buka Undangan",
+                style: "bg-[#FAEBCD] w-[185px] h-[36px] hover:opacity-25 p-2 m-5 mt-4 rounded-full text-black border-[1px] border-black",
             })
             setBtnDisabled(false)
         }
-    },[isPlayerReady])
+    }, [isPlayerReady])
 
     ////query string/////
     // const router = useRouter()
@@ -54,18 +54,18 @@ const Cover = ({ isPlayerReady,playMusicCallback,weddingDate }) => {
                 </div>
                 <div className="flex z-10 justify-center items-center pt-5 px-24">
                     <div className="text-7xl text-black text-center font-[richard] container">
-                        <span className="flex justify-start w-[50%]">{"Pulan"}</span>
+                        <span className="flex justify-start w-[50%]">{contents.cewekName}</span>
                         <span className="block">&</span>
-                        <span className="flex justify-end">{"Pulin"}</span>
+                        <span className="flex justify-end">{contents.cowokName}</span>
                     </div>
                 </div>
                 <div className="flex z-10 justify-center items-center text-black py-7 tracking-[7px]">
                     <div className="font-bold text-2xl">
-                        <span>{weddingDate.day}</span>
+                        <span>{contents.weddingDate.day}</span>
                         <span>.</span>
-                        <span>{weddingDate.month}</span>
+                        <span>{contents.weddingDate.month}</span>
                         <span>.</span>
-                        <span>{weddingDate.year}</span>
+                        <span>{contents.weddingDate.year}</span>
                     </div>
                 </div>
                 <div className="flex justify-center z-10">

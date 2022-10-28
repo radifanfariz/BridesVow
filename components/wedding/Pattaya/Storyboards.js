@@ -1,9 +1,9 @@
 import { AiFillHeart } from "react-icons/ai"
 import Image from "next/image"
-import BgBase from "../../../public/static/2/perjalanan.png"
+import BgBase from "../../../public/static/2/storyboards-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const ContentThree = () => {
+const Storyboards = ({ contents }) => {
     return (
         <main className="relative">
             <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
@@ -23,16 +23,7 @@ const ContentThree = () => {
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px]"></span>
                                     <div className="flex text-xs w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.  Donec ex purus, rhoncus
-                                        quis nisl non, pellentesque semper augue.
-                                        Ut tempor justo in est scelerisque congue.
-                                        In elit lacus, aliquam at nibh et, eleifend
-                                        aliquet leo. Phasellus non pulvinar est.
-                                        Phasellus pharetra erat gravida nisl ornare,
-                                        eget consectetur lorem sagittis. Phasellus
-                                        scelerisque justo sollicitudin sapien auctor
-                                        sollicitudin. Vivamus porttitorcommodo.
+                                        {contents.perjalanan1}
                                     </div>
                                 </div>
                             </div>
@@ -47,16 +38,7 @@ const ContentThree = () => {
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px]"></span>
                                     <div className="flex text-xs w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.  Donec ex purus, rhoncus
-                                        quis nisl non, pellentesque semper augue.
-                                        Ut tempor justo in est scelerisque congue.
-                                        In elit lacus, aliquam at nibh et, eleifend
-                                        aliquet leo. Phasellus non pulvinar est.
-                                        Phasellus pharetra erat gravida nisl ornare,
-                                        eget consectetur lorem sagittis. Phasellus
-                                        scelerisque justo sollicitudin sapien auctor
-                                        sollicitudin. Vivamus porttitorcommodo.
+                                        {contents.perjalanan2}
                                     </div>
                                 </div>
                             </div>
@@ -71,16 +53,7 @@ const ContentThree = () => {
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px]"></span>
                                     <div className="flex text-xs w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
-                                        Lorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit.  Donec ex purus, rhoncus
-                                        quis nisl non, pellentesque semper augue.
-                                        Ut tempor justo in est scelerisque congue.
-                                        In elit lacus, aliquam at nibh et, eleifend
-                                        aliquet leo. Phasellus non pulvinar est.
-                                        Phasellus pharetra erat gravida nisl ornare,
-                                        eget consectetur lorem sagittis. Phasellus
-                                        scelerisque justo sollicitudin sapien auctor
-                                        sollicitudin. Vivamus porttitorcommodo.
+                                        {contents.perjalanan3}
                                     </div>
                                 </div>
                             </div>
@@ -92,4 +65,4 @@ const ContentThree = () => {
     )
 }
 
-export default ContentThree
+export default Storyboards

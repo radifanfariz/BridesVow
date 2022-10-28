@@ -1,5 +1,7 @@
 import { getWeddingContents } from "../utils/contents";
-import { getDefaultContents } from "../utils/defaultContents";
+import Chonburi from "./gold/Chonburi";
+import Pattaya from "./gold/Pattaya";
+import Songkhla from "./gold/Songkhla";
 import ChiangMai from "./platinum/chiangmai";
 
 export const templateAll = {
@@ -7,7 +9,13 @@ export const templateAll = {
         return <ChiangMai contents={getWeddingContents(data)} />
     },
     'p02': (data) => {
-        return <ChiangMai contents={getDefaultContents("chiangmai")} />
+        return <Pattaya contents={getWeddingContents(data)} />
+    },
+    'p03': (data) => {
+        return <Chonburi contents={getWeddingContents(data)} />
+    },
+    'p04': (data) => {
+        return <Songkhla contents={getWeddingContents(data)} />
     },
 }
 
@@ -16,12 +24,12 @@ export const templateAllDefault = {
         return <ChiangMai contents={data} />
     },
     "pattaya": (data) => {
-        return <ChiangMai contents={data} />
+        return <Pattaya contents={data} />
     },
     "chonburi": (data) => {
-        return <ChiangMai contents={data} />
+        return <Chonburi contents={data} />
     },
     "songkhla": (data) => {
-        return <ChiangMai contents={data} />
+        return <Songkhla contents={data} />
     },
 }

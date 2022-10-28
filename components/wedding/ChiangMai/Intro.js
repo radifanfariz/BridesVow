@@ -1,8 +1,6 @@
 import Image from 'next/image'
-import Bunga from '../../../public/static/1/bunga2.png'
-import Man from '../../../public/static/1/cowok.jpg'
-import Woman from '../../../public/static/1/cewek.jpg'
-import BgBase from '../../../public/static/1/New/pengantin.png'
+import Bunga from '../../../public/static/1/new/intro-bunga.png'
+import BgBase from '../../../public/static/1/New/intro-bg.png'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from '../../../utils/imageLoader'
 

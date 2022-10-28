@@ -4,7 +4,7 @@ import { EffectCoverflow, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from 'next/image'
-import BgBase from "../../../public/static/1/New/gelombang.png"
+import BgBase from "../../../public/static/1/New/album-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import MapsLocation from "../../Extra/MapsLocation";
 import imageLoader from "../../../utils/imageLoader";
@@ -18,14 +18,12 @@ const Album = ({ contents }) => {
                 <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
-                <div className="mt-10">
-                    <MapsLocation contents={
-                        { locationUrl: contents.locationUrl }
-                    }></MapsLocation>
+                <div className="mt-20">
+                    <MapsLocation contents={contents.maps} btnColor='bg-[#2a5d87]'></MapsLocation>
                 </div>
                 <div className="flex flex-col justify-around h-[600px] relative">
-                    <div className="flex justify-center text-xl font-[adelia] mt-48 mb-10 text-black">Galeri Foto</div>
-                    <div className="flex justify-center w-full mb-72">
+                    <div className="flex justify-center text-xl font-[adelia] mt-10 text-black">Galeri Foto</div>
+                    <div className="flex justify-center w-full mb-20">
                         <Swiper
                             centeredSlides={true}
                             centeredSlidesBounds={true}

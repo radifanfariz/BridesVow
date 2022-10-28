@@ -49,7 +49,7 @@ export async function getStaticPaths() {
 
 
 const Preview = ({ data, slug }) => {
-    
+
     const getTemplateDefault = templateAllDefault[slug]
 
     return(

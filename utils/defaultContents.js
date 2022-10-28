@@ -34,7 +34,8 @@ const defaultContents = {
             cewekName: "Pulin",
             cowokName: "Pulan",
             weddingDate: formatDate(date.wedding),
-            src: "/static/1/bg2.jpg",
+            locationUrl: "https://www.google.com/maps/place/Jl.+Gatot+Subroto,+Kota+Medan,+Sumatera+Utara/@3.5925103,98.6677857,17z/data=!3m1!4b1!4m5!3m4!1s0x303131dae67c572b:0x586f53a879fcfcfb!8m2!3d3.5925103!4d98.669969",
+            src: "/static/other/countdown-bg.jpg",
         },
 
         intro: {
@@ -43,14 +44,14 @@ const defaultContents = {
                 fullName: "Pulin Sianipar S.Kom",
                 ayahName: "Ayah Sianipar",
                 ibuName: "Ibu Sihombing",
-                src: "/static/1/cewek.jpg"
+                src: "/static/other/intro-cewek.jpg"
             },
             cowok: {
                 name: "Pulan",
                 fullName: "Pulan Sianipar S.Kom",
                 ayahName: "Ayah Sianipar",
                 ibuName: "Ibu Sihombing",
-                src: "/static/1/cowok.jpg"
+                src: "/static/other/intro-cowok.jpg"
             }
         },
 
@@ -70,18 +71,21 @@ const defaultContents = {
             akad: {
                 date: formatDate(date.akad),
                 address: "Rumah Garox Jl. Samlekom Mamank, Kec. Ayb Guys, Chernobyl",
-                src: "/static/1/content2.jpg"
+                src: "/static/other/akad.jpg"
             },
             wedding: {
                 date: formatDate(date.wedding),
                 address: "Jl. Yang Lurus no.99 (Depan Bakso Oppa)",
-                src: "/static/1/content.jpg"
+                src: "/static/other/resepsi.jpg"
             }
         },
 
         album: {
-            locationUrl: "https://www.google.com/maps/place/Jl.+Gatot+Subroto,+Kota+Medan,+Sumatera+Utara/@3.5925103,98.6677857,17z/data=!3m1!4b1!4m5!3m4!1s0x303131dae67c572b:0x586f53a879fcfcfb!8m2!3d3.5925103!4d98.669969",
-            gallery: ["/static/1/gallery/1.jpg", "/static/1/gallery/1.jpg", "/static/1/gallery/1.jpg"]
+            maps:{
+                locationUrl: "https://www.google.com/maps/place/Jl.+Gatot+Subroto,+Kota+Medan,+Sumatera+Utara/@3.5925103,98.6677857,17z/data=!3m1!4b1!4m5!3m4!1s0x303131dae67c572b:0x586f53a879fcfcfb!8m2!3d3.5925103!4d98.669969",
+                iframe:`<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.9682176692877!2d98.77635795085357!3d1.7449209987214414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xa85c0a750f90f7c1!2zMcKwNDQnNDEuNyJOIDk4wrA0Nic0Mi44IkU!5e0!3m2!1sid!2sid!4v1666607762200!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+            },
+            gallery: ["/static/gallery/1.jpg", "/static/gallery/1.jpg", "/static/gallery/1.jpg"]
         },
 
         comment: {
@@ -92,6 +96,12 @@ const defaultContents = {
             walletContents: [
                 { name: "Putri Tanjung", number: "08635536262", src: "/static/wallet/bca.png" },
                 { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/mandiri.png" },
+                { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/bni.png" },
+                { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/shopeepay.png" },
+                { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/dana.png" },
+                { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/ovo.png" },
+                { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/gopay.png" },
+                { name: "Garox Tanjung", number: "08764664774", src: "/static/wallet/bri.png" },
             ],
             giftContents: {
                 name: "Garox Tanjung",
@@ -106,10 +116,14 @@ const defaultContents = {
             }
         },
 
+        rsvp: {
+            dbName:"user1",
+        },
+
         outro: {
             cewekName: "Pulin",
             cowokName: "Pulan",
-            src: "/static/1/avatar.jpg"
+            src: "/static/other/outro.jpg"
         }
     },
 }

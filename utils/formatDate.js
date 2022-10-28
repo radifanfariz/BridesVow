@@ -6,8 +6,9 @@ export const formatDate = (date) => {
         month : ("0" + (date.getMonth()+1)).slice(-2),
         monthName: monthNames[date.getMonth()],
         year: date.getFullYear(),
-        fullDate: `${("0" + date.getDate()).slice(-2)} ${("0" + date.getMonth()).slice(-2)} ${date.getFullYear()}`,
+        fullDate: `${("0" + date.getDate()).slice(-2)} ${("0" + date.getMonth()+1).slice(-2)} ${date.getFullYear()}`,
         fullDate2: `${("0" + date.getDate()).slice(-2)} ${ monthNames[date.getMonth()]} ${date.getFullYear()}`,
+        fullDateStandart: `${date.getFullYear()}-${(date.getMonth()+1)}-${(date.getDate())}`,
         date:Date.parse(date),
     }
 

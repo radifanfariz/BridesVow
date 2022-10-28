@@ -1,5 +1,5 @@
 import Image from "next/image"
-import BgBase from "../../../public/static/1/New/bgbiru.png"
+import BgBase from "../../../public/static/1/New/agenda-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from "../../../utils/imageLoader"
 

@@ -1,63 +1,31 @@
 import Image from 'next/image'
-import BgTexture from '../../../public/static/3/3mempelai.png'
+import BgTexture from '../../../public/static/3/verse-bg.png'
+import Ring from "../../../public/static/3/verse-black_ring.svg"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const ContentTwo = () => {
-
+const Verse = ({contents}) => {
     return (
-        <header className="relative">
-            <div className="absolute h-full min-h-screen w-full flex flex-col justify-between">
-                <Image layout='fill' priority='true' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
-            </div>
-            <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
-                <div className="flex flex-col h-full min-h-screen justify-center py-16">
-                    <div className="flex z-10 justify-center items-center">
-                        <div className="relative">
-                            <div className="absolute top-10 right-[-165px] w-[330px] text-[#FFFDE3] text-[20px] text-center font-[damion] tracking-[2px]">
-                                {
-                                    `“ Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang.”
-                            (QS. Ar-Rum 21)`
-                                }
+        <main className="">
+            <div className="bg-[#7e0e0e] py-8 px-4">
+                <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
+                    <div className="flex flex-col justify-between relative items-center px-2 py-2 rounded-full">
+                        <Image priority='true' className='flex rounded-full absolute' layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                        <div className="flex z-10">
+                            <div className="flex justify-center w-[25px] mb-2">
+                                <Image src={Ring.src} alt={"ring"} width={100} height={100} />
                             </div>
                         </div>
-                    </div>
-                    <div className="flex flex-col mt-[350px] z-10 justify-center items-center">
-                        <div className="text-[30px] text-center text-[#FFFDE3] font-serif tracking-[2px]">
-                            {
-                                `Iyan Grimshaw`
-                            }
+                        <div className="flex z-10">
+                            <div className="flex text-xs text-center px-6 text-black font-[montserrat]">{contents.ayatContent}</div>
                         </div>
-                        <div className="text-[16px] w-[200px] mt-5 text-center text-[#FFFDE3] font-[belghrano] tracking-[2px]">
-                            {
-                                `Putri dari
-                            Bapak Karl Grimshaw 
-                            & Ibu Loco Grimshaw`
-                            }
+                        <div className="flex z-10">
+                            <div className="flex text-sm mt-2 mb-2 text-black font-bold">{`( QS. ${contents.ayatName} )`}</div>
                         </div>
                     </div>
-                    <div className="flex flex-col mt-5 z-10 justify-center items-center">
-                        <div className="text-[30px] text-center text-[#FFFDE3] font-[richard] tracking-[2px]">
-                            {
-                                `&`
-                            }
-                        </div>
-                        <div className="text-[30px] text-center text-[#FFFDE3] font-serif tracking-[2px]">
-                            {
-                                `Reggaro Kun`
-                            }
-                        </div>
-                        <div className="text-[16px] w-[200px] mt-5 text-center text-[#FFFDE3] font-[belgrano] tracking-[2px]">
-                            {
-                                `Putra dari
-                            Bapak Kun Twol 
-                            & Ibu Kun Trisha`
-                            }
-                        </div>
-                    </div>
-                </div>
-            </AnimationOnScroll>
-        </header>
+                </AnimationOnScroll>
+            </div>
+        </main>
     )
 }
 
-export default ContentTwo
+export default Verse

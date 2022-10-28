@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Ring from "../../../public/static/ring.svg"
-import BgTexture from "../../../public/static/1/bgtexture.png"
+import Ring from "../../../public/static/1/New/verse-ring.svg"
+import BgTexture from "../../../public/static/1/New/verse-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Verse = ({contents}) => {

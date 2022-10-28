@@ -5,25 +5,29 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Link from 'next/link';
 import Image from 'next/image'
-import BgBase from "../../../public/static/3/7harapan.png"
+import BgBase from "../../../public/static/3/album-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import MapsLocation from "../../Extra/MapsLocation";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import imageLoader from "../../../utils/imageLoader";
 
 
-const ContentFive = ({contents}) => {
+const Album = ({ contents }) => {
     return (
         <main className="relative">
             <div className="absolute h-full w-full min-h-screen">
                 <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
-            <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
-                <MapsLocation contents={
-                        { locationUrl: contents.locationUrl }
-                    }></MapsLocation>
+            <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
+                <div className="mt-20">
+                    <MapsLocation contents={contents.maps} btnColor='bg-black'></MapsLocation>
+                </div>
                 <div className="flex flex-col justify-around h-[600px] relative">
-                    <div className="flex justify-center text-[#FFFDE3] text-xl font-[adelia] mt-48 mb-10">Galeri Foto</div>
-                    <div className="flex justify-center w-full mb-44">
+                    <div className="flex justify-center text-xl font-[adelia] mt-10 text-[#FFFDE3]">Galeri Foto</div>
+                    <div className="flex justify-center w-full mb-20">
                         <Swiper
+                            centeredSlides={true}
+                            centeredSlidesBounds={true}
                             effect={"coverflow"}
                             grabCursor={true} navigation={true} modules={[EffectCoverflow, Pagination, Navigation]}
                             spaceBetween={-80} slidesPerView={"auto"} coverflowEffect={{
@@ -34,30 +38,30 @@ const ContentFive = ({contents}) => {
                                 slideShadows: false,
                             }}
                             pagination={true} className="mySwiper">
-                            <SwiperSlide>
-                                <div className='w-72 h-[350px] relative ml-11'>
-                                    <Image className='rounded-3xl' layout='fill' src="/static/1/gallery/1.jpg" alt='template' objectFit="cover" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='w-72 h-[350px] relative ml-11'>
-                                    <Image className='rounded-3xl' layout='fill' src="/static/1/gallery/1.jpg" alt='template' objectFit="cover" />
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className='w-72 h-[350px] relative ml-11'>
-                                    <Image className='rounded-3xl' layout='fill' src="/static/1/gallery/1.jpg" alt='template' objectFit="cover" />
-                                </div>
-                            </SwiperSlide>
+                            {contents.gallery.length > 0 && contents.gallery.map((item, index) => {
+                                return (
+                                    <SwiperSlide key={index}>
+                                        <div className="flex justify-center">
+                                            <div className='w-72 h-[350px] relative'>
+                                                <PhotoProvider>
+                                                    <PhotoView src={item}>
+                                                        <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
+                                                    </PhotoView>
+                                                </PhotoProvider>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            })}
                         </Swiper>
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </main >
     )
 }
 
-export default ContentFive
+export default Album
 
 
 {/* <SwiperSlide>

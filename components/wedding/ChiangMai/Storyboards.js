@@ -1,6 +1,6 @@
 import { AiFillHeart } from "react-icons/ai"
 import Image from "next/image"
-import BgBase from "../../../public/static/1/New/love.png"
+import BgBase from "../../../public/static/1/New/storyboard-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Storyboards = ({ contents }) => {
@@ -47,7 +47,7 @@ const Storyboards = ({ contents }) => {
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px] bg-gray-500"></span>
                                     <div className="flex text-xs text-black w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
-                                        {contents.perjalanan1}
+                                        {contents.perjalanan3}
                                     </div>
                                 </div>
                             </div>

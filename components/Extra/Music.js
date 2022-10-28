@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic'
-import { useState } from 'react'
 import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/ai'
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 

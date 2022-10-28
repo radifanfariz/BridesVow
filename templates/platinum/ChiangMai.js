@@ -12,6 +12,7 @@ import Agenda from '../../components/Wedding/ChiangMai/Agenda'
 import Album from '../../components/Wedding/ChiangMai/Album'
 import Giving from '../../components/Wedding/ChiangMai/Giving'
 import Outro from '../../components/Wedding/ChiangMai/Outro'
+import RSVP from '../../components/Wedding/ChiangMai/RSVP'
 
 const CoverAndMusic = ({contents}) => {
 
@@ -37,8 +38,9 @@ const MainContent = ({contents}) => {
                 <Storyboards contents={contents.storyboards}/>
                 <Agenda contents={contents.agenda}/>
                 <Album contents={contents.album}/>
-                <Comment contents={contents.comment}/>
+                <RSVP contents={contents.rsvp}/>
                 <Giving contents={contents.giving}/>
+                <Comment contents={contents.comment}/>
                 <Outro contents={contents.outro}/>
         </>
     )

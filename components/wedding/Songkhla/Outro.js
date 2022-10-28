@@ -1,11 +1,11 @@
 import Image from "next/image"
-import BgBase from "../../../public/static/4/penutup.png"
-import Ava from "../../../public/static/1/avatar.jpg"
-import Bunga from "../../../public/static/4/bunga.png"
-import ContentImage from "../../../public/static/4/divider.svg"
+import BgBase from "../../../public/static/4/outro-bg.png"
+import Bunga from "../../../public/static/4/outro-bunga.png"
+import ContentImage from "../../../public/static/4/outro-divider.svg"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
+import imageLoader from "../../../utils/imageLoader"
 
-const ContentSeven = () => {
+const Outro = ({ contents }) => {
     return (
         <main className="relative">
             {/* <div className="absolute h-full w-full min-h-screen flex flex-col justify-start">
@@ -17,10 +17,10 @@ const ContentSeven = () => {
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col justify-start h-[50%]">
                     <div className="flex justify-center p-24 px-0">
-                        <Image layout="fixed" priority='true' className="rounded-[4rem] object-fit max-w-full h-auto" src={Ava.src} alt='avatar' width={300} height={250} objectFit="cover" objectPosition="top" />
+                        <Image layout="fixed" priority='true' className="rounded-[4rem] object-fit max-w-full h-auto" loader={imageLoader} src={contents.src} alt='avatar' width={300} height={250} objectFit="cover" objectPosition="top" />
                     </div>
-                    <div className="absolute">
-                        <div className="relative xl:left-[125px] left-[3%] top-[250px] transform-gpu">
+                    <div className="relative">
+                        <div className="flex justify-center w-full absolute bottom-[0px] transform-gpu">
                             <Image layout="fixed" priority='true' className="" src={Bunga.src} alt='bunga' width={350} height={200} />
                         </div>
                     </div>
@@ -31,7 +31,7 @@ const ContentSeven = () => {
                         <Image priority='true' className="" src={ContentImage.src} alt='bunga' width={800} height={30} />
                     </div>
                     <div className="flex justify-center mb-20">
-                        <div className="font-bold text-black font-[antonio] text-xl">Pulan & Pulin</div>
+                        <div className="font-bold text-black font-[antonio] text-xl">{contents.cewekName} & {contents.cowokName}</div>
                     </div>
                 </div>
             </AnimationOnScroll>
@@ -39,4 +39,4 @@ const ContentSeven = () => {
     )
 }
 
-export default ContentSeven
+export default Outro

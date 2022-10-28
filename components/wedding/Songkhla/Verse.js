@@ -1,9 +1,9 @@
 import Image from "next/image"
-import Ring from "../../../public/static/ring.svg"
-import BgTexture from "../../../public/static/4/ayat.png"
+import Ring from "../../../public/static/4/verse-ring.svg"
+import BgTexture from "../../../public/static/4/verse-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
-const ContentTwo = () => {
+const Verse = ({ contents }) => {
     return (
         <main className="relative">
             <Image priority='true' className="" layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
@@ -16,16 +16,12 @@ const ContentTwo = () => {
                             </div>
                         </div>
                         <div className="flex z-10">
-                            <div className="flex text-sm text-center px-6 text-black font-[damion]">“Dan di antara tanda-tanda (kebesaran)-Nya
-                                ialah Dia menciptakan pasangan-pasangan untukmu
-                                dari jenismu sendiri, agar kamu cenderung dan merasa
-                                tenteram kepadanya, dan Dia menjadikan di antaramu
-                                rasa kasih dan sayang. Sungguh, pada yang demikian
-                                itu benar-benar terdapat tanda-tanda
-                                (kebesaran Allah) bagi kaum yang berpikir.”</div>
+                            <div className="flex text-sm text-center px-6 text-black font-[damion]">
+                                {contents.ayatContent}
+                            </div>
                         </div>
                         <div className="flex z-10">
-                            <div className="flex text-sm mt-2 mb-2 text-black font-bold font-[damion]">{"( QS. Ar-Rum Ayat 21 )"}</div>
+                            <div className="flex text-sm mt-2 mb-2 text-black font-bold font-[damion]">{`( QS. ${contents.ayatName} )`}</div>
                         </div>
                     </div>
                 </div>
@@ -34,4 +30,4 @@ const ContentTwo = () => {
     )
 }
 
-export default ContentTwo
+export default Verse

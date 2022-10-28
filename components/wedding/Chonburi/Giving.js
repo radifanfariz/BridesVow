@@ -1,14 +1,14 @@
 import Image from "next/image"
-import BgTexture from "../../../public/static/3/7harapan.png"
-import ContentImage from "../../../public/static/3/floralatas.png"
-import ContentImage2 from "../../../public/static/3/floralbawah.png"
-import Dompet from "../../../public/static/3/wallet.png"
-import Kado from "../../../public/static/3/gift.png"
-import Covid from "../../../public/static/3/covid.png"
+import BgTexture from "../../../public/static/3/giving-bg.png"
+import ContentImage from "../../../public/static/3/giving-floralatas.png"
+import ContentImage2 from "../../../public/static/3/giving-floralbawah.png"
+import Dompet from "../../../public/static/3/giving-wallet.png"
+import Kado from "../../../public/static/3/giving-gift.png"
+import Covid from "../../../public/static/3/giving-covid.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import { useState } from "react"
-import WalletModal from "../../SubComponents/WalletModal"
-import GiftModal from "../../SubComponents/GiftModal"
+import WalletModal from "../../Extra/WalletModal"
+import GiftModal from "../../Extra/GiftModal"
 
 
 const ContentSix = ({contents}) => {

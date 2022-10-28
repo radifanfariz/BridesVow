@@ -1,8 +1,7 @@
 import Image from "next/image"
-import BgBase from "../../../public/static/1/New/bgbiru.png"
-import Ava from "../../../public/static/1/avatar.jpg"
-import Bunga from "../../../public/static/1/bunga5.png"
-import Divider from "../../../public/static/1/garislove.png"
+import BgBase from "../../../public/static/1/New/outro-bg.png"
+import Bunga from "../../../public/static/1/New/outro-bunga.png"
+import Divider from "../../../public/static/1/New/outro-divider.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from "../../../utils/imageLoader"
 
