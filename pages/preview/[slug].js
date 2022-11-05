@@ -1,7 +1,4 @@
-import Header from '../../components/Landing/Header'
-import { useRouter } from 'next/router'
-import { getDataUndangan } from '../../utils';
-import { defaultContents, getDefaultContents, previewPages, previewSlug } from '../../utils/defaultContents';
+import { getDefaultContents } from '../../utils/defaultContents';
 import { templateAllDefault } from '../../templates/TemplateAll';
 
 

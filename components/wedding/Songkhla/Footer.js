@@ -1,11 +1,11 @@
 const Footer = () => {
     return (
-        <main className="bg-[#071B34]">
+        <footer className="bg-[#071B34]">
             <div className="flex justify-center items-center py-3">
                 <div className="text-white text-[6pt] font-[montserrat] px-2">designed by</div>
                 <div className="text-white text-xs font-[lobster]">BridesVow</div>
             </div>
-        </main>
+        </footer>
     )
 }
 

@@ -50,7 +50,7 @@ const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
             </div>
             <div className="flex flex-col h-full min-h-screen justify-center">
                 <div className="flex z-10 justify-center items-center relative">
-                    <div className="text-[20px] text-black font-bold font-[montserrat-extrabold] tracking-[2px] absolute mb-52">Undangan Pernikahan</div>
+                    <div className="text-[20px] text-black font-bold font-[montserrat-extrabold] tracking-[2px] absolute mb-32">Undangan Pernikahan</div>
                 </div>
                 <div className="flex z-10 justify-center items-center pt-5 px-24">
                     <div className="text-7xl text-black text-center font-[richard] container">

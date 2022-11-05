@@ -4,7 +4,7 @@ import imageLoader from "../../../utils/imageLoader"
 
 const Outro = ({ contents }) => {
     return (
-        <main className="relative">
+        <section className="relative">
             {/* <div className="absolute h-full w-full min-h-screen flex flex-col justify-start">
                 <Image priority='true' className="" src={BgBawah.src} width={500} height={200} alt='BgTexture' />
             </div> */}
@@ -25,7 +25,7 @@ const Outro = ({ contents }) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </section>
     )
 }
 

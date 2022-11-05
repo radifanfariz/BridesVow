@@ -18,7 +18,7 @@ const Giving = ({contents}) => {
     const closeGiftModal = () => setIsOpenGift(false);
 
     return (
-        <main className="relative">
+        <section className="relative">
             <div className="absolute min-h-screen h-full w-full flex flex-col justify-center">
                 <Image priority='true' width={500} height={1500} src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
@@ -50,7 +50,7 @@ const Giving = ({contents}) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </section>
     )
 }
 

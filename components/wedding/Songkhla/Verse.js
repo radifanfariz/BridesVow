@@ -5,7 +5,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Verse = ({ contents }) => {
     return (
-        <main className="relative">
+        <section className="relative">
             <Image priority='true' className="" layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="relative py-6 px-4">
@@ -26,7 +26,7 @@ const Verse = ({ contents }) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </section>
     )
 }
 

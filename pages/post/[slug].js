@@ -1,4 +1,5 @@
-import { getDataUndangan } from '../../utils';
+
+import { getDataUndangan } from '../../adapters';
 import { templateAll } from '../../templates/TemplateAll';
 
 

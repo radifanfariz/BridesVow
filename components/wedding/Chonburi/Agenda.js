@@ -4,7 +4,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Agenda = ({contents}) => {
     return (
-        <header className="relative">
+        <section className="relative">
             <div className="absolute h-full min-h-screen w-full flex flex-col justify-between">
                 <Image layout='fill' priority='true' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
@@ -48,7 +48,7 @@ const Agenda = ({contents}) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </header>
+        </section>
     )
 }
 

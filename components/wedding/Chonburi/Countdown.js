@@ -48,7 +48,7 @@ const Countdown = ({ contents }) => {
     }, [contents])
 
     return (
-        <main className={"relative"}>
+        <section className={"relative"}>
             <Image layout='fill' priority='true' loader={imageLoader} src={contents.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col justify-center pt-56 h-full min-h-screen">
                 <div className="flex justify-center z-10">
@@ -99,7 +99,7 @@ const Countdown = ({ contents }) => {
                     </div>
                 </div>
             </div>
-        </main >
+        </section >
     )
 }
 

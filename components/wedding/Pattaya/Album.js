@@ -13,7 +13,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const Album = ({ contents }) => {
     return (
-        <main className="relative">
+        <section className="relative">
             <div className="absolute h-full w-full min-h-screen">
                 <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
@@ -52,7 +52,7 @@ const Album = ({ contents }) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </section>
     )
 }
 

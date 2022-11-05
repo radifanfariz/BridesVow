@@ -5,7 +5,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Verse = ({contents}) => {
     return (
-        <main className="">
+        <section className="">
             <div className="bg-[#7e0e0e] py-8 px-4">
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                     <div className="flex flex-col justify-between relative items-center px-2 py-2 rounded-full">
@@ -24,7 +24,7 @@ const Verse = ({contents}) => {
                     </div>
                 </AnimationOnScroll>
             </div>
-        </main>
+        </section>
     )
 }
 

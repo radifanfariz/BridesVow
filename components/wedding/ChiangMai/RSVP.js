@@ -48,7 +48,7 @@ const RSVP = ({ contents }) => {
 
     return (
         <>
-            <main className="relative">
+            <section className="relative">
                 <div className="absolute h-full w-full min-h-screen">
                     <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                 </div>
@@ -87,7 +87,7 @@ const RSVP = ({ contents }) => {
                         <div className="pb-10"></div>
                     </div>
                 </AnimationOnScroll>
-            </main>
+            </section>
         </>
     )
 }

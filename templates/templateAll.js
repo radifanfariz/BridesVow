@@ -1,4 +1,5 @@
-import { getWeddingContents } from "../utils/contents";
+
+import { getWeddingContents } from "../adapters/contents";
 import Chonburi from "./gold/Chonburi";
 import Pattaya from "./gold/Pattaya";
 import Songkhla from "./gold/Songkhla";

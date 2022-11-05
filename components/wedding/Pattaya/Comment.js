@@ -49,7 +49,7 @@ const CommentView = ({ name, isHadir, comment, createdAt }) => {
 //     return "id" + Math.random().toString(16).slice(2)
 // }
 
-const Comment = ({contents}) => {
+const Comment = ({ contents }) => {
 
     const dbInstance = collection(database, `comment_${contents.dbName}`)
 
@@ -95,8 +95,10 @@ const Comment = ({contents}) => {
     }
 
     return (
-        <main className="relative">
-            <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+        <section className="relative">
+            <div className="absolute h-full w-full min-h-screen">
+                <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <div className="flex flex-col items-center mt-2">
                     <div className="flex justify-center mt-8 z-10">
@@ -135,7 +137,7 @@ const Comment = ({contents}) => {
                     <div className="pb-10"></div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </section>
     )
 }
 

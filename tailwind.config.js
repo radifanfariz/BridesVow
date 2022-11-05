@@ -99,6 +99,7 @@ module.exports = {
   },
   plugins: [
     require("daisyui"),
+    require('@tailwindcss/forms'),
   ],
 
     // daisyUI config (optional)

@@ -21,7 +21,7 @@ const Intro = ({ contents }) => {
 
 
     return (
-        <main className="relative">
+        <section className="relative">
             <Image layout='fill' priority='true' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col h-full min-h-screen justify-start">
                 <div>
@@ -98,7 +98,7 @@ const Intro = ({ contents }) => {
                     </AnimationOnScroll>
                 </div>
             </div>
-        </main>
+        </section>
     )
 }
 

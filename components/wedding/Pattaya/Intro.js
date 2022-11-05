@@ -20,7 +20,7 @@ const Intro = ({contents}) => {
 
 
     return (
-        <main className="relative">
+        <section className="relative">
             <Image layout='fill' priority='true' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col h-full min-h-screen justify-start">
                 <div>
@@ -41,7 +41,7 @@ const Intro = ({contents}) => {
                                 <div className="flex flex-col font-[antonio] text-[#FFFDE3]">
                                     <div className="flex justify-center font-extrabold text-[22px]">{contents.cewek.fullName}</div>
                                     <div className="flex justify-center text-center">
-                                        <div className="flex justify-center w-[70%]">putri dari {contents.cewek.ayahName} dan {contents.cewek.ibuName}</div>
+                                        <div className="flex justify-center w-[70%]">putri dari Bapak {contents.cewek.ayahName} dan Ibu {contents.cewek.ibuName}</div>
                                     </div>
                                 </div>
                                 <div className="flex justify-center">
@@ -60,7 +60,7 @@ const Intro = ({contents}) => {
                                 <div className="flex flex-col text-[#FFFDE3] font-[antonio]">
                                     <div className="flex justify-center font-extrabold text-[22px]">{contents.cowok.fullName}</div>
                                     <div className="flex justify-center text-center">
-                                        <div className="flex justify-center w-[70%]">putri dari {contents.cowok.ayahName} dan {contents.cowok.ibuName}</div>
+                                        <div className="flex justify-center w-[70%]">putri dari Bapak {contents.cowok.ayahName} dan Ibu {contents.cowok.ibuName}</div>
                                     </div>
                                 </div>
                             </div>
@@ -68,7 +68,7 @@ const Intro = ({contents}) => {
                     </AnimationOnScroll>
                 </div>
             </div>
-        </main>
+        </section>
     )
 }
 

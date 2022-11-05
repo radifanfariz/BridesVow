@@ -5,7 +5,7 @@ import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Storyboards = ({ contents }) => {
     return (
-        <main className="relative">
+        <section className="relative">
             <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <div className="flex flex-col h-full min-h-screen relative">
@@ -61,7 +61,7 @@ const Storyboards = ({ contents }) => {
                     </div>
                 </div>
             </AnimationOnScroll>
-        </main>
+        </section>
     )
 }
 
