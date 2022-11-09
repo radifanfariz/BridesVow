@@ -25,7 +25,7 @@ const Music = ({ playerReadyCallback, musicUrl, isMusicPlaying, playMusicCallbac
                 <div className="relative flex items-end text-[2.50rem] rounded-full text-gray-400">
                     <label className="swap">
 
-                        <input type="checkbox" onChange={handlePlayMusic} />
+                        <input type="checkbox" className="hidden" onChange={handlePlayMusic} />
 
                         <div className="swap-on">
                             <AiFillPlayCircle />

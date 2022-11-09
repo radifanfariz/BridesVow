@@ -12,7 +12,7 @@ const FeatureContainer = ({ no = "1", title = "Title", content = "Content" }) =>
             <div className="relative left-2 top-5 xl:w-[50px] xl:h-[50px] w-[40px] h-[40px] bg-[#003153] rounded-full">
                 <span className="flex justify-center items-center h-full font-[poppins] text-lg xl:text-2xl font-bold text-white">{no}</span>
             </div>
-            <div className="flex justify-start w-[45vw] h-[30vh] max-w-[100%] max-h-[300px] xl:max-w-[500px] xl:max-h-max xl:w-[500px] xl:h-[300px] p-6 rounded-3xl bg-[#E2F4FF]">
+            <div className="flex justify-start w-[45vw] max-w-[100%] xl:max-w-[500px] xl:max-h-max xl:w-[500px] xl:h-[300px] p-6 rounded-3xl bg-[#E2F4FF]">
                 <div className="flex flex-col justify-start">
                     <span className="font-[poppins] capitalize font-bold xl:text-[35px] text-md text-[#003153] xl:mt-5">{title}</span>
                     <span className="font-[poppins] xl:text-[25px] text-[0.82rem] text-black xl:my-5">{content}</span>
@@ -38,7 +38,7 @@ const LongFeatureContainer = ({ title = "Title", content = "Content" }) => {
                         </div>
                     </div>
                     <div className="relative xl:w-full w-full">
-                        <div className="absolute bottom-[-15%] right-[-30%] xl:bottom-[-11%] xl:right-[-60%] xl:w-[500px] w-[50vw] max-w-[300px] xl:max-w-[400px]">
+                        <div className="absolute bottom-[-12%] right-[-30%] xl:bottom-[-11%] xl:right-[-60%] xl:w-[500px] w-[50vw] max-w-[300px] xl:max-w-[400px]">
                             <Image src={People.src} alt='people' width={500} height={500} objectFit={'contain'} />
                         </div>
                     </div>
@@ -153,7 +153,7 @@ const ContentTwo = () => {
                     <span className="font-[poppins] font-bold xl:text-[58px] text-[1.3rem] text-black xl:my-20 my-5">Fitur yang kamu dapat</span>
                 </div>
                 <div className="flex justify-center">
-                    <div className="grid grid-cols-2 grid-rows-6 xl:grid-cols-3 xl:grid-rows-4 xl:gap-8 gap-3">
+                    <div className="grid grid-cols-2 grid-rows-6 xl:grid-cols-3 xl:grid-rows-4 xl:gap-8 gap-3 max-h-[175vh] md:max-h-[100vh] xl:max-h-[150vh]">
                         {featureContents.length > 0 && featureContents.map((item, index) => {
                             index++
                             return (
@@ -168,7 +168,7 @@ untuk berpaling dari BridesVow. Ayo pesan sekarang!" />
                         </div>
                     </div>
                 </div>
-                <div className="w-full">
+                <div className="w-full mt-8 md:mt-36 xl:mt-0">
                     <div id="cara" className="flex justify-center">
                         <span className="relative xl:top-[150px] top-[8vh] font-[poppins] font-bold xl:text-[58px] text-[1.3rem] text-black xl:mb-20">Bagaimana Cara Memesan?</span>
                     </div>
