@@ -1,11 +1,11 @@
 import Image from "next/image"
 import imageLoader from "../../utils/imageLoader"
 
-const SingleUpload = ({width="w-80 lg:w-[35rem]"}) => {
+const SingleUpload = ({width="w-80 lg:w-[35rem]" ,required=true}) => {
     return (
         <>
             <div className="flex flex-col justify-center items-center">
-                <input type="file" className="border-black border-2 hidden" required multiple />
+                <input type="file" className="border-black border-2 hidden" required={required} multiple />
                 <div className={`border-dashed border-2 border-black rounded-xl bg-white ${width}`}>
                     <div className="flex justify-center pt-10">
                         <Image className='' src={"/static/other/upload.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />

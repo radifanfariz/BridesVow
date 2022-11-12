@@ -32,17 +32,17 @@ const OrderView = () => {
                                 <span className="font-bold">Metode Pembayaran</span>
                             </div>
                             <div className="flex items-center">
-                                <input type="radio" name="radio-1" className="radio" checked={true} />
+                                <input type="radio" name="radio-1" className="radio" defaultChecked={true} />
                                 <span className="label-text px-2 text-black">Bank Transfer - BNI</span>
                                 <Image className='' src={"/static/wallet/bni.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
                             </div>
                             <div className="flex items-center">
-                                <input type="radio" name="radio-1" className="radio" checked={true} />
+                                <input type="radio" name="radio-1" className="radio" />
                                 <span className="label-text px-2 text-black">Dana</span>
                                 <Image className='' src={"/static/wallet/dana.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
                             </div>
                             <div className="flex items-center">
-                                <input type="radio" name="radio-1" className="radio" checked={true} />
+                                <input type="radio" name="radio-1" className="radio" />
                                 <span className="label-text px-2 text-black">OVO</span>
                                 <Image className='' src={"/static/wallet/ovo.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
                             </div>

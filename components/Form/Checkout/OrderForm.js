@@ -10,6 +10,8 @@ import { MdAlternateEmail } from "react-icons/md"
 
 const OrderForm = () => {
 
+    const isInit = typeof window !== 'undefined' ? true : false
+
     const contents = {
         gallery: ["/static/landing/mokap1.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png", "/static/landing/mokap1.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png", "/static/landing/mokap1.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png"]
     }
@@ -38,8 +40,8 @@ const OrderForm = () => {
                             <label className="label">
                                 <span className="label-text font-bold text-black">Pilihan Paket{<span className="text-red-600">*</span>}</span>
                             </label>
-                            <select className="select select-bordered w-full max-w-md bg-white text-black" required>
-                                <option disabled selected>Pick one</option>
+                            <select defaultValue={"default"} className="select select-bordered w-full max-w-md bg-white text-black" required>
+                                <option value={"default"} disabled>Pick one</option>
                                 <option value={"gold"}>Gold (Rp.129.000) 🟡</option>
                                 <option value={"platinum"}>Platinum (Rp.299.000) ⚪</option>
                                 <option value={"diamond"}>Diamond (Rp.399.000) ⚫</option>
@@ -58,10 +60,10 @@ const OrderForm = () => {
                                         <SwiperSlide key={index}>
                                             <div className="flex flex-col pr-5">
                                                 <div className="label">
-                                                    <Image priority='true' layout='intrinsic' width={120} height={250} loader={imageLoader} src={item} alt='BgTexture' objectFit='contain' objectPosition='' />
+                                                    <Image priority='true' layout='intrinsic' width={120} height={250} loader={imageLoader} src={item} alt='Template' objectFit='contain' />
                                                 </div>
                                                 <div className="flex items-center">
-                                                    <input type="radio" value={"chiangmai"} name="radio-1" className="radio" checked={true} />
+                                                    <input type="radio" value={"chiangmai"} name="radio-1" className="radio" />
                                                     <span className="label-text pl-2 text-black">Chiang-Mai</span>
                                                 </div>
                                             </div>
