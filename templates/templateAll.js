@@ -1,5 +1,6 @@
 
 import { getWeddingContents } from "../adapters/contents";
+import Manila from "./diamond/Manila";
 import Chonburi from "./gold/Chonburi";
 import Pattaya from "./gold/Pattaya";
 import Songkhla from "./gold/Songkhla";
@@ -18,6 +19,9 @@ export const templateAll = {
     'p04': (data) => {
         return <Songkhla contents={getWeddingContents(data)} />
     },
+    'p05': (data) => {
+        return <Manila contents={getWeddingContents(data)} />
+    },
 }
 
 export const templateAllDefault = {
@@ -32,5 +36,8 @@ export const templateAllDefault = {
     },
     "songkhla": (data) => {
         return <Songkhla contents={data} />
+    },
+    "manila": (data) => {
+        return <Manila contents={data} />
     },
 }

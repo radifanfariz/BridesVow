@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/1/New/comment-bg.png'
+import BgBase from '../../../public/static/5/comment-bg.png'
 import { AiFillCheckCircle } from "react-icons/ai"
 import { BiTimeFive } from "react-icons/bi"
 import { database } from '../../../firebaseConsole'
@@ -18,14 +18,14 @@ const CommentView = ({ name, isHadir, comment, createdAt }) => {
     return (
         <div className="bg-white">
             <div className="flex border-t-[1px] border-black w-full px-5 py-4">
-                <div className="w-[20px] h-[20px] rounded-full bg-[#2a5d87]"></div>
+                <div className="w-[20px] h-[20px] rounded-full bg-[#35584B]"></div>
                 <div className="flex flex-col px-2">
                     <div className="flex flex-col">
                         <div className="flex text-xs">
-                            <span className="font-extrabold text-[#2a5d87]">
+                            <span className="font-extrabold text-[#35584B]">
                                 {name}
                             </span>
-                            <div className="flex justify-center items-center w-[80px] ml-2 pr-2 text-white bg-[#2a5d87] rounded-full">
+                            <div className="flex justify-center items-center w-[80px] ml-2 pr-2 text-white bg-[#35584B] rounded-full">
                                 <span className='pr-1 pl-1'><AiFillCheckCircle /></span>
                                 <span className="text-[7px] font-extrabold">
                                     {isHadir === true ? "Hadir" : "Tidak Hadir"}
@@ -96,14 +96,14 @@ const Comment = ({ contents }) => {
 
     return (
         <>
-            <section className="relative">
+            <section className="relative min-h-screen">
                 <div className="absolute h-full w-full min-h-screen">
-                    <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='top' />
+                    <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                     <div className="flex flex-col items-center mt-10">
                         <div className="flex justify-center mt-8 z-10">
-                            <div className="text-lg font-[adelia] font-extrabold text-black">Harapan dan Doa Restu</div>
+                            <div className="bg-[#35584B] rounded-full px-5 font-bold z-10 text-white text-2xl font-[poppins]">Harapan dan Doa Restu</div>
                         </div>
                         <div className="flex text-sm justify-center font-[montserrat] font-bold w-[270px] pt-5 text-center z-10">
                             <div className="text-black">Dengan rendah hati, kami memohon Doa Restu yang sangat berarti bagi kami</div>
@@ -111,17 +111,17 @@ const Comment = ({ contents }) => {
                         <div className="flex flex-col justify-center z-10 font-[montserrat] mx-5 my-5">
                             <div className="flex flex-col w-full p-5 pb-8 z-50">
                                 <div className="flex">
-                                    <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl" type="text" name="nama" id="nama" placeholder="Nama" value={name} />
+                                    <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl text-black" type="text" name="nama" id="nama" placeholder="Nama" value={name} />
                                 </div>
                                 <div className="pt-5">
-                                    <textarea onChange={(e) => setCommentText(e.target.value)} className="w-full p-1 px-5 rounded-xl" name="comment" id="comment" cols="30" rows="5" placeholder="Berikan Harapan dan Doa" value={commentText}></textarea>
+                                    <textarea onChange={(e) => setCommentText(e.target.value)} className="w-full p-1 px-5 rounded-xl text-black" name="comment" id="comment" cols="30" rows="5" placeholder="Berikan Harapan dan Doa" value={commentText}></textarea>
                                 </div>
                                 <div className="flex justify-center pt-5">
                                     {(name === '' || commentText === '') ?
-                                        <button disabled className="bg-[#2a5d87] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
+                                        <button disabled className="bg-[#35584B] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
                                             Disabled
                                         </button> :
-                                        <button onClick={addComment} className="bg-[#2a5d87] w-[200px] h-[30px] font-bold text-sm hover:bg-blue-200 rounded-full text-white border-[1px] border-black">
+                                        <button onClick={addComment} className="bg-[#35584B] w-[200px] h-[30px] font-bold text-sm hover:bg-white rounded-full text-white border-[1px] border-black">
                                             Kirim
                                         </button>
                                     }

@@ -1,4 +1,4 @@
-import { getDefaultContents } from '../../utils/defaultContents';
+import { getDefaultContents } from '../../adapters/defaultContents';
 import { templateAllDefault } from '../../templates/TemplateAll';
 
 

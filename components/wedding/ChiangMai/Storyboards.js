@@ -20,7 +20,7 @@ const Storyboards = ({ contents }) => {
                                 </div>
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px] bg-gray-500"></span>
-                                    <div className="flex text-xs text-black w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
+                                    <div className="flex text-xs text-black w-[300px] min-h-[200px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
                                         {contents.perjalanan1}
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@ const Storyboards = ({ contents }) => {
                                 </div>
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px] bg-gray-500"></span>
-                                    <div className="flex text-xs text-black w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
+                                    <div className="flex text-xs text-black w-[300px] min-h-[200px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
                                         {contents.perjalanan2}
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@ const Storyboards = ({ contents }) => {
                                 </div>
                                 <div className="flex justify-center relative">
                                     <span className="flex w-[3px] h-[250px] bg-gray-500"></span>
-                                    <div className="flex text-xs text-black w-[300px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
+                                    <div className="flex text-xs text-black w-[300px] min-h-[200px] font-['montserrat'] p-5 absolute left-[22px] bg-white rounded-r-3xl shadow-xl">
                                         {contents.perjalanan3}
                                     </div>
                                 </div>

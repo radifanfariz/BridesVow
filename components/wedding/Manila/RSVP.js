@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/1/New/rsvp-bg.png'
+import BgBase from '../../../public/static/5/rsvp-bg.png'
 import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
@@ -49,19 +49,19 @@ const RSVP = ({ contents }) => {
     return (
         <>
             <section className="relative">
-                <div className="absolute h-full w-full min-h-screen">
+                <div className="absolute h-full w-full min-h-screen ">
                     <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='top' />
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
-                    <div className={`flex flex-col items-center mt-10 ${disabledClass} mt-14`}>
-                        <div className="flex justify-center mt-8 z-10 rounded-xl">
-                            <div className="text-lg font-[adelia] font-extrabold text-black">RSVP</div>
+                    <div className={`flex flex-col items-center mt-10 ${disabledClass} `}>
+                        <div className="flex justify-center mt-8 z-10">
+                            <div className="bg-black rounded-full px-32 font-bold z-10 text-white text-2xl font-[poppins]">RSVP</div>
                         </div>
                         <div className="flex text-sm justify-center font-[montserrat] font-bold w-[270px] pt-5 text-center z-10">
                             <div className="text-black">Kedatangan Bapak/Ibu/Saudara/i sangat berarti bagi kami, mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i.
                                 Terima kasih.</div>
                         </div>
-                        <div className="flex flex-col justify-center z-10 font-[montserrat] mx-5 my-5">
+                        <div className="flex flex-col justify-center z-10 font-[poppins] mx-5 my-5">
                             <div className="flex flex-col w-full p-5 pb-8 z-50">
                                 <div className="flex">
                                     <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl" type="text" name="nama" id="nama" placeholder="Nama" value={name} />

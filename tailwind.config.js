@@ -47,6 +47,7 @@ module.exports = {
       paradise: 'Paradise',
       playfair: 'Playfair',
       playfairBlack: 'Playfair-black',
+      playfairDisplay: 'Playfair Display',
       adela: 'Adela',
       adelia: 'Adelia',
       lobster: 'Lobster',
@@ -55,8 +56,13 @@ module.exports = {
       richard: 'Richard',
       damion: 'Damion',
       belgrano: 'Belgrano',
-      poppins: [
+      // poppins: [
+      //   'Poppins',
+      //   'Poppins-Extrabold',
+      // ],
+      Poppins: [
         'Poppins',
+        'sans-serif',
         'Poppins-Extrabold'
       ],
       abhayalibre: [

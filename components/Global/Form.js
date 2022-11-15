@@ -55,19 +55,19 @@ const SelectOptions = ({ label, options, defaultValue, required }) => {
 }
 const UploadPhoto = ({ label, required }) => {
     return (
-        <div>
+        <div className="w-full">
             <label className="label">
-                <span className="label-text font-bold text-black">{label}</span>
+                <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <SingleUpload width="w-72 md:w-[35rem]" required={required} />
+            <SingleUpload width="w-72 min-w-68 md:w-[35rem]" required={required} />
         </div>
     )
 }
 const UploadMultiPhoto = ({ label, required }) => {
     return (
-        <div>
+        <div className="w-full">
             <label className="label">
-                <span className="label-text font-bold text-black">{label}</span>
+                <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
             {/* must be multiupload component */}
             <SingleUpload width="w-72 md:w-[35rem]" required={required} />

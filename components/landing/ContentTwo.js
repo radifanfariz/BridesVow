@@ -29,7 +29,7 @@ const LongFeatureContainer = ({ title = "Title", content = "Content" }) => {
                     <div className="flex flex-col justify-start max-w-[600px] xl:max-w-[100%]">
                         <span className="max-w-[300px] xl:max-w-[100%] font-[poppins] capitalize font-bold xl:text-[40px] xl:mt-10 text-xl text-[#003153]">{title}</span>
                         <span className="max-w-[300px] xl:max-w-[70%] [word-wrap:break-word] xl:w-[950px] w-[60vw] font-[poppins] xl:text-[30px] xl:leading-10 text-sm xl:my-5 text-black mt-1 z-20">{content}</span>
-                        <div className="mt-1">
+                        <div className="mt-1 relative bottom-3">
                             <Link href="/order">
                                 <a>
                                     <button className="max-w-[300px] xl:max-w-[100%] btn xl:btn-lg btn-xs xl:w-[340px] w-[35vw] xl:h-[24px] h-[5vh] xl:text-[24px] text-sm capitalize bg-[#003153] hover:bg-slate-400 text-white font-bold rounded-full">{"Pesan sekarang"}</button>

@@ -32,7 +32,7 @@ const OrderForm = () => {
             <section className="flex justify-center px-2 font-[poppins]">
                 <form action="" className="mt-6 mb-0 xl:mb-6 space-y-4 rounded-lg p-8 xl:shadow-2xl w-full max-w-3xl bg-white">
                     <div className="flex justify-center">
-                        <span className="font-[Poppins-Extrabold] font-bold text-xl bg-[#ebf7ff] px-5 py-2 rounded-full text-black border-2 border-black">Checkout</span>
+                        <span className="font-[Poppins-Extrabold] font-bold text-xl bg-[#ebf7ff] px-5 py-2 rounded-full text-black border-2 border-black">Order</span>
                     </div>
                     <span className="divider"></span>
                     <div className="form-control w-full">

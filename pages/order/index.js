@@ -1,5 +1,5 @@
-import OrderForm from "../../components/Form/Checkout/OrderForm"
-import OrderView from "../../components/Form/Checkout/OrderView"
+import OrderForm from "../../components/Form/Order/OrderForm"
+import OrderView from "../../components/Form/Order/OrderView"
 import Container from "../../components/Global/Container"
 import HelpButton from "../../components/Global/HelpButton"
 
