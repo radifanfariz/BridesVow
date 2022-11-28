@@ -1,48 +1,54 @@
 import MapIframeGen from "./MapIframeGen"
 import SingleUpload from "./SingleUpload"
+import { useFormContext } from 'react-hook-form';
+import MultiUpload from "./MultipleUpload";
 
-const InputText = ({ label, placeholder, required }) => {
+const InputText = ({ name, label, placeholder, required, register, errors }) => {
+
     return (
 
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <input type="text" placeholder={placeholder} className="input input-bordered flex w-full max-w-xs bg-white text-black" required={required} />
+            <input name={name} {...register(name,{required: required})} type="text" placeholder={placeholder} className="input input-bordered flex w-full max-w-xs bg-white text-black" />
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
 
     )
 }
-const InputTextArea = ({ label, placeholder, required }) => {
+const InputTextArea = ({ name,label, placeholder, required, register, errors }) => {
     return (
 
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <textarea className="textarea textarea-bordered w-full max-w-xs h-32 bg-white text-black" placeholder={placeholder} required={required}></textarea>
+            <textarea name={name} {...register(name,{required: required})} className="textarea textarea-bordered w-full max-w-xs h-32 bg-white text-black" placeholder={placeholder}></textarea>
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
 
     )
 }
-const InputDate = ({ label, placeholder, required }) => {
+const InputDate = ({ name, label, placeholder, required, register, errors }) => {
     return (
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <input type="text" placeholder={placeholder} className="input input-bordered w-full max-w-xs bg-white text-black" required={required} />
+            <input {...register(name,{required: required})} type="text" placeholder={placeholder} className="input input-bordered w-full max-w-xs bg-white text-black" />
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
     )
 }
-const SelectOptions = ({ label, options, defaultValue, required }) => {
+const SelectOptions = ({ name, label, options, defaultValue, required, register, errors }) => {
     return (
 
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <select defaultValue={defaultValue.value} className="select select-bordered w-full max-w-xs bg-white text-black" required={required}>
+            <select name={name} {...register(name,{required: required})} defaultValue={defaultValue.value} className="select select-bordered w-full max-w-xs bg-white text-black">
                 <option value={defaultValue.value} disabled>{defaultValue.label}</option>
                 {options.length > 0 && options?.map(item => {
                     return (
@@ -50,43 +56,54 @@ const SelectOptions = ({ label, options, defaultValue, required }) => {
                     )
                 })}
             </select>
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
     )
 }
-const UploadPhoto = ({ label, required }) => {
+const UploadPhoto = ({ name, label, required, register, errors, options }) => {
+    const {ref, ...rest} = register(name)
+
     return (
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <SingleUpload width="w-72 min-w-68 md:w-[35rem]" required={required} />
+            <SingleUpload options={options} ref={ref} rest={rest} width="w-72 min-w-68 md:w-[35rem]" required={required} />
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
     )
 }
-const UploadMultiPhoto = ({ label, required }) => {
+const UploadMultiPhoto = ({ name, label, required, register, errors, options }) => {
+    const {ref, ...rest} = register(name,{required: required})
+
     return (
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
             {/* must be multiupload component */}
-            <SingleUpload width="w-72 md:w-[35rem]" required={required} />
+            <MultiUpload options={options} ref={ref} rest={rest} width="w-72 md:w-[35rem]" required={required} />
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
     )
 }
-const InputMap = ({ label, required }) => {
+const InputMap = ({ name, label, required, register, errors }) => {
     return (
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
             <MapIframeGen />
+            {errors.name?.type === 'required' && <p role="alert">{label + " is required"}</p>}
         </div>
     )
 }
 
 
-const Form = ({formStructure}) => {
+const Form = ({ formStructure }) => {
+    
+    const { register, formState: { errors }, ...rest } = useFormContext()
+
     return (
         <>
             {
@@ -105,31 +122,31 @@ const Form = ({formStructure}) => {
                                                     switch (item.formType) {
                                                         case "text":
                                                             return (
-                                                                <InputText label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                <InputText register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
                                                             )
                                                         case "textArea":
                                                             return (
-                                                                <InputTextArea label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                <InputTextArea register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
                                                             )
                                                         case "date":
                                                             return (
-                                                                <InputDate label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                <InputDate register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
                                                             )
                                                         case "select":
                                                             return (
-                                                                <SelectOptions label={item.label} options={item.options} defaultValue={item.defaultValue} required={item.required} key={item.key} />
+                                                                <SelectOptions register={register} errors={errors} name={item.name} label={item.label} options={item.options} defaultValue={item.defaultValue} required={item.required} key={item.key} />
                                                             )
                                                         case "photo":
                                                             return (
-                                                                <UploadPhoto label={item.label} required={item.required} key={item.key} />
+                                                                <UploadPhoto options={rest} register={register} errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
                                                             )
                                                         case "multiPhoto":
                                                             return (
-                                                                <UploadMultiPhoto label={item.label} required={item.required} key={item.key} />
+                                                                <UploadMultiPhoto options={rest} register={register} errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
                                                             )
                                                         case "map":
                                                             return (
-                                                                <InputMap label={item.label} required={item.required} key={item.key} />
+                                                                <InputMap register={register} errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
                                                             )
                                                         default:
                                                             return (

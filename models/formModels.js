@@ -10,6 +10,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaPanggilanCewek",
                             formType: "text",
                             label: "Nama Panggilan",
                             placeholder: "Nama Panggilan",
@@ -17,6 +18,7 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
+                            name:"namaLengkapCewek",
                             formType: "text",
                             label: "Nama Lengkap",
                             placeholder: "Nama Lengkap",
@@ -30,6 +32,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaAyahCewek",
                             formType: "text",
                             label: "Nama Ayah",
                             placeholder: "Nama Ayah",
@@ -37,6 +40,7 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
+                            name:"namaIbuCewek",
                             formType: "text",
                             label: "Nama Ibu",
                             placeholder: "Nama Ibu",
@@ -50,9 +54,10 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"fotoSendiriCewek",
                             formType: "photo",
                             label: "Foto Sendiri",
-                            required: true
+                            required: false
                         },
                     ]
                 },
@@ -69,6 +74,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaPanggilanCowok",
                             formType: "text",
                             label: "Nama Panggilan",
                             placeholder: "Nama Panggilan",
@@ -76,6 +82,7 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
+                            name:"namaLengkapCowok",
                             formType: "text",
                             label: "Nama Lengkap",
                             placeholder: "Nama Lengkap",
@@ -89,6 +96,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaAyahCowok",
                             formType: "text",
                             label: "Nama Ayah",
                             placeholder: "Nama Ayah",
@@ -96,6 +104,7 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
+                            name:"namaIbuCowok",
                             formType: "text",
                             label: "Nama Ibu",
                             placeholder: "Nama Ibu",
@@ -109,9 +118,10 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"fotoSendiriCowok",
                             formType: "photo",
                             label: "Foto Sendiri",
-                            required: true
+                            required: false
                         },
                     ]
                 },
@@ -128,6 +138,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"waktuAkad",
                             formType: "date",
                             label: "Waktu",
                             placeholder: "Waktu",
@@ -135,7 +146,8 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
-                            formType: "text",
+                            name:"lokasiAkad",
+                            formType: "textArea",
                             label: "Lokasi",
                             placeholder: "Lokasi",
                             required: true
@@ -155,6 +167,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"waktuResepsi",
                             formType: "date",
                             label: "Waktu",
                             placeholder: "Waktu",
@@ -162,7 +175,8 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
-                            formType: "text",
+                            name:"lokasiResepsi",
+                            formType: "textArea",
                             label: "Lokasi",
                             placeholder: "Lokasi",
                             required: true
@@ -175,17 +189,19 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
-                            formType: "text",
+                            name:"urlLokasi",
+                            formType: "textArea",
                             label: "Url Lokasi",
                             placeholder: "Url Lokasi",
-                            required: true
+                            required: false
                         },
                         {
                             key: "input_2",
+                            name:"mapLokasi",
                             formType: "map",
                             label: "Map",
                             placeholder: "Map",
-                            required:true
+                            required:false
                         },
                     ]
                 },
@@ -202,10 +218,11 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"fotoGaleri",
                             formType: "multiPhoto",
                             label: "Foto",
                             placeholder: "Foto",
-                            required: true
+                            required: false
                         },
                     ]
                 },
@@ -222,6 +239,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaPenerimaAmplop",
                             formType: "text",
                             label: "Nama Penerima",
                             placeholder: "Nama Penerima",
@@ -229,6 +247,7 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
+                            name:"noRekeningAmplop",
                             formType: "text",
                             label: "No Rekening",
                             placeholder: "No Rekening",
@@ -242,8 +261,9 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"platformPenerimaAmplop",
                             formType: "select",
-                            label: "Nama Penerima",
+                            label: "Platform Penerima",
                             defaultValue: {
                                 label:"Pick One",
                                 value:"default"
@@ -275,6 +295,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaPenerimaHadiah",
                             formType: "text",
                             label: "Nama Penerima",
                             placeholder: "Nama Penerima",
@@ -282,6 +303,7 @@ export const dataPengantinForms = [
                         },
                         {
                             key: "input_2",
+                            name:"noHpHadiah",
                             formType: "text",
                             label: "No HP",
                             placeholder: "No HP",
@@ -295,6 +317,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"alamatHadiah",
                             formType: "textArea",
                             label: "Alamat Penerima",
                             placeholder: "Alamat Penerima",
@@ -315,10 +338,11 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"urlMusic",
                             formType: "text",
-                            label: "Url Music",
+                            label: "Url Music (Soundcloud)",
                             placeholder: "Url Music",
-                            required: true
+                            required: false
                         },
                     ]
                 },
@@ -328,13 +352,15 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"namaAyatSuci",
                             formType: "text",
                             label: "Nama Ayat Suci",
                             placeholder: "Nama Ayat Suci",
                             required: true
                         },
                         {
-                            key: "input_1",
+                            key: "input_2",
+                            name:"isiAyatSuci",
                             formType: "textArea",
                             label: "Isi Ayat Suci",
                             placeholder: "Isi Ayat Suci",
@@ -348,13 +374,15 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"perjalanan1",
                             formType: "textArea",
                             label: "Perjalanan Cinta 1",
                             placeholder: "Perjalanan Cinta 1",
                             required: true
                         },
                         {
-                            key: "input_1",
+                            key: "input_2",
+                            name:"perjalanan2",
                             formType: "textArea",
                             label: "Perjalanan Cinta 2",
                             placeholder: "Perjalanan Cinta 2",
@@ -368,6 +396,7 @@ export const dataPengantinForms = [
                     children: [
                         {
                             key: "input_1",
+                            name:"perjalanan3",
                             formType: "textArea",
                             label: "Perjalanan Cinta 3",
                             placeholder: "Perjalanan Cinta 3",
