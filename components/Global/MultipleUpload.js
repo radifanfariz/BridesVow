@@ -66,7 +66,7 @@ const MultiUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
                 <input name={name} type="file" className="border-black border-2 hidden" {...getInputProps()} />
                 <div id="test" className={`border-dashed border-2 border-black rounded-xl bg-white ${width}`} >
                     {
-                        (files?.length > 0) ?
+                        (files.length > 0) ?
                             <>
                                 <span className="pl-2">{`Total: ${files.length}`}</span>
                                 <div className="flex">
@@ -75,7 +75,7 @@ const MultiUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
                                         centeredSlidesBounds={true}
                                         mousewheel={true}
                                         grabCursor={false} navigation={false} modules={[Pagination, Navigation, Mousewheel]}
-                                        spaceBetween={5 } slidesPerView={isPhone ? (files.length > 1 ? 2 : 1) : 4}
+                                        spaceBetween={5} slidesPerView={isPhone ? (files.length > 1 ? 2 : 1) : (files.length < 3) ? files.length : 3}
                                         pagination={true} className="mySwiper">
                                         {files.map((item) => {
                                             // console.log("test: "+item)
