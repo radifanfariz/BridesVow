@@ -3,12 +3,20 @@ import { dataPengantinForms } from "../../../models/formModels"
 import Form from "../../Global/Form"
 import { yupResolver } from '@hookform/resolvers/yup';
 import { bridesFormSchema } from "../../../models/formValidationSchema";
+import { useEffect } from "react";
 
 const BridesForm = () => {
     const formOptions = { resolver: yupResolver(bridesFormSchema) }
 
     // get funtions to build form with useForm() hook
-    const methods = useForm(formOptions)
+    const methods = useForm(formOptions) 
+
+    // ///manual setting of image upload form///
+    // useEffect(() => {
+    //     methods.register("fotoGaleri", { required: false })
+    //     methods.register("fotoSendiriCewek", { required: false })
+    //     methods.register("fotoSendiriCowok", { required: false })
+    // }, [])
 
     /* -----cant setValue from this-------- */
     // const {setValue} = methods

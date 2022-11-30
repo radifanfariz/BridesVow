@@ -5,12 +5,12 @@ export const bridesFormSchema = Yup.object().shape({
     namaLengkapCewek:Yup.string().required('Nama Lengkap wajib diisi'),
     namaAyahCewek:Yup.string().required('Nama Ayah wajib diisi'),
     namaIbuCewek:Yup.string().required('Nama Ibu wajib diisi'),
-    fotoSendiriCewek:Yup.string().required('Foto sendiri wajib diupload'),
+    fotoSendiriCewek:Yup.array().required('Foto sendiri wajib diupload'),
     namaPanggilanCowok:Yup.string().required('Nama Panggilan wajib diisi'),
     namaLengkapCowok:Yup.string().required('Nama Lengkap wajib diisi'),
     namaAyahCowok:Yup.string().required('Nama Ayah wajib diisi'),
     namaIbuCowok:Yup.string().required('Nama Ibu wajib diisi'),
-    fotoSendiriCowok:Yup.string().required('Foto sendiri wajib diupload'),
+    fotoSendiriCowok:Yup.array().required('Foto sendiri wajib diupload'),
     waktuAkad: Yup.string()
     .required('Waktu Akad wajib diisi')
     .matches(
@@ -25,7 +25,7 @@ export const bridesFormSchema = Yup.object().shape({
       'Date of Birth harus dalam format YYYY-MM-DD'
     ),
     lokasiResepsi: Yup.string().required('Lokasi Resepsi wajib diiisi'),
-    fotoGaleri: Yup.string().required('Foto Galeri wajib diupload'),
+    fotoGaleri: Yup.array().required('Foto Galeri wajib diupload'),
     namaPenerimaAmplop:Yup.string().required('Nama Penerima Amplop wajib diisi'),
     noRekeningAmplop:Yup.string().required('No Rekening Amplop wajib diisi'),
     platformPenerimaAmplop:Yup.string().required('Platform Amplop wajib dipilih'),
