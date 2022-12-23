@@ -3,7 +3,10 @@ import { forwardRef, useEffect, useRef, useState } from "react"
 import { useDropzone } from 'react-dropzone';
 import { useFormContext } from "react-hook-form";
 
-const SingleUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
+const SingleUpload = ({ name, required, width = "w-80 lg:w-[35rem]", accept = {
+    'image/jpeg': ['.jpg', '.jpeg'],
+    'image/png': ['.png']
+} }) => {
 
 
 
@@ -15,10 +18,7 @@ const SingleUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
         noKeyboard: true,
         maxFiles: 1,
         multiple: false,
-        accept: {
-            'image/jpeg': ['.jpg', '.jpeg'],
-            'image/png': ['.png']
-        },
+        accept: accept,
         onDrop: acceptedFiles => {
             setFiles(acceptedFiles.map(file => Object.assign(file, {
                 preview: URL.createObjectURL(file)
@@ -26,7 +26,7 @@ const SingleUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
         },
         onDropAccepted: files => {
             // console.log("file: "+files)
-            setValue(name,files)
+            setValue(name, files)
         }
     });
 

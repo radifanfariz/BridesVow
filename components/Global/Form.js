@@ -2,7 +2,9 @@ import MapIframeGen from "./MapIframeGen"
 import SingleUpload from "./SingleUpload"
 import { useFormContext } from 'react-hook-form';
 import MultiUpload from "./MultipleUpload";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+import "react-datetime/css/react-datetime.css";
+import Datetime from 'react-datetime';
 
 const InputText = ({ name, label, placeholder, required, register, errors }) => {
 
@@ -31,13 +33,29 @@ const InputTextArea = ({ name, label, placeholder, required, register, errors })
 
     )
 }
-const InputDate = ({ name, label, placeholder, required, register, errors }) => {
+const InputDate = ({ name, label, placeholder, required,}) => {
+
+    const { register, setValue, setError, formState: { errors } } = useFormContext()
+
+    useEffect(() => {
+        register(name, { required: required })
+    }, [])
+
+    let inputProps = {
+        placeholder: placeholder,
+        disabled: false,
+        className: "input input-bordered flex w-full max-w-xs bg-white text-black"
+        // onMouseLeave: () => alert('You went to the input but it was disabled')
+    };
+
     return (
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <input {...register(name, { required: required })} type="text" placeholder={placeholder} className="input input-bordered w-full max-w-xs bg-white text-black" />
+            <Datetime dateFormat={"YYYY-MM-DD"} timeFormat={false} closeOnSelect={true} inputProps={ inputProps } onChange={
+                (e) => setValue(name,e.format("YYYY-MM-DD"))
+            } />
             {errors[name] && <p className="text-red-600 text-xs" role="alert">{"*" + label + " is required"}</p>}
         </div>
     )
@@ -129,7 +147,7 @@ const Form = ({ formStructure }) => {
                                                             )
                                                         case "date":
                                                             return (
-                                                                <InputDate register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                <InputDate errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
                                                             )
                                                         case "select":
                                                             return (
