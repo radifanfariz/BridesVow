@@ -48,3 +48,43 @@ export const templateAllDefault = {
         return <Shanghai contents={data} />
     },
 }
+
+// still haven't implemented on 'ContentFour' component in landing page into slider part
+export const templateMetaData = [
+    {
+        name:"ChiangMai",
+        type:"platinum",
+        slug:"/preview/chiangmai",
+        img:"../../public/static/landing/mokap1.png"
+    },
+    {
+        name:"Pattaya",
+        type:"gold",
+        slug:"/preview/pattaya",
+        img:"../../public/static/landing/mokap2.png"
+    },
+    {
+        name:"Chonburi",
+        type:"gold",
+        slug:"/preview/chonburi",
+        img:"../../public/static/landing/mokap3.png"
+    },
+    {
+        name:"Songkhla",
+        type:"gold",
+        slug:"/preview/songkhla",
+        img:"../../public/static/landing/mokap4.png"
+    },
+    {
+        name:"Manila",
+        type:"diamond",
+        slug:"/preview/manila",
+        img:"../../public/static/landing/mokap5.png"
+    },
+    {
+        name:"Shanghai",
+        type:"diamond",
+        slug:"/preview/shanghai",
+        img:"../../public/static/landing/mokap6.png"
+    },
+]

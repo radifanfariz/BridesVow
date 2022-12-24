@@ -9,15 +9,15 @@ const Storyboards = ({ contents }) => {
         <section className="relative">
             <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
-                <div className="flex flex-col h-full min-h-screen relative overflow-hidden min-w-full">
-                    <div className="flex justify-center pt-10 pb-3 z-10">
+                <div className="flex flex-col h-full min-h-screen relative overflow-hidden min-w-full my-10">
+                    <div className="flex justify-center pt-10 z-10">
                         <div className="bg-[#35584B] rounded-full px-16 font-bold z-10 text-white text-2xl font-[poppins]">Perjalanan Cinta</div>
                     </div>
-                    <div className="absolute w-full h-full max-h-[575px] top-36 lg:right-16 lg:top-[9rem] right-2 z-50">
-                        <Image priority='true' layout='fill' src={Road.src} alt='BgTexture' objectFit='contain' objectPosition='top' />
-                    </div>
                     <div className="flex flex-col px-10 z-10 relative">
-                        <div className="flex mt-5 relative top-14 right-4">
+                        <div className="absolute w-full h-full top-[2.5rem] lg:right-16 right-2 z-50">
+                            <Image priority='true' layout='fill' src={Road.src} alt='BgTexture' objectFit='contain' objectPosition='top' />
+                        </div>
+                        <div className="flex mt-[-0.5rem] relative top-[4rem] right-4">
                             <div className="flex flex-col">
                                 <div className="flex justify-center relative">
                                     <div className="flex items-center text-xs text-black w-[380px] min-h-[170px] font-['montserrat'] p-5 relative -left-10 bg-white rounded-r-full shadow-xl">
@@ -41,7 +41,7 @@ const Storyboards = ({ contents }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex pb-16 relative top-[5.5rem] right-4">
+                        <div className="flex pb-16 relative top-[5rem] right-4">
                             <div className="flex flex-col">
                                 <div className="flex justify-center relative">
                                     <div className="flex items-center text-xs text-black w-[380px] min-h-[170px] font-['montserrat'] p-5 relative -left-10 bg-white rounded-r-full shadow-xl">

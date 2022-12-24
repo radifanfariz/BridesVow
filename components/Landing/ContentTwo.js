@@ -29,7 +29,7 @@ const LongFeatureContainer = ({ title = "Title", content = "Content" }) => {
                     <div className="flex flex-col justify-start max-w-[600px] xl:max-w-[100%]">
                         <span className="max-w-[300px] xl:max-w-[100%] font-[poppins] capitalize font-bold xl:text-[40px] xl:mt-10 text-xl text-[#003153]">{title}</span>
                         <span className="max-w-[300px] xl:max-w-[70%] [word-wrap:break-word] xl:w-[950px] w-[60vw] font-[poppins] xl:text-[30px] xl:leading-10 text-sm xl:my-5 text-black mt-1 z-20">{content}</span>
-                        <div className="mt-1 relative bottom-3">
+                        <div className="xl:mt-1 mt-5 relative bottom-3">
                             <Link href="/order">
                                 <a>
                                     <button className="max-w-[300px] xl:max-w-[100%] btn xl:btn-lg btn-xs xl:w-[340px] w-[35vw] xl:h-[24px] h-[5vh] xl:text-[24px] text-sm capitalize bg-[#003153] hover:bg-slate-400 text-white font-bold rounded-full">{"Pesan sekarang"}</button>
@@ -53,13 +53,13 @@ const StepContainer = () => {
         <>
             <div className="flex justify-start max-w-[600px] xl:max-w-[100%] w-[90vw] xl:w-[800px] xl:h-[1020px] h-[90vh] p-6 rounded-3xl bg-[#F1F1F1]">
                 <div className="flex flex-col justify-start xl:text-[30px]">
-                    <span className="font-[poppins] capitalize font-bold xl:text-[40px] text-2xl text-black mt-3 mb-6">Tahap Pemesanan</span>
+                    <span className="font-[poppins] capitalize font-bold xl:text-[40px] text-2xl text-black mt-2 mb-4">Tahap Pemesanan</span>
                     <div className="flex justify-start items-start mt-1">
                         <div className="flex flex-col justify-center items-center">
                             <AiFillCheckCircle />
                             <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
                         </div>
-                        <span className="font-[poppins] px-2 text-black">Silahkan memilih salah satu paket yang telah
+                        <span className="font-[poppins] px-2 text-black">Silahkan pilih paket yang telah
                             disediakan oleh BridesVow dengan scroll ke bawah
                             atau klik menu Harga.    </span>
                     </div>
@@ -102,9 +102,9 @@ const StepContainer = () => {
     )
 }
 
-const uniqueId = () => {
-    return "id" + Math.random().toString(16).slice(2)
-}
+// const uniqueId = () => {
+//     return "id" + Math.random().toString(16).slice(2)
+// }
 
 const featureContents = [
     {
@@ -157,8 +157,8 @@ const ContentTwo = () => {
                         {featureContents.length > 0 && featureContents.map((item, index) => {
                             index++
                             return (
-                                <div key={uniqueId()} className="">
-                                    <FeatureContainer key={uniqueId()} no={index} title={item.title} content={item.content} />
+                                <div key={item.title} className="">
+                                    <FeatureContainer key={item.title} no={index} title={item.title} content={item.content} />
                                 </div>
                             )
                         })}
@@ -182,10 +182,10 @@ untuk berpaling dari BridesVow. Ayo pesan sekarang!" />
                     </div>
                     <div className="relative">
                         <div className="flex flex-row justify-between">
-                            <div className="relative xl:top-[10px] top-[15vh] xl:w-fit w-[100vw] h-[285px]">
+                            <div className="relative xl:top-[10px] top-[18vh] xl:w-fit w-[100vw] h-[285px]">
                                 <Image src={FlowerOrange.src} alt='avatar' width={600} height={500} objectFit={'cover'} />
                             </div>
-                            <div className="relative xl:top-[10px] top-[15vh] xl:w-fit w-[100vw]">
+                            <div className="relative xl:top-[10px] top-[18vh] xl:w-fit w-[100vw]">
                                 <Image src={FlowerOrange2.src} alt='avatar' width={600} height={500} objectFit={'cover'} />
                             </div>
                         </div>

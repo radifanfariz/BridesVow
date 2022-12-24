@@ -64,10 +64,10 @@ const RSVP = ({ contents }) => {
                         <div className="flex flex-col justify-center z-10 font-[poppins] mx-5 my-5">
                             <div className="flex flex-col w-full p-5 pb-8 z-50">
                                 <div className="flex">
-                                    <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl" type="text" name="nama" id="nama" placeholder="Nama" value={name} />
+                                    <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl text-black" type="text" name="nama" id="nama" placeholder="Nama" value={name} />
                                 </div>
                                 <div className="flex items-center mt-5">
-                                    <select name="" id="" className="rounded-xl p-2 w-full bg-white" defaultValue={userChoice} onChange={(e) => hadirFunc(e.target.value)}>
+                                    <select name="" id="" className="rounded-xl p-2 w-full bg-white text-black" defaultValue={userChoice} onChange={(e) => hadirFunc(e.target.value)}>
                                         <option value="hadir">Hadir</option>
                                         <option value="tidakHadir">Tidak Hadir</option>
                                     </select>
@@ -76,10 +76,10 @@ const RSVP = ({ contents }) => {
                         </div>
                         <div className="flex justify-center">
                             {(name === '') ?
-                                <button disabled className="bg-[#2a5d87] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
+                                <button disabled className="bg-[#50290F] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
                                     Disabled
                                 </button> :
-                                <button onClick={addRSVP} className="bg-[#2a5d87] w-[200px] h-[30px] font-bold text-sm hover:bg-blue-200 rounded-full text-white border-[1px] border-black">
+                                <button onClick={addRSVP} className="bg-[#50290F] w-[200px] h-[30px] font-bold text-sm hover:bg-blue-200 rounded-full text-white border-[1px] border-black">
                                     Kirim
                                 </button>
                             }

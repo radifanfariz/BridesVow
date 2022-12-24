@@ -116,7 +116,7 @@ const Comment = ({ contents }) => {
                                 </div>
                                 <div className="flex justify-center pt-5">
                                     {(name === '' || commentText === '') ?
-                                        <button disabled className="bg-[#35584B] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
+                                        <button disabled className="bg-[#50290F] bg-opacity-25 w-[200px] h-[30px] font-bold text-sm rounded-full text-white border-[1px] border-black">
                                             Disabled
                                         </button> :
                                         <button onClick={addComment} className="bg-[#50290F] w-[200px] h-[30px] font-bold text-sm hover:bg-white rounded-full text-white border-[1px] border-black">

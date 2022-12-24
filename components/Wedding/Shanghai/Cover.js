@@ -51,7 +51,7 @@ const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
                     <div className="text-[30px] text-black font-extrabold font-[playfairDisplay] tracking-[2px]">Calon Tamu</div>
                 </div>
                 <div className="flex z-10 justify-center items-center text-black tracking-[7px]">
-                    <Image layout='intrinsic' width={"300"} height={"250"} priority='true' src={Leaf.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                    <Image layout='intrinsic' width={"300"} height={"250"} priority='true' src={Leaf.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
                 </div>
                 <div className="flex flex-col z-10 justify-center items-center">
                     <div className="text-lg text-black text-center font-[poppins] pb-2">kamu diundang ke pernikahan</div>
