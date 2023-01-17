@@ -1,6 +1,6 @@
 import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import loader from "../src/loader";
+import loader from "../utils/cssLoader";
 
 class MyDocument extends Document {
     render() {

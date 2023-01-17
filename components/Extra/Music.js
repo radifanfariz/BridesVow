@@ -4,7 +4,7 @@ const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false })
 
 const playerStyle = {
     'visibility': 'hidden',
-    'z-index': '-10',
+    'zIndex': '-10',
     'position': 'fixed',
 }
 

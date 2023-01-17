@@ -44,8 +44,10 @@ const Album = ({ contents }) => {
                                         <div className="flex justify-center">
                                             <div className='w-72 h-[350px] relative'>
                                                 <PhotoProvider>
-                                                    <PhotoView src={item}>
-                                                        <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
+                                                    <PhotoView key={index} src={item}>
+                                                        <a>
+                                                            <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
+                                                        </a>
                                                     </PhotoView>
                                                 </PhotoProvider>
                                             </div>

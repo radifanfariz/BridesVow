@@ -16,7 +16,7 @@ const Generator = () => {
                             <section>
                                 <div className="flex flex-col justify-center items-center py-10 font-[poppins] font-bold">
                                     <span className="text-xl">Upload File</span>
-                                    <span className="text-xs">upload file spreadsheet nama undangan (format .xlsx)</span>
+                                    <span className="text-xs">upload file spreadsheet nama yang mau diundang (format .xlsx)</span>
                                 </div>
                             </section>
                             <section>

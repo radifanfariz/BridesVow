@@ -1,6 +1,6 @@
 
 import { getDataUndangan } from '../../adapters';
-import { templateAll } from '../../templates/TemplateAll';
+import { templateAll } from '../../templates/templateAll';
 
 
 export async function getStaticProps({ params }) {

@@ -5,7 +5,7 @@ import Image from "next/image"
 const Container = ({ children }) => {
     return (
         <>
-            <div className="bg-[#EBF7FF] h-full">
+            <div className="bg-[#EBF7FF] h-full min-h-screen">
                 <header className="flex justify-center">
                     < div className="p-5 pb-0 w-full max-w-3xl xl:max-w-6xl" >
                         <Link href="/">

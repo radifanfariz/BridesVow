@@ -1,7 +1,22 @@
 import Image from "next/image"
+import { useEffect, useState } from "react"
+import { useFormContext } from "react-hook-form"
 import imageLoader from "../../../utils/imageLoader"
+import { randomThreeNum } from "../../../utils/randomNum"
 
-const OrderView = () => {
+const OrderView = ({ dataOrderForm,setTotalHarga }) => {
+
+    const [threeUniqueDigit, setThreeUniqueDigit] = useState(0)
+
+    useEffect(() => {
+        setThreeUniqueDigit(randomThreeNum())
+    }, [])
+
+    useEffect(()=>{
+        const totalHarga=dataOrderForm.harga + threeUniqueDigit
+        setTotalHarga(totalHarga)
+    },[dataOrderForm])
+
     return (
         <>
             <section className="inline-flex justify-center xl:inline font-[poppins] text-black px-2">
@@ -14,17 +29,17 @@ const OrderView = () => {
                         </div>
                         <div className="divider mt-0"></div>
                         <div className="flex justify-between">
-                            <span>Platinum - Pattaya</span>
-                            <span className="font-bold">Rp.299.000</span>
+                            <span>{`${dataOrderForm.paket} - ${dataOrderForm.template}`}</span>
+                            <span className="font-bold">{`Rp.${dataOrderForm.harga}`}</span>
                         </div>
                         <div className="flex justify-between pt-2">
                             <span>Kode Unik Pesanan</span>
-                            <span className="font-bold">Rp.271</span>
+                            <span className="font-bold">{`Rp.${threeUniqueDigit}`}</span>
                         </div>
                         <div className="divider my-0"></div>
                         <div className="flex justify-between pt-2 font-bold">
                             <span>Total</span>
-                            <span className="font-bold">Rp.299.271</span>
+                            <span className="font-bold">{`Rp.${threeUniqueDigit + dataOrderForm.harga}`}</span>
                         </div>
                         <div className="divider mt-2"></div>
                         <div className="flex flex-col pr-5">

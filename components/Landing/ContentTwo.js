@@ -61,7 +61,7 @@ const StepContainer = () => {
                         </div>
                         <span className="font-[poppins] px-2 text-black">Silahkan pilih paket yang telah
                             disediakan oleh BridesVow dengan scroll ke bawah
-                            atau klik menu Harga.    </span>
+                            atau klik menu Paket.    </span>
                     </div>
                     <div className="flex justify-start items-start">
                         <div className="flex flex-col justify-center items-center">
@@ -93,7 +93,7 @@ const StepContainer = () => {
                             <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
                         </div>
                         <span className="font-[poppins] px-2 text-black">Setelah pembayaran dikonfirmasi, silahkan tunggu
-                            informasi selanjutnya yang akan disampaikan melalui
+                            informasi selanjutnya yang akan disampaikan melalui WA atau
                             E-mail.</span>
                     </div>
                 </div>
