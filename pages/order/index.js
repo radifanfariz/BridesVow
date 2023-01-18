@@ -7,6 +7,8 @@ import { createDataOrder, getDataPaketUndangan } from "../../adapters"
 import { FormProvider, useForm } from "react-hook-form"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import { orderFormSchema } from "../../models/formValidationSchema"
+import { yupResolver } from "@hookform/resolvers/yup"
 
 
 export async function getStaticProps() {
@@ -46,14 +48,14 @@ export async function getStaticProps() {
 
 const Order = ({ data }) => {
 
-    // const formOptions = { resolver: yupResolver(bridesFormSchema) }
+    const formOptions = { resolver: yupResolver(orderFormSchema) }
 
     // get funtions to build form with useForm() hook
-    const methods = useForm()
+    const methods = useForm(formOptions)
 
     const [dataOrderForm, setDataOrderForm] = useState({
-        paket:"Silahkan dipilih dahulu !",
-        template:"Silahkan dipilih dahulu !",
+        paket:"Null",
+        template:"Null",
         harga:0,
     })
 
@@ -66,7 +68,7 @@ const Order = ({ data }) => {
     const { mutate, isLoading } = useMutation(createDataOrder, {
         onSuccess: data => {
             console.log(data)
-            const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'"
+            const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data)
             alert(message)
             // router.push("/")
         },

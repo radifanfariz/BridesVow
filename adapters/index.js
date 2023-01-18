@@ -35,7 +35,7 @@ export async function getDataUndangan(slug=""){
     })
     .catch(function (error) {
         console.error(error);
-        return error
+        throw error
     });
 }
 export async function getDataUndanganPreview(){
@@ -48,7 +48,7 @@ export async function getDataUndanganPreview(){
     })
     .catch(function (error) {
         console.error(error);
-        return error
+        throw error
     });
 }
 export async function getDataTemplateUndangan(){
@@ -61,7 +61,7 @@ export async function getDataTemplateUndangan(){
     })
     .catch(function (error) {
         console.error(error);
-        return error
+        throw error
     });
 }
 export async function getDataPaketUndangan(){
@@ -74,7 +74,7 @@ export async function getDataPaketUndangan(){
     })
     .catch(function (error) {
         console.error(error);
-        return error
+        throw error
     });
 }
 
@@ -82,13 +82,13 @@ export async function getDataPaketUndangan(){
 /* POST */
 
 export async function createDataOrder(data){
-    await axios(getDataOrderParams(data))
+    return await axios(getDataOrderParams(data))
     .then((response) => {
         const res = response.data
         return res
     })
     .catch((error) => {
         console.error(error)
-        return error
+        throw error
     })
 }

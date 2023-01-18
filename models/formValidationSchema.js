@@ -38,3 +38,13 @@ export const bridesFormSchema = Yup.object().shape({
     perjalanan2:Yup.string().required('Perejalanan Cinta 2 wajib diisi'),
     perjalanan3:Yup.string().required('Perejalanan Cinta 3 wajib diisi'),
 })
+
+export const orderFormSchema = Yup.object().shape({
+    paket:Yup.string().required('Paket undangan wajib dipilih !'),
+    template:Yup.number().required('Template undangan wajib dipilih !'),
+    nama:Yup.string().required('Nama pemesan wajib diisi !'),
+    noHP:Yup.string().required('No HP (No WA) wajib diisi !'),
+    email:Yup.string().required('Email wajib diisi !'),
+    kota:Yup.string().required('Kota/Kabupaten wajib diisi !'),
+    alamat:Yup.string().required('Alamat wajib diisi !')
+})

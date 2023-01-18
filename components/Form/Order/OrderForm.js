@@ -75,7 +75,7 @@ const OrderForm = ({ data, onSubmit,setDataOrderForm }) => {
                             <label className="label">
                                 <span className="label-text font-bold text-black">Pilihan Paket{<span className="text-red-600">*</span>}</span>
                             </label>
-                            <select {...register("paket")} defaultValue={"default"} onChange={handleSelect} className="select select-bordered w-full max-w-md bg-white text-black" required>
+                            <select name="paket" {...register("paket")} defaultValue={"default"} onChange={handleSelect} className="select select-bordered w-full max-w-md bg-white text-black" required>
                                 <option value={"default"} disabled>Pick one</option>
                                 {data.map((item) => {
                                     switch (item.paket_undangan.nama) {
@@ -140,6 +140,7 @@ const OrderForm = ({ data, onSubmit,setDataOrderForm }) => {
                                                                 <div className="flex items-center">
                                                                     <label htmlFor={item.data.nama}>
                                                                         <input
+                                                                            name="template"
                                                                             className="mr-2"
                                                                             {...register("template")}
                                                                             type="radio"
@@ -147,6 +148,7 @@ const OrderForm = ({ data, onSubmit,setDataOrderForm }) => {
                                                                             onChange={()=>{
                                                                                 setNamaTemplate(item.data.nama)
                                                                             }}
+                                                                            required
                                                                         />
                                                                         {item.data.nama}
                                                                     </label>
@@ -164,7 +166,7 @@ const OrderForm = ({ data, onSubmit,setDataOrderForm }) => {
                             <label className="label">
                                 <span className="label-text font-bold text-black">Nama Pemesan{<span className="text-red-600">*</span>}</span>
                             </label>
-                            <input {...register("nama")} type="text" placeholder="Nama" className="input input-bordered w-full max-w-md bg-white text-black" required />
+                            <input name="nama" {...register("nama")} type="text" placeholder="Nama" className="input input-bordered w-full max-w-md bg-white text-black" required />
                         </div>
                         <div>
                             <label className="label">
@@ -173,7 +175,7 @@ const OrderForm = ({ data, onSubmit,setDataOrderForm }) => {
                             <div className="w-full max-w-md">
                                 <label className="input-group">
                                     <span><BsWhatsapp /></span>
-                                    <input {...register("noHP")} type="tel" pattern="[0-9]{12}" placeholder="08221234567" className="input input-bordered w-full bg-white text-black" required />
+                                    <input name="noHP" {...register("noHP")} type="tel" pattern="[0-9]{12}" placeholder="08221234567" className="input input-bordered w-full bg-white text-black" required />
                                 </label>
                             </div>
                         </div>
@@ -184,21 +186,21 @@ const OrderForm = ({ data, onSubmit,setDataOrderForm }) => {
                             <div className="w-full max-w-md">
                                 <label className="input-group">
                                     <span><MdAlternateEmail /></span>
-                                    <input {...register("email")} type="email" placeholder="user@site.com" className="input input-bordered w-full bg-white text-black" required />
+                                    <input name="email" {...register("email")} type="email" placeholder="user@site.com" className="input input-bordered w-full bg-white text-black" required />
                                 </label>
                             </div>
                         </div>
                         <div>
                             <label className="label">
-                                <span className="label-text font-bold text-black">Kota/Kecamatan</span>
+                                <span className="label-text font-bold text-black">Kota/Kabupaten</span>
                             </label>
-                            <input {...register("kota")} type="text" placeholder="Type here" className="input input-bordered w-full max-w-md bg-white text-black" />
+                            <input name="kota" {...register("kota")} type="text" placeholder="Type here" className="input input-bordered w-full max-w-md bg-white text-black" required/>
                         </div>
                         <div>
                             <label className="label">
                                 <span className="label-text font-bold text-black">Alamat Pemesan</span>
                             </label>
-                            <textarea {...register("alamat")} className="textarea textarea-bordered w-full max-w-md bg-white text-black" placeholder="Alamat"></textarea>
+                            <textarea name="alamat" {...register("alamat")} className="textarea textarea-bordered w-full max-w-md bg-white text-black" placeholder="Alamat" required></textarea>
                         </div>
                     </div>
                 </div>
