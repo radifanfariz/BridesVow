@@ -1,24 +1,18 @@
-import AuthForm from "../../components/Form/Brides/AuthForm"
-import BridesForm from "../../components/Form/Brides/BridesForm"
-import Container from "../../components/Global/Container"
-import HelpButton from "../../components/Global/HelpButton"
+import BridesForm from "../../components/Form/Brides/BridesForm";
+import HelpButton from "../../components/Global/HelpButton";
+import Layout from "../../components/Global/Layout";
 
-const BridesData = () => {
-    return (
-        <>
-            {/* <main className="h-screen bg-[url('/static/other/background.png')] bg-cover">
-                <div className="relative top-52">
-                    <AuthForm />
-                </div>
-            </main> */}
-            <main>
-                <Container>
-                    <BridesForm />
-                    <HelpButton/>
-                </Container>
-            </main>
-        </>
-    )
-}
+const BridesPage = () => {
+  return (
+    <>
+      <BridesForm />
+      <HelpButton />
+    </>
+  );
+};
 
-export default BridesData
+BridesPage.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+
+export default BridesPage;

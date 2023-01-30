@@ -18,41 +18,20 @@ display: block;
     align-items: center;
 }
 .loader {
- --clr: #000;
- /* color of spining  */
- width: 50px;
- height: 50px;
- position: relative;
-}
-.loader div:nth-child(1), .loader div:nth-child(2) {
- content: "";
- position: absolute;
- top: -10px;
- left: -10px;
- width: 100%;
- height: 100%;
- border-radius: 100%;
- border: 10px solid transparent;
- border-top-color: var(--clr);
-}
-.loader div:nth-child(1) {
- z-index: 100;
- animation: spin 1s infinite;
-}
-.loader div:nth-child(2) {
- border: 10px solid #ccc;
-}
-@keyframes spin {
- 0% {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+    width: 92.2px;
+    height: 92.2px;
+    background: linear-gradient(#042a44 0 0) bottom/100% 0% no-repeat #dbdcef;
+    -webkit-mask: radial-gradient(circle at 60% 65%, #000 62%, #0000 65%) top left, 
+           radial-gradient(circle at 40% 65%, #000 62%, #0000 65%) top right, 
+           linear-gradient(to bottom left, #000 42%,#0000 43%) bottom left , 
+           linear-gradient(to bottom right,#000 42%,#0000 43%) bottom right;
+    -webkit-mask-size: 50% 50%;
+    -webkit-mask-repeat: no-repeat;
+    animation: progress-ofy9at 1.2s infinite linear;
  }
- 100% {
-  -webkit-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -o-transform: rotate(360deg);
-  transform: rotate(360deg);
- }
-}`;
+ 
+ @keyframes progress-ofy9at {
+    90%, 100% {
+       background-size: 100% 100%;
+    }
+ }`;

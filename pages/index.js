@@ -1,16 +1,13 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Content from '../components/Landing/Content'
-import Header from '../components/Landing/Header'
-import Footer from '../components/Landing/Footer'
-import ContentTwo from '../components/Landing/ContentTwo'
-import ContentThree from '../components/Landing/ContentThree'
-import ContentFour from '../components/Landing/ContentFour'
+import Head from "next/head";
+import ImagePreview from "../components/Global/ImagePreview";
+import Content from "../components/Landing/Content/Content";
+import MainContent from "../components/Landing/Content/MainContent";
+import Product from "../components/Landing/Content/Product";
+import Layout from "../components/Landing/Layout";
 
 export default function Home() {
-
   return (
-    <div className='w-full h-full xl:w-full' data-theme="cmyk">
+    <>
       <Head>
         <meta charSet="UTF-8" />
         <meta name="description" content="Website Undangan Pernikahan" />
@@ -19,12 +16,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>BridesVow</title>
       </Head>
-      <Header></Header>
-      <Content></Content>
-      <ContentTwo></ContentTwo>
-      <ContentThree></ContentThree>
-      <ContentFour></ContentFour>
-      <Footer></Footer>
-    </div>
-  )
+      <Layout>
+        <MainContent>
+          <ImagePreview />
+        </MainContent>
+        <Content />
+        <Product />
+      </Layout>
+    </>
+  );
 }

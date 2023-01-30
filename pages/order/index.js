@@ -1,6 +1,5 @@
 import OrderForm from "../../components/Form/Order/OrderForm"
 import OrderView from "../../components/Form/Order/OrderView"
-import Container from "../../components/Global/Container"
 import HelpButton from "../../components/Global/HelpButton"
 import { QueryClient, useMutation } from 'react-query'
 import { createDataOrder, getDataPaketUndangan } from "../../adapters"
@@ -9,6 +8,7 @@ import { useState } from "react"
 import { useRouter } from "next/router"
 import { orderFormSchema } from "../../models/formValidationSchema"
 import { yupResolver } from "@hookform/resolvers/yup"
+import Layout from "../../components/Global/Layout"
 
 
 export async function getStaticProps() {
@@ -27,6 +27,8 @@ export async function getStaticProps() {
                             id: item.id,
                             data: {
                                 nama: item.attributes.Nama,
+                                slug: item.attributes.Slug,
+                                isCreatorChoice: item.attributes.IsCreatorChoice,
                                 template_id: item.attributes.TemplateID,
                                 url: item.attributes.Gambar.data.attributes.url
                             }
@@ -46,7 +48,7 @@ export async function getStaticProps() {
     }
 }
 
-const Order = ({ data }) => {
+const OrderPage = ({ data }) => {
 
     const formOptions = { resolver: yupResolver(orderFormSchema) }
 
@@ -105,7 +107,7 @@ const Order = ({ data }) => {
 
 
     return (
-        <Container>
+        <>
             <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit(onSubmit)}>
                     <div className="flex flex-col xl:flex-row justify-center">
@@ -115,8 +117,12 @@ const Order = ({ data }) => {
                 </form>
             </FormProvider>
             <HelpButton />
-        </Container>
+        </>
     )
 }
 
-export default Order
+OrderPage.getLayout = function getLayout(page) {
+    return <Layout>{page}</Layout>;
+  };
+
+export default OrderPage

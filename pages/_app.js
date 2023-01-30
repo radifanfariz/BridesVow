@@ -24,7 +24,9 @@ function MyApp({ Component, pageProps }) {
   //   }
   // },[router])
 
-  return (
+  const getLayout = Component.getLayout || ((page) => page)
+
+  return getLayout(
     <QueryClientProvider client={queryClient}>
       <Component {...pageProps} />
     </QueryClientProvider>

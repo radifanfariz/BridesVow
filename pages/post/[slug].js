@@ -1,6 +1,7 @@
 
 import { getDataUndangan } from '../../adapters';
 import { templateAll } from '../../templates/templateAll';
+import Custom404 from '../404';
 
 
 export async function getStaticProps({ params }) {
@@ -51,12 +52,17 @@ export async function getStaticPaths() {
 
 const Post = ({ data }) => {
 
-    const templateId = data.dataUndangans.data[0].attributes.template_undangan.data.attributes.TemplateID
-    const getTemplate = templateAll[templateId]
-
-    return (
-        getTemplate(data.dataUndangans.data[0].attributes)
-    )
+    try {
+        const templateId = data.dataUndangans.data[0].attributes.template_undangan.data.attributes.TemplateID
+        const getTemplate = templateAll[templateId]
+        return (
+            getTemplate(data.dataUndangans.data[0].attributes)
+        )
+    } catch (error) {
+        return(
+            <Custom404/>
+        )
+    }
 }
 
 export default Post

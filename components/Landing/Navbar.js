@@ -4,7 +4,7 @@ import { BsWhatsapp } from "react-icons/bs"
 import { useState } from "react"
 import Link from "next/link"
 
-const Header = () => {
+const Navbar = () => {
     const [isNavMenuOpen, setNavMenuOpen] = useState(false);
     const handleOnChange = () => {
         setNavMenuOpen(!isNavMenuOpen)
@@ -44,7 +44,7 @@ const Header = () => {
                                 <li><a href="#fitur" className="font-bold text-lg p-5 py-2 w-60"><span className="hover:border-b-4 border-[#003153]">Fitur</span></a></li>
                                 <li><a href="#cara" className="font-bold text-lg p-5 py-2 w-60"><span className="hover:border-b-4 border-[#003153]">Cara Pesan</span></a></li>
                                 <li><a href="#paket" className="font-bold text-lg p-5 py-2 w-60"><span className="hover:border-b-4 border-[#003153]">Paket</span></a></li>
-                                <li><a href="#katalog" className="font-bold text-lg p-5 py-2 w-60"><span className="hover:border-b-4 border-[#003153]">Katalog</span></a></li>
+                                <li><a href="#lainnya" className="font-bold text-lg p-5 py-2 w-60"><span className="hover:border-b-4 border-[#003153]">Lainnya</span></a></li>
                                 <Link href={"https://wa.me/085173079585"} >
                                     <a target="_blank" className="btn xl:btn-lg btn-md h-[5vh] bg-[#003153] mr-24 w-full rounded-full mt-5 mb-3">
                                         <div className="flex justify-center items-center">
@@ -66,7 +66,7 @@ const Header = () => {
                             <li><a href="#fitur" className="font-bold "><span className="hover:border-b-4 border-[#003153] text-2xl">Fitur</span></a></li>
                             <li><a href="#cara" className="flex justify-center font-bold w-[155px]"><span className="hover:border-b-4 border-[#003153] text-2xl">Cara Pesan</span></a></li>
                             <li><a href="#paket" className="font-bold"><span className="hover:border-b-4 border-[#003153] text-2xl">Paket</span></a></li>
-                            <li><a href="#katalog" className="font-bold"><span className="hover:border-b-4 border-[#003153] text-2xl">Katalog</span></a></li>
+                            <li><a href="#lainnya" className="font-bold"><span className="hover:border-b-4 border-[#003153] text-2xl">Lainnya</span></a></li>
                             <Link href={"https://wa.me/085173079585"}>
                                 <a target="_blank" className="btn btn-lg bg-[#003153] mr-5 ml-5 rounded-full">
                                     <span className="mr-2 text-white">
@@ -85,4 +85,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Navbar

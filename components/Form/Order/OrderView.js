@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { useEffect, useState } from "react"
-import { useFormContext } from "react-hook-form"
+import { useEffect, useMemo, useState } from "react"
 import imageLoader from "../../../utils/imageLoader"
 import { randomThreeNum } from "../../../utils/randomNum"
 
@@ -8,11 +7,10 @@ const OrderView = ({ dataOrderForm,setTotalHarga }) => {
 
     const [threeUniqueDigit, setThreeUniqueDigit] = useState(0)
 
-    useEffect(() => {
-        setThreeUniqueDigit(randomThreeNum())
-    }, [])
+    const randomNum = useMemo(randomThreeNum, [])
 
     useEffect(()=>{
+        setThreeUniqueDigit(randomNum)
         const totalHarga=dataOrderForm.harga + threeUniqueDigit
         setTotalHarga(totalHarga)
     },[dataOrderForm])

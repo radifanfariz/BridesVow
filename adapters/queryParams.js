@@ -283,6 +283,8 @@ export const dataTemplateUndanganParams = {
           attributes {
             Nama
             TemplateID
+            Slug
+            IsCreatorChoice
             paket_undangan {
               data {
                 attributes {
@@ -332,6 +334,8 @@ export const dataPaketUndanganParams = {
                 attributes{
                   TemplateID
                   Nama
+                  Slug
+                  IsCreatorChoice
                   Gambar{
                     data{
                       attributes{

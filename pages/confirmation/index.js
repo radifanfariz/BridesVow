@@ -1,14 +1,18 @@
-import Container from "../../components/Global/Container"
-import ConfirmForm from "../../components/Form/Confrimation/ConfirmForm"
-import HelpButton from "../../components/Global/HelpButton"
+import ConfirmForm from "../../components/Form/Confrimation/ConfirmForm";
+import HelpButton from "../../components/Global/HelpButton";
+import Layout from "../../components/Global/Layout";
 
-const Confirmation = () => {
-    return(
-        <Container>
-            <ConfirmForm/>
-            <HelpButton/>
-        </Container>
-    )
-}
+const ConfirmationPage = () => {
+  return (
+    <>
+      <ConfirmForm />
+      <HelpButton />
+    </>
+  );
+};
 
-export default Confirmation
+ConfirmationPage.getLayout = function getLayout(page) {
+  return <Layout>{page}</Layout>;
+};
+
+export default ConfirmationPage;

@@ -5,7 +5,7 @@ import BgBase from '../../public/static/landing/background.png'
 import Link from 'next/link';
 
 
-const Content = () => {
+const Content = ({children}) => {
 
     // const [isDesktop, setDesktop] = useState(typeof window !== "undefined" && window.innerWidth >= 768)
 
@@ -31,6 +31,7 @@ const Content = () => {
                         <span className="block">Ayo bagikan momen bahagiamu dengan menggunakan</span>
                         <span className="block">undangan online dari BridesVow</span>
                     </div>
+                    {children}
                     <div className="mt-12 xl:mb-40 mb-20 z-10">
                         <Link href="/order">
                             <a><button className="btn xl:btn-lg btn-md capitalize bg-[#003153] hover:bg-slate-400 text-xl xl:text-[32px] text-white font-bold w-[70vw] max-w-[300px] xl:max-w-[100%] xl:w-[420px] xl:h-[50px] rounded-full">{"Buat Sekarang >>"}</button></a>

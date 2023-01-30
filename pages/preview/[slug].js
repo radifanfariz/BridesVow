@@ -1,5 +1,6 @@
 import { getDefaultContents } from '../../adapters/defaultContents';
 import { templateAllDefault } from '../../templates/templateAll';
+import Custom404 from '../404';
 
 
 export async function getStaticProps({params}) {
@@ -47,11 +48,16 @@ export async function getStaticPaths() {
 
 const Preview = ({ data, slug }) => {
 
-    const getTemplateDefault = templateAllDefault[slug]
-
-    return(
-        getTemplateDefault(data)
-    )
+    try {
+        const getTemplateDefault = templateAllDefault[slug]
+        return(
+            getTemplateDefault(data)
+        )
+    } catch (error) {
+        return(
+            <Custom404/>
+        )
+    }
 }
 
 export default Preview
