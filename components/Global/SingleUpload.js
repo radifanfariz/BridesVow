@@ -31,12 +31,17 @@ const SingleUpload = ({ name, required, width = "w-80 lg:w-[35rem]", accept = {
     });
 
     useEffect(() => {
+        if(getValues(name)){
+            setFiles(getValues(name).map(file => Object.assign(file, {
+                preview: URL.createObjectURL(file)
+            })));
+        }
         // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
         return () => files.forEach(file => URL.revokeObjectURL(file.preview));
     }, []);
 
     ////react hook form setting////
-    const { register, setValue, setError, formState: { errors } } = useFormContext()
+    const { register, setValue, setError, formState: { errors },getValues } = useFormContext()
 
     useEffect(() => {
         register(name, { required: required })

@@ -3,27 +3,35 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Mousewheel, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { BsWhatsapp } from "react-icons/bs";
 import { MdAlternateEmail } from "react-icons/md";
 import { useFormContext } from "react-hook-form";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import uniqid from 'uniqid';
+import copy from "copy-to-clipboard";
+import { DataContext } from "../../../pages/order";
 
 const OrderForm = ({ data, setDataOrderForm }) => {
   // console.log(data)
-
   // const contents = {
   //     gallery: ["/static/landing/mokap1.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png", "/static/landing/mokap1.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png", "/static/landing/mokap1.png", "/static/landing/mokap2.png", "/static/landing/mokap3.png", "/static/landing/mokap4.png"]
   // }
-
   const router = useRouter();
   const { paket } = router.query;
-
   const { register } = useFormContext();
 
-  const [namaPaket, setNamaPaket] = useState("");
-  const [namaTemplate, setNamaTemplate] = useState("");
+  ////state////
+  const {orderDataContextRef} = useContext(DataContext)
+  const [namaPaket, setNamaPaket] = useState("default");
+  const orderIdRef = useRef(null)
+  if(orderIdRef.current === null){
+    orderIdRef.current = uniqid('bridesvow-')
+  }
+  const orderIdRefValue = orderIdRef.current  
+  orderDataContextRef.current['orderId'] = orderIdRefValue
+  /////////////
 
   const handleSelect = (event) => {
     setDataOrderForm({
@@ -33,6 +41,11 @@ const OrderForm = ({ data, setDataOrderForm }) => {
     });
     setNamaPaket(event.target.value);
   };
+
+  const copyToClipboard = (copyText) => {
+    copy(copyText);
+    alert(`You have copied "${copyText}"`);
+}
 
   useEffect(() => {
     setNamaPaket(paket?.toLowerCase());
@@ -48,6 +61,23 @@ const OrderForm = ({ data, setDataOrderForm }) => {
             </span>
           </div>
           <span className="divider"></span>
+          <div className="flex flex-col items-center">
+              <label className="label">
+                <span className="label-text font-bold text-black">
+                  ORDER ID
+                </span>
+              </label>
+              <input
+                {...register("orderId",{ value: orderIdRefValue })}
+                name="orderId"
+                type="text"
+                placeholder="OrderId"
+                className="input input-bordered sm:w-1/2 w-full max-w-full text-center bg-black text-white cursor-pointer"
+                required
+                onClick={() => copyToClipboard(orderIdRefValue)}
+                readOnly={true}
+              />
+            </div>
           <div className="form-control w-full">
             <div>
               <label className="label">
@@ -58,7 +88,6 @@ const OrderForm = ({ data, setDataOrderForm }) => {
               <select
                 name="paket"
                 {...register("paket")}
-                defaultValue={"default"}
                 value={namaPaket}
                 onChange={handleSelect}
                 className="select select-bordered w-full max-w-full bg-white text-black"
@@ -148,11 +177,11 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                                       layout="intrinsic"
                                       width={120}
                                       height={250}
-                                      src={`https://1c9c-2001-448a-1069-1c33-bde2-cfd7-7451-18fa.ap.ngrok.io${template.data.url}`}
+                                      src={`http://localhost:1338${template.data.url}`}
                                       alt="Template"
                                       objectFit="contain"
                                     />
-                                    <div className="hover:opacity-50 opacity-0 flex text-3xl relative justify-center items-center h-full font-semibold hover:bg-black hover:bg-opacity-25 rounded-3xl">
+                                    <div className="flex relative justify-center items-center h-full font-semibold hover:bg-black hover:bg-opacity-25 rounded-3xl">
                                       Click Preview
                                     </div>
                                   </a>
@@ -228,7 +257,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
             <div className="relative">
               <label className="label">
                 <span className="label-text font-bold text-black">
-                  Alamat E-mail{<span className="text-red-600">*</span>}
+                  E-mail{<span className="text-red-600">*</span>}
                 </span>
               </label>
               <div className="w-full max-w-full">

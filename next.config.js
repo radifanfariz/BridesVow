@@ -1,9 +1,11 @@
+const { redirect } = require('next/dist/server/api-utils')
+
 /** @type {import('next').NextConfig} **/
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images:{
-    domains:['localhost','flowbite.com','1c9c-2001-448a-1069-1c33-bde2-cfd7-7451-18fa.ap.ngrok.io'],
+    domains:['localhost','flowbite.com','http://localhost:1338','https://sandbox.ipaymu.com'],
   },
   async rewrites() {
     return [
@@ -16,7 +18,7 @@ const nextConfig = {
         destination: '/preview/:slug',
       }
     ]
-  }
+  },
 }
 
 module.exports = nextConfig

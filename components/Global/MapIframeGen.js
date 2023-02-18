@@ -1,9 +1,9 @@
-const MapIframeGen = () => {
+const MapIframeGen = ({iframeValue}) => {
     return (
         <>
             <div className="flex justify-center">
                 <div className="w-72 h-72 rounded-lg bg-slate-100">
-                    This is suppose to be a map ! (SOON)
+                    <div dangerouslySetInnerHTML={{ __html: iframeValue }}></div>
                 </div>
             </div>
         </>

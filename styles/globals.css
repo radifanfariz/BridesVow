@@ -96,3 +96,29 @@ html, body {
 #map {
   height: 100%;
 }
+/* radix-ui-css */
+
+.TabsTrigger {
+  font-family: inherit;
+  background-color: white;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--mauve11);
+  user-select: none;
+}
+.TabsTrigger:first-child {
+  border-top-left-radius: 6px;
+}
+.TabsTrigger:last-child {
+  border-top-right-radius: 6px;
+}
+.TabsTrigger:hover {
+  @apply bg-gray-50
+}
+.TabsTrigger[data-state='active'] {
+  @apply border-gray-600 border-b-2
+}
+.TabsTrigger:focus {
+  position: relative;
+  @apply border-gray-600 border-b-2
+}

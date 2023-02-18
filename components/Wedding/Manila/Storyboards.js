@@ -41,7 +41,7 @@ const Storyboards = ({ contents }) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex pb-16 relative top-[5rem] right-4">
+                        <div className="flex pb-16 relative top-[5.5rem] right-4">
                             <div className="flex flex-col">
                                 <div className="flex justify-center relative">
                                     <div className="flex items-center text-xs text-black w-[380px] min-h-[170px] font-['montserrat'] p-5 relative -left-10 bg-white rounded-r-full shadow-xl">

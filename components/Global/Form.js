@@ -1,10 +1,21 @@
 import MapIframeGen from "./MapIframeGen"
 import SingleUpload from "./SingleUpload"
-import { useFormContext } from 'react-hook-form';
+import { useFormContext, useWatch } from 'react-hook-form';
 import MultiUpload from "./MultipleUpload";
-import { memo, useEffect } from "react";
+import { memo, useContext, useEffect, useState } from "react";
 import "react-datetime/css/react-datetime.css";
 import Datetime from 'react-datetime';
+import AddForms from "./AddForm";
+import { getDataAmplopAddedForm } from "../../models/formModels";
+import { DataContext } from "../Form/Brides/BridesForm";
+import * as Tabs from '@radix-ui/react-tabs';
+
+function useReferencedForm(methodForm, formName, referencedFormName, valueCallback = (v) => v) {
+    const value = useWatch({ name: referencedFormName })
+    const formattedValue = valueCallback(value)
+    methodForm.setValue(formName, valueCallback(value))
+    return formattedValue
+}
 
 const InputText = ({ name, label, placeholder, required, register, errors }) => {
 
@@ -20,7 +31,15 @@ const InputText = ({ name, label, placeholder, required, register, errors }) => 
 
     )
 }
-const InputTextArea = ({ name, label, placeholder, required, register, errors }) => {
+const InputTextArea = ({ name, label, placeholder, required, register, errors, referencedForm }) => {
+
+    const methodForm = useFormContext()
+
+    if (typeof referencedForm.name !== 'undefined' && referencedForm.name !== "") {
+        const value = useReferencedForm(methodForm, name, referencedForm.name, referencedForm.valueCallback)
+        // console.log(value)
+    }
+
     return (
 
         <div className="w-full">
@@ -33,9 +52,9 @@ const InputTextArea = ({ name, label, placeholder, required, register, errors })
 
     )
 }
-const InputDate = ({ name, label, placeholder, required,}) => {
+const InputDate = ({ name, label, placeholder, required }) => {
 
-    const { register, setValue, setError, formState: { errors } } = useFormContext()
+    const { register, setValue, setError, formState: { errors }, getValues } = useFormContext()
 
     useEffect(() => {
         register(name, { required: required })
@@ -53,10 +72,18 @@ const InputDate = ({ name, label, placeholder, required,}) => {
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <Datetime dateFormat={"YYYY-MM-DD"} timeFormat={false} closeOnSelect={true} inputProps={ inputProps } onChange={
-                (e) => setValue(name,e.format("YYYY-MM-DD"))
+            <Datetime dateFormat={"YYYY-MM-DD"} timeFormat={false} closeOnSelect={true} inputProps={inputProps} onChange={
+                (value) => {
+                    try {
+                        setValue(name, value.format("YYYY-MM-DD"))
+                    } catch (error) {
+                        setValue(name, null)
+                        setError("formatError" + name, { type: 'custom', message: 'Format Waktu Salah !!!' })
+                    }
+                }
             } />
             {errors[name] && <p className="text-red-600 text-xs" role="alert">{"*" + label + " is required"}</p>}
+            {errors["formatError" + name] && <p className="text-red-600 text-xs" role="alert">{errors["formatError" + name].message}</p>}
         </div>
     )
 }
@@ -104,13 +131,18 @@ const UploadMultiPhoto = ({ name, label, required, errors }) => {
         </div>
     )
 }
-const InputMap = ({ name, label, required, errors }) => {
+const InputMap = ({ name, referencedForm, label, required, errors }) => {
+
+    const methodForm = useFormContext()
+
+    const iframeValue = useReferencedForm(methodForm, name, referencedForm.name, referencedForm.valueCallback)
+
     return (
         <div className="w-full">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <MapIframeGen />
+            <MapIframeGen iframeValue={iframeValue} />
             {errors[name] && <p className="text-red-600 text-xs" role="alert">{"*" + label + " is required"}</p>}
         </div>
     )
@@ -120,63 +152,100 @@ const InputMap = ({ name, label, required, errors }) => {
 const Form = ({ formStructure }) => {
 
     const { register, formState: { errors } } = useFormContext()
+    const [formRendered, setFormRendered] = useState(formStructure)
+    const [isFormChange, setIsFormChange] = useState(false)
+
+    useEffect(() => {
+        setIsFormChange(false)
+    }, [isFormChange])
+
+    const { submitDataStructureContext, dynamicDataStructureContext, formStructureContext } = useContext(DataContext)
+
+
+    formStructureContext.push(formStructure)
+
+    const googleMapsValueFormattedFunc = (value) => {
+        return (
+            `https://maps.google.com/maps?q=${encodeURIComponent(value)}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed`
+        )
+    }
+
+    const iframeValueFormattedFunc = (value) => {
+        return (
+            `<iframe src="https://maps.google.com/maps?q=${value}&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        )
+    }
+
 
     return (
         <>
             {
-                formStructure.length > 0 && formStructure.map((structure) => {
+                formRendered.length > 0 && formRendered.map((structure, index) => {
+                    if (structure.isDynamicApiCollection) {
+                        dynamicDataStructureContext[structure.apiCollectionName + `(${structure.key})`] = {}
+                    } else {
+                        submitDataStructureContext[structure.apiCollectionName] = {}
+                    }
                     return (
-                        <div className="form-control w-full" key={structure.key}>
-                            <label className="label">
-                                <span className="label-text font-bold text-black">{structure.title}</span>
-                            </label>
-                            <div className="form-control w-full p-5 bg-slate-300 rounded-3xl">
-                                {
-                                    structure.forms.map((form) => {
-                                        return (
-                                            <div className="flex flex-col md:flex-row justify-between md:justify-center items-start" key={form.key}>
-                                                {form?.formType == "formGroup" && form?.children.map((item) => {
-                                                    switch (item.formType) {
-                                                        case "text":
-                                                            return (
-                                                                <InputText register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
-                                                            )
-                                                        case "textArea":
-                                                            return (
-                                                                <InputTextArea register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
-                                                            )
-                                                        case "date":
-                                                            return (
-                                                                <InputDate errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
-                                                            )
-                                                        case "select":
-                                                            return (
-                                                                <SelectOptions register={register} errors={errors} name={item.name} label={item.label} options={item.options} defaultValue={item.defaultValue} required={item.required} key={item.key} />
-                                                            )
-                                                        case "photo":
-                                                            return (
-                                                                <UploadPhoto errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
-                                                            )
-                                                        case "multiPhoto":
-                                                            return (
-                                                                <UploadMultiPhoto errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
-                                                            )
-                                                        case "map":
-                                                            return (
-                                                                <InputMap register={register} errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
-                                                            )
-                                                        default:
-                                                            return (
-                                                                <div className="flex justify-center pt-5" key={`error`}>Something Went Wrong !</div>
-                                                            )
-                                                    }
-                                                })}
-                                            </div>
-                                        )
-                                    })
-                                }
+                        <Tabs.Content className="TabsContent" value={structure.radixTabsValue}>
+                            <div className="form-control w-full" key={structure.key}>
+                                <label className="label">
+                                    <span className="label-text font-bold text-black">{structure.title}</span>
+                                    {structure.addForm?.isExist && <AddForms key={structure.addForm.key} currentIndex={index} formRendered={formRendered} formToAddStructure={getDataAmplopAddedForm("Dynamic-")} setFormRendered={setFormRendered} setIsFormChange={setIsFormChange} />}
+                                </label>
+                                <div className="form-control w-full p-5 bg-slate-300 rounded-3xl">
+                                    {
+                                        structure.forms.map((form) => {
+                                            return (
+                                                <div className="flex flex-col md:flex-row justify-between md:justify-center items-start" key={form.key}>
+                                                    {form?.formType === "formGroup" && form?.children.map((item) => {
+                                                        if (structure.isDynamicApiCollection) {
+                                                            dynamicDataStructureContext[structure.apiCollectionName + `(${structure.key})`][item.apiFieldName] = item.name
+                                                        } else {
+                                                            submitDataStructureContext[structure.apiCollectionName][item.apiFieldName] = item.name
+                                                        }
+                                                        switch (item.formType) {
+                                                            case "text":
+                                                                return (
+                                                                    <InputText register={register} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                )
+                                                            case "textArea":
+                                                                return (
+                                                                    <InputTextArea register={register} referencedForm={{ name: item.referencedFormName, valueCallback: googleMapsValueFormattedFunc }} errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                )
+                                                            case "date":
+                                                                return (
+                                                                    <InputDate errors={errors} name={item.name} label={item.label} placeholder={item.placeholder} required={item.required} key={item.key} />
+                                                                )
+                                                            case "select":
+                                                                return (
+                                                                    <SelectOptions register={register} errors={errors} name={item.name} label={item.label} options={item.options} defaultValue={item.defaultValue} required={item.required} key={item.key} />
+                                                                )
+                                                            case "photo":
+                                                                return (
+                                                                    <UploadPhoto errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
+                                                                )
+                                                            case "multiPhoto":
+                                                                return (
+                                                                    <UploadMultiPhoto errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
+                                                                )
+                                                            case "map":
+                                                                return (
+                                                                    <InputMap register={register} referencedForm={{ name: item.referencedFormName, valueCallback: iframeValueFormattedFunc }} errors={errors} name={item.name} label={item.label} required={item.required} key={item.key} />
+                                                                )
+                                                            default:
+                                                                return (
+                                                                    <div className="flex justify-center pt-5" key={`error`}>Something Went Wrong !</div>
+                                                                )
+                                                        }
+                                                    })}
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
                             </div>
-                        </div>
+                        </Tabs.Content>
                     )
                 })
             }

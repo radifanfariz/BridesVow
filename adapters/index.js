@@ -1,4 +1,4 @@
-import { dataUndanganParams,getDataUndanganParams, getDataOrderParams, dataTemplateUndanganParams, dataPaketUndanganParams } from "./queryParams";
+import { dataUndanganParams,getDataUndanganParams, getDataOrderParams, dataTemplateUndanganParams, dataPaketUndanganParams, getDataOrderWithRecaptchaParams, getForgotPasswordEmailParam, getForgotPasswordSessionParam, forgotPasswordSessionDestroyParam, getForgotPasswordSessionParams, forgotPasswordSessionDestroyParams, getDataConfirmationParams, getDataUndanganPostParams, getDataUndanganSlugPostParam, getDataUndanganSessionParams, dataUndanganSessionDestroyParams, getUpdateDataOrderParams, dataListPaymentParams, getCreateDataOrderParams, getDataPaymentParams, getUpdateDataOrderByOrderIdParams, getCreateDataUndanganParams, getUpdateDataUndanganParams } from "./queryParams";
 
 // const URL = process.env.STRAPIBASEURL
 
@@ -77,12 +77,171 @@ export async function getDataPaketUndangan(){
         throw error
     });
 }
+export async function getDataListPayment(){
+
+    return await axios(dataListPaymentParams)
+    .then(function (response) {
+        const res = response.data; // Response received from the API
+        // console.log("test API: ",res)
+        return res
+    })
+    .catch(function (error) {
+        console.error(error);
+        throw error
+    });
+}
+
+export async function getDataOrder(orderId){
+
+    return await axios(getDataOrderParams(orderId))
+    .then(function (response) {
+        const res = response.data; // Response received from the API
+        // console.log("test API: ",res)
+        return res
+    })
+    .catch(function (error) {
+        console.error(error);
+        throw error
+    });
+}
 
 
 /* POST */
 
 export async function createDataOrder(data){
-    return await axios(getDataOrderParams(data))
+    return await axios(getCreateDataOrderParams(data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+export async function createDataOrderByRecaptcha({dataOrderPost,captchaValue}){
+    return await axios(getDataOrderWithRecaptchaParams({dataOrderPost,captchaValue}))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+export async function createSessionForgotPassword(data){
+    return await axios(getForgotPasswordSessionParams(data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+export async function createDataConfirmation(bodyFormData){
+    return await axios(getDataConfirmationParams(bodyFormData))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+export async function createDataUndangan(data){
+    return await axios(getCreateDataUndanganParams(data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+export async function createSessionDataUndangan(data){
+    return await axios(getDataUndanganSessionParams(data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+export async function createDataPayment(data){
+    return await axios(getDataPaymentParams(data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+/* PUT */
+export async function updateDataOrder(id, data){
+    return await axios(getUpdateDataOrderParams(id,data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+export async function updateDataOrderByOrderId(orderId,data){
+    return await axios(getUpdateDataOrderByOrderIdParams(orderId,data))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+export async function updateDataUndangan(bodyFormData){
+    return await axios(getUpdateDataUndanganParams(bodyFormData))
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+
+/* DELETE */
+export async function deleteSessionForgotPassword(){
+    return await axios(forgotPasswordSessionDestroyParams)
+    .then((response) => {
+        const res = response.data
+        return res
+    })
+    .catch((error) => {
+        console.error(error)
+        throw error
+    })
+}
+
+export async function deleteSessionDataUndangan(){
+    return await axios(dataUndanganSessionDestroyParams)
     .then((response) => {
         const res = response.data
         return res

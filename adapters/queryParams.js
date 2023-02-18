@@ -1,13 +1,16 @@
 const URL = process.env.STRAPIBASEURL
+const NEXT_URL = process.env.NEXT_PUBLIC_BASE_URL
+const APIKEY = process.env.STRAPIAPIKEY
 
-export const getDataUndanganParams = (slug = "") => {
+export const getDataUndanganParams = (slug = "", url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
   return {
 
     method: "post",
-    url: `${URL}/graphql`,
+    url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "bearer a0b561b25959c26a101115a5875ce460ab4bd3814c21f70972c7a5e0d21f8e5a7647ef2569a900e0d9e2903dd6468e1514726f9d0bca3729a6890cb262aa0e16b218431202c87531aebd0b075c297f770c8dfdc11a7ec23335a93f87be86fd72f0ee4b77b27e394994e9b5a07d6e3f5384a28c543067786401b70c1a16a27286"
+      "Authorization": `bearer ${apikey}`
     },
     data: {
       query: `
@@ -20,7 +23,7 @@ export const getDataUndanganParams = (slug = "") => {
               data {
                 id
                 attributes {
-                  UndanganID
+                  OrderID
                   Slug
                   template_undangan{
                     data{
@@ -147,7 +150,7 @@ export const dataUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "bearer a0b561b25959c26a101115a5875ce460ab4bd3814c21f70972c7a5e0d21f8e5a7647ef2569a900e0d9e2903dd6468e1514726f9d0bca3729a6890cb262aa0e16b218431202c87531aebd0b075c297f770c8dfdc11a7ec23335a93f87be86fd72f0ee4b77b27e394994e9b5a07d6e3f5384a28c543067786401b70c1a16a27286"
+    "Authorization": `bearer ${APIKEY}`
   },
   data: {
     query: `
@@ -272,7 +275,7 @@ export const dataTemplateUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "bearer a0b561b25959c26a101115a5875ce460ab4bd3814c21f70972c7a5e0d21f8e5a7647ef2569a900e0d9e2903dd6468e1514726f9d0bca3729a6890cb262aa0e16b218431202c87531aebd0b075c297f770c8dfdc11a7ec23335a93f87be86fd72f0ee4b77b27e394994e9b5a07d6e3f5384a28c543067786401b70c1a16a27286"
+    "Authorization": `bearer ${APIKEY}`
   },
   data: {
     query: `
@@ -316,7 +319,7 @@ export const dataPaketUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": "bearer a0b561b25959c26a101115a5875ce460ab4bd3814c21f70972c7a5e0d21f8e5a7647ef2569a900e0d9e2903dd6468e1514726f9d0bca3729a6890cb262aa0e16b218431202c87531aebd0b075c297f770c8dfdc11a7ec23335a93f87be86fd72f0ee4b77b27e394994e9b5a07d6e3f5384a28c543067786401b70c1a16a27286"
+    "Authorization": `bearer ${APIKEY}`
   },
   data: {
     query: `
@@ -356,15 +359,88 @@ export const dataPaketUndanganParams = {
   }
 }
 
-export const getDataOrderParams = (data) => {
+export const getDataOrderParams = (orderId, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
   return {
 
     method: "post",
-    url: `/graphql`,
-    baseURL: `http://192.168.100.23:1338`,
+    url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "bearer a0b561b25959c26a101115a5875ce460ab4bd3814c21f70972c7a5e0d21f8e5a7647ef2569a900e0d9e2903dd6468e1514726f9d0bca3729a6890cb262aa0e16b218431202c87531aebd0b075c297f770c8dfdc11a7ec23335a93f87be86fd72f0ee4b77b27e394994e9b5a07d6e3f5384a28c543067786401b70c1a16a27286"
+      "Authorization": `bearer ${apikey}`
+    },
+    data: {
+      query: `
+      query GetDataPemesanan($orderId: String!) {
+        pemesanans(filters: { OrderID: { contains: $orderId } }) {
+          data {
+            id
+            attributes {
+              Nama
+              No_HP
+              Email
+              Alamat
+              Kota
+              Metode_Pembayaran
+              Total_Bayar
+              IsPaid
+              Status
+              template_undangan {
+                data {
+                  attributes {
+                    Nama
+                    Gambar {
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    paket_undangan {
+                      data {
+                        attributes {
+                          Nama
+                        }
+                      }
+                    }
+                    TemplateID
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+            
+
+        `,
+        variables: {
+          orderId: orderId
+        }
+    }
+  }
+}
+
+export const dataListPaymentParams = {
+
+  method: "post",
+  url: `${NEXT_URL}/api/payment/list`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+  data: {}
+}
+
+export const getCreateDataOrderParams = (data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/graphql`,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${apikey}`
     },
     data: {
       query: `
@@ -375,6 +451,9 @@ export const getDataOrderParams = (data) => {
           data {
             id
             attributes {
+              Status
+              IsPaid
+              OrderID
               Nama
               No_HP
               Email
@@ -414,5 +493,312 @@ export const getDataOrderParams = (data) => {
         data: data
       }
     }
+  }
+}
+export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue }, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  console.log("ada apa " + captchaValue)
+  return {
+
+    method: "post",
+    url: `${url}/graphql`,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${apikey}`
+    },
+    data: {
+      query: `
+      mutation CreatePemesananByRecaptcha($data: PemesananInput!, $captchaValue: String!) {
+        createPemesananByRecaptcha(data: $data,captchaValue: $captchaValue) {
+          data {
+            id
+            attributes {
+              Status
+              IsPaid
+              OrderID
+              Nama
+              No_HP
+              Email
+              Alamat
+              Kota
+              Total_Bayar
+              Metode_Pembayaran
+              Channel_Pembayaran
+              template_undangan {
+                data {
+                  attributes {
+                    Nama
+                    Gambar {
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    paket_undangan {
+                      data {
+                        attributes {
+                          Nama
+                        }
+                      }
+                    }
+                    TemplateID
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      
+      
+        `,
+      variables: {
+        data: dataOrderPost,
+        captchaValue: captchaValue
+      }
+    }
+  }
+}
+
+export const getUpdateDataOrderParams = (id, data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/graphql`,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${apikey}`
+    },
+    data: {
+      query: `
+      mutation UpdatePemesanan($id: ID!, $data: PemesananInput!) {
+        updatePemesanan(id: $id, data: $data) {
+          data {
+            id
+            attributes {
+              Status
+              IsPaid
+              OrderID
+              Nama
+              No_HP
+              Email
+              Alamat
+              Kota
+              template_undangan {
+                data {
+                  attributes {
+                    Nama
+                    Gambar {
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    paket_undangan {
+                      data {
+                        attributes {
+                          Nama
+                        }
+                      }
+                    }
+                    TemplateID
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      
+      
+        `,
+      variables: {
+        id: id,
+        data: data
+      }
+    }
+  }
+}
+export const getUpdateDataOrderByOrderIdParams = (orderId, data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/graphql`,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${apikey}`
+    },
+    data: {
+      query: `
+      mutation UpdatePemesananByOrderId($orderId: String!, $data: PemesananInput!) {
+        updatePemesananByOrderId(orderId: $orderId, data: $data) {
+          data {
+            id
+            attributes {
+              Status
+              IsPaid
+              OrderID
+              Nama
+              No_HP
+              Email
+              Alamat
+              Kota
+              template_undangan {
+                data {
+                  attributes {
+                    Nama
+                    Gambar {
+                      data {
+                        id
+                        attributes {
+                          url
+                        }
+                      }
+                    }
+                    paket_undangan {
+                      data {
+                        attributes {
+                          Nama
+                        }
+                      }
+                    }
+                    TemplateID
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      
+      
+      
+      
+        `,
+      variables: {
+        orderId: orderId,
+        data: data
+      }
+    }
+  }
+}
+
+export const getForgotPasswordSessionParams = (data, url = "http://localhost:3000") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/api/forgotPasswordSession`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      email: data.email,
+      isOtpPage: data.isOtpPage
+    }
+
+  }
+}
+
+export const forgotPasswordSessionDestroyParams = {
+
+  method: "post",
+  url: `/api/forgotPasswordSessionDestroy`,
+  headers: {
+    "Content-Type": "application/json",
+  }
+}
+
+export const getDataConfirmationParams = (bodyFormData, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/api/konfirmasis`,
+    headers: {
+      "Content-Type": "multipart/form-data",
+      "Authorization": `bearer ${apikey}`
+    },
+    data: bodyFormData
+
+  }
+}
+
+export const getUpdateDataUndanganParams = (data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  return {
+
+    method: "put",
+    url: `${url}/api/data-undangans/${data.id}`,
+    headers: {
+      "Content-Type": "multipart/form-data",
+      "Authorization": `bearer ${apikey}`
+    },
+    data: data.bodyFormData
+
+  }
+}
+
+export const getCreateDataUndanganParams = (data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/api/data-undangans`,
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `bearer ${apikey}`
+    },
+    data: data
+
+  }
+}
+
+export const getDataUndanganSessionParams = (data, url = "http://localhost:3000") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/api/dataUndanganSession`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: {
+      id: data.id,
+      slug: data.slug,
+      isDataUndanganFormPage: data.isDataUndanganFormPage
+    }
+
+  }
+}
+
+export const dataUndanganSessionDestroyParams = {
+
+  method: "post",
+  url: `/api/dataUndanganSessionDestroy`,
+  headers: {
+    "Content-Type": "application/json",
+  }
+}
+
+export const getDataPaymentParams = (data, url = "http://localhost:3000") => {
+
+  return {
+
+    method: "post",
+    url: `${url}/api/payment`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: data
+
   }
 }

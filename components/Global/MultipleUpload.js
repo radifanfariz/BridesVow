@@ -33,6 +33,11 @@ const MultiUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
     });
 
     useEffect(() => {
+        if(getValues(name)){
+            setFiles(getValues(name).map(file => Object.assign(file, {
+                preview: URL.createObjectURL(file)
+            })));
+        }
         // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
         return () => files.forEach(file => URL.revokeObjectURL(file.preview));
     }, []);
@@ -52,7 +57,7 @@ const MultiUpload = ({ name, required, width = "w-80 lg:w-[35rem]" }) => {
 
 
     ////react hook form setting////
-    const { register, setValue, setError, formState: { errors } } = useFormContext()
+    const { register, setValue, setError, formState: { errors },getValues } = useFormContext()
 
     useEffect(() => {
         register(name, { required: required })

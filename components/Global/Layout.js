@@ -1,6 +1,7 @@
 import BridesVowIcon from "../../public/static/bridesvow.svg"
 import Link from "next/link"
 import Image from "next/image"
+import HelpButton from "./HelpButton"
 
 const Layout = ({ children }) => {
     return (
@@ -22,6 +23,7 @@ const Layout = ({ children }) => {
                 </header>
                 <main>
                     {children}
+                    <HelpButton />
                 </main>
             </div>
         </>

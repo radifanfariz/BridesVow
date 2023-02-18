@@ -23,7 +23,7 @@ const MainContent = ({children}) => {
             </div> */}
             <div className="flex justify-center">
                 <div className="flex flex-col items-center xl:mb-44">
-                    <div className="flex justify-center w-fit max-w-[100vw] z-10 xl:mt-40 mt-20 px-10 py-5 text-center xl:text-8xl text-5xl font-extrabold font-['montserrat-extrabold'] text-white [text-shadow:6px_6px_#003153] [-webkit-text-stroke:2px_black] leading-none">Undangan Pernikahan Online</div>
+                    <div className="flex justify-center w-fit max-w-[100vw] z-10 md:mt-40 mt-20 px-10 py-5 text-center xl:text-8xl text-5xl font-extrabold font-['montserrat-extrabold'] text-white [text-shadow:6px_6px_#003153] [-webkit-text-stroke:2px_black] leading-none">Undangan Pernikahan Online</div>
                     <div className="flex flex-col items-center w-fit max-w-[100vw] z-10 text-center text-white xl:text-3xl text-md font-['poppins'] font-bold capitalize">
                         <span className="block">Hello, Bride and Groom to be</span>
                         <span className="block">Ayo bagikan momen bahagiamu dengan menggunakan</span>

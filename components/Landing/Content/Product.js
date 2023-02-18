@@ -16,9 +16,9 @@ const PriceContainer = ({ bgColor = 'bg-white', textColor = 'text-black', title,
                     <span className={`font-[poppins-extrabold] uppercase xl:text-[35px] xl:leading-10 text-lg ${textColor}`}>{title}</span>
                     <span className={`font-[poppins-extrabold] capitalize xl:text-[35px] xl:leading-10 text-lg  ${textColor}`}>Rp.{price}</span>
                     <ul className="list-disc pl-3 pt-3">
-                        {features.length > 0 && features.map((item) => {
+                        {features.length > 0 && features.map((item,index) => {
                             return (
-                                <li key={item.content} className={`xl:text-[25px] text-[0.82rem]  ${textColor}`}>{item.content}</li>
+                                <li key={item.content+index} className={`xl:text-[25px] text-[0.82rem]  ${textColor}`}>{item.content}</li>
                             )
                         })}
                     </ul>

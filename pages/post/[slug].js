@@ -42,6 +42,7 @@ export async function getStaticPaths() {
         };
 
     } catch (err) {
+        console.log(err)
         return {
             paths: [],
             fallback: 'false',
@@ -52,17 +53,11 @@ export async function getStaticPaths() {
 
 const Post = ({ data }) => {
 
-    try {
         const templateId = data.dataUndangans.data[0].attributes.template_undangan.data.attributes.TemplateID
         const getTemplate = templateAll[templateId]
         return (
             getTemplate(data.dataUndangans.data[0].attributes)
         )
-    } catch (error) {
-        return(
-            <Custom404/>
-        )
-    }
 }
 
 export default Post

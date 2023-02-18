@@ -2,18 +2,21 @@ import Image from "next/image"
 import { useEffect, useMemo, useState } from "react"
 import imageLoader from "../../../utils/imageLoader"
 import { randomThreeNum } from "../../../utils/randomNum"
+import ReCAPTCHA from "react-google-recaptcha"
+import OrderPayment from "./OrderPayment"
 
-const OrderView = ({ dataOrderForm,setTotalHarga }) => {
+const OrderView = ({ paymentList, dataOrderForm, setTotalHarga, setCaptchaValue }) => {
 
     const [threeUniqueDigit, setThreeUniqueDigit] = useState(0)
 
     const randomNum = useMemo(randomThreeNum, [])
 
-    useEffect(()=>{
+    useEffect(() => {
         setThreeUniqueDigit(randomNum)
-        const totalHarga=dataOrderForm.harga + threeUniqueDigit
+        const totalHarga = dataOrderForm.harga + threeUniqueDigit
         setTotalHarga(totalHarga)
-    },[dataOrderForm])
+    }, [dataOrderForm])
+
 
     return (
         <>
@@ -40,25 +43,12 @@ const OrderView = ({ dataOrderForm,setTotalHarga }) => {
                             <span className="font-bold">{`Rp.${threeUniqueDigit + dataOrderForm.harga}`}</span>
                         </div>
                         <div className="divider mt-2"></div>
-                        <div className="flex flex-col pr-5">
-                            <div className="label my-4">
-                                <span className="font-bold">Metode Pembayaran</span>
-                            </div>
-                            <div className="flex items-center">
-                                <input type="radio" name="radio-1" className="radio" defaultChecked={true} />
-                                <span className="label-text px-2 text-black">Bank Transfer - BNI</span>
-                                <Image className='' src={"/static/wallet/bni.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
-                            </div>
-                            <div className="flex items-center">
-                                <input type="radio" name="radio-1" className="radio" />
-                                <span className="label-text px-2 text-black">Dana</span>
-                                <Image className='' src={"/static/wallet/dana.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
-                            </div>
-                            <div className="flex items-center">
-                                <input type="radio" name="radio-1" className="radio" />
-                                <span className="label-text px-2 text-black">OVO</span>
-                                <Image className='' src={"/static/wallet/ovo.png"} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
-                            </div>
+                        <OrderPayment paymentList={paymentList} />
+                        <div className="flex justify-center pt-2">
+                            <ReCAPTCHA
+                                sitekey="6Le05zkkAAAAAFSIWIA25tFw7q3iPorutTh3vrtU"
+                                onChange={value => setCaptchaValue(value)}
+                            />
                         </div>
                         <div className="flex justify-center mt-2">
                             <button className="btn sm:btn-wide w-full bg-[#003153] text-white">Bayar</button>
