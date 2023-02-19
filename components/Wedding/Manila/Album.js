@@ -26,37 +26,37 @@ const Album = ({ contents }) => {
                         <div className="flex justify-center text-2xl font-[poppins] mt-10 text-white bg-[#35584B] rounded-full">Galeri Foto</div>
                     </div>
                     <div className="flex justify-center w-full mb-20">
-                        <Swiper
-                            centeredSlides={true}
-                            centeredSlidesBounds={true}
-                            effect={"coverflow"}
-                            grabCursor={true} navigation={true} modules={[EffectCoverflow, Pagination, Navigation]}
-                            spaceBetween={-80} slidesPerView={"auto"} coverflowEffect={{
-                                rotate: 50,
-                                stretch: 0,
-                                depth: 100,
-                                modifier: 1,
-                                slideShadows: false,
-                            }}
-                            pagination={true} className="mySwiper">
-                            {contents.gallery.length > 0 && contents.gallery.map((item, index) => {
-                                return (
-                                    <SwiperSlide key={index}>
-                                        <div className="flex justify-center">
-                                            <div className='w-72 h-[350px] relative'>
-                                                <PhotoProvider>
+                        <PhotoProvider>
+                            <Swiper
+                                centeredSlides={true}
+                                centeredSlidesBounds={true}
+                                effect={"coverflow"}
+                                grabCursor={true} navigation={true} modules={[EffectCoverflow, Pagination, Navigation]}
+                                spaceBetween={-80} slidesPerView={"auto"} coverflowEffect={{
+                                    rotate: 50,
+                                    stretch: 0,
+                                    depth: 100,
+                                    modifier: 1,
+                                    slideShadows: false,
+                                }}
+                                pagination={true} className="mySwiper">
+                                {contents.gallery.length > 0 && contents.gallery.map((item, index) => {
+                                    return (
+                                        <SwiperSlide key={index}>
+                                            <div className="flex justify-center">
+                                                <div className='w-72 h-[350px] relative'>
                                                     <PhotoView key={index} src={item}>
                                                         <a>
                                                             <Image className='rounded-3xl' layout='fill' loader={imageLoader} src={item} alt='template' objectFit="cover" />
                                                         </a>
                                                     </PhotoView>
-                                                </PhotoProvider>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </SwiperSlide>
-                                )
-                            })}
-                        </Swiper>
+                                        </SwiperSlide>
+                                    )
+                                })}
+                            </Swiper>
+                        </PhotoProvider>
                     </div>
                 </div>
             </AnimationOnScroll>
