@@ -7,6 +7,7 @@ export const getAuthParams = (data, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -38,6 +39,7 @@ export const getAuthRegisterParams = (data, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data
   }
@@ -53,6 +55,7 @@ export const getCheckPemesananParams = (identifier, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -100,6 +103,7 @@ export const getChangePasswordParams = (data, url) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${data.jwt}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data.dataChangePassword
   }
@@ -140,6 +144,7 @@ export const getDataUndanganIdByOrderIdParams = (orderId, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
