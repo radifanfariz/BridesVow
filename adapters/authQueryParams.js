@@ -118,6 +118,7 @@ export const getLoginSessionParams = (data, url) => {
     url: `${url}/api/auth/login`,
     headers: {
       "Content-Type": "application/json",
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data
 
@@ -130,6 +131,7 @@ export const loginSessionDestroyParams = {
   url: `/api/auth/logout`,
   headers: {
     "Content-Type": "application/json",
+    "Accept-Encoding": "gzip,deflate,compress"
   }
 }
 

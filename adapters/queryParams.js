@@ -708,6 +708,7 @@ export const getForgotPasswordSessionParams = (data, url) => {
     url: `${url}/api/forgotPasswordSession`,
     headers: {
       "Content-Type": "application/json",
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       email: data.email,
@@ -723,6 +724,7 @@ export const forgotPasswordSessionDestroyParams = {
   url: `/api/forgotPasswordSessionDestroy`,
   headers: {
     "Content-Type": "application/json",
+    "Accept-Encoding": "gzip,deflate,compress"
   }
 }
 
@@ -782,6 +784,7 @@ export const getDataUndanganSessionParams = (data, url) => {
     url: `${url}/api/dataUndanganSession`,
     headers: {
       "Content-Type": "application/json",
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       id: data.id,
@@ -798,6 +801,7 @@ export const dataUndanganSessionDestroyParams = {
   url: `/api/dataUndanganSessionDestroy`,
   headers: {
     "Content-Type": "application/json",
+    "Accept-Encoding": "gzip,deflate,compress"
   }
 }
 
@@ -809,6 +813,7 @@ export const getDataPaymentParams = (data, url) => {
     url: `${url}/api/payment`,
     headers: {
       "Content-Type": "application/json",
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data
 
