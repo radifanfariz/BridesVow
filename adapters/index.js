@@ -182,7 +182,7 @@ export async function createSessionDataUndangan(data){
     })
 }
 export async function createDataPayment(data){
-    return await axios(getDataPaymentParams(data,strapiUrl))
+    return await axios(getDataPaymentParams(data,baseUrl))
     .then((response) => {
         const res = response.data
         return res

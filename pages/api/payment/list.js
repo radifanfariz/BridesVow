@@ -1,9 +1,9 @@
 import CryptoJS from "crypto-js";
 
 
-const url = process.env.IPAYMUBASEURL+'/payment-method-list'
-const apikey = process.env.IPAYMUAPIKEY
-const va = process.env.IPAYMUVA
+const url = process.env.IPAYMU_BASE_URL+'/payment-method-list'
+const apikey = process.env.IPAYMU_API_KEY
+const va = process.env.IPAYMU_VA
 
 export default function paymentList(req,res){
      // generate signature

@@ -45,31 +45,40 @@ const OrderPage = ({ data, paymentList }) => {
     //////////////
     const [openPopUp, setOpenPopUp] = useState(false)
 
+    ////data register///
+    const dataRegisterRef = useRef(null)
+
     /*---------------------------------------------------API Communications--------------------------------------------------------------*/
 
     ////////////data payment///////////////////////
     const mutationDataPayment = useMutation(createDataPayment, {
-        onSuccess: data => {
+        onSuccess: async (data) => {
             console.log(data)
             // const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data)
             // alert(message)
             notifySuccess("SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)")
-            if (data.Status === 200) {
-                // const queryString = `?orderId=${data.Data.ReferenceId}&channelCode=${data.Data.Channel}&methodCode=${data.Data.Via}&paymentNo=${data.Data.paymentNo}&paymentName=${data.Data.PaymentName}&expired=${data.Data.Expired}&paymentIntrucionsDoc=${orderDataContextRef.current.paymentIntrucionsDoc}`
-                const dataToRedirect = {
-                    methodCode: data.Data.Via,
-                    channelCode: data.Data.Channel,
-                    paymentNo: data.Data.PaymentNo,
-                    paymentName: data.Data.PaymentName,
-                    total: data.Data.Total,
-                    expired: data.Data.Expired,
-                    paymentIntrucionsDoc: orderDataContextRef.current.paymentIntrucionsDoc
+            try {
+                console.log(dataRegisterRef.current)
+                await mutationRegister.mutateAsync(dataRegisterRef.current)
+                if (data.Status === 200) {
+                    // const queryString = `?orderId=${data.Data.ReferenceId}&channelCode=${data.Data.Channel}&methodCode=${data.Data.Via}&paymentNo=${data.Data.paymentNo}&paymentName=${data.Data.PaymentName}&expired=${data.Data.Expired}&paymentIntrucionsDoc=${orderDataContextRef.current.paymentIntrucionsDoc}`
+                    const dataToRedirect = {
+                        methodCode: data.Data.Via,
+                        channelCode: data.Data.Channel,
+                        paymentNo: data.Data.PaymentNo,
+                        paymentName: data.Data.PaymentName,
+                        total: data.Data.Total,
+                        expired: data.Data.Expired,
+                        paymentIntrucionsDoc: orderDataContextRef.current.paymentIntrucionsDoc
+                    }
+                    const cipherText = encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(dataToRedirect), aesSecretKey).toString())
+                    router.push(`/order/status/?orderId=${data.Data.ReferenceId}&encryptedData=${cipherText}`)
+                } else {
+                    notifyError("Something went wrong !")
+                    setOpenPopUp(true)
                 }
-                const cipherText = encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(dataToRedirect), aesSecretKey).toString())
-                router.push(`/order/status/?orderId=${data.Data.ReferenceId}&encryptedData=${cipherText}`)
-            } else {
-                notifyError("Something went wrong !")
-                setOpenPopUp(true)
+            } catch (error) {
+
             }
         },
         onError: (error) => {
@@ -93,7 +102,6 @@ const OrderPage = ({ data, paymentList }) => {
             console.log(data)
             // const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data)
             // alert(message)
-            notifySuccess("SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)")
 
             try {
                 const id = data.data.createPemesananByRecaptcha.data.id
@@ -140,7 +148,6 @@ const OrderPage = ({ data, paymentList }) => {
             console.log(data)
             // const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data)
             // alert(message)
-            notifySuccess("SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)")
         },
         onError: (error) => {
             try {
@@ -186,7 +193,7 @@ const OrderPage = ({ data, paymentList }) => {
             password: data.password
         }
 
-        await mutationRegister.mutateAsync(dataRegister)
+        dataRegisterRef.current = dataRegister
         await mutationDataOrder.mutateAsync({ dataOrderPost, captchaValue });
         // alert('SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n' + JSON.stringify(dataOrderPost));
         // alert('SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n' + captchaValue)
