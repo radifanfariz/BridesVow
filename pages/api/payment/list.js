@@ -15,7 +15,9 @@ export default function paymentList(req,res){
     fetch(url,        {
         method: "POST",
         headers: {
-            'Accept': 'application/json', 'Content-Type': 'application/json',
+            'Accept': 'application/json', 
+            'Content-Type': 'application/json',
+            "Accept-Encoding": "gzip,deflate,compress",
             'va': va,
             'signature': signature,
             'timestamp': Date.now()
