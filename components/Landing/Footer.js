@@ -4,6 +4,7 @@ import AvaBlue from "../../public/static/landing/avabluecircle.svg";
 import AvaYellow from "../../public/static/landing/avayellowcircle.svg";
 import BridesVowIcon from "../../public/static/bridesvow.svg";
 import Link from "next/link";
+import { MdCorporateFare } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -27,12 +28,12 @@ const Footer = () => {
                 </span>
               </div>
               <span className="text-white text-center">
-                Platform Undangan Pernikahan Online Premium
+                Platform Undangan Online Premium
               </span>
             </div>
             <div className="col-span-1 w-full flex justify-center">
               <div className="grid grid-cols-2 md:grid-cols-3 justify-items-center font-Poppins text-white">
-                <div className="py-5 w-full">
+                <div className="p-5 md:px-5 px-10 w-full">
                   <h1 className="text-xl font-bold py-5">Product</h1>
                   <ul>
                     <li>
@@ -41,23 +42,23 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="#">
-                        <a className="hover:border-b-2">Brides Forms</a>
+                      <Link href="/brides">
+                        <a className="hover:border-b-2">Dashboard</a>
                       </Link>
                     </li>
                     <li>
-                      <Link href="#">
+                      <Link href="/order">
                         <a className="hover:border-b-2">Order</a>
                       </Link>
                     </li>
                     <li>
-                      <Link href="#">
+                      <Link href="/confirmation">
                         <a className="hover:border-b-2">Confirmation</a>
                       </Link>
                     </li>
                   </ul>
                 </div>
-                <div className="py-5 w-full">
+                <div className="p-5 md:px-5 px-10 w-full">
                   <h1 className="text-xl font-bold py-5">Information</h1>
                   <ul>
                     <li>
@@ -77,7 +78,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="py-5 w-full">
+                <div className="p-5 md:px-5 px-10 w-full">
                   <h1 className="text-xl font-bold py-5">About</h1>
                   <ul>
                     <li className="flex items-center">
@@ -97,6 +98,18 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li className="flex items-center">
+                      <Link href="#">
+                        <a className="hover:border-b-2">
+                          <span className="flex justify-center">
+                            <span className="w-[20px] h-[20px]">
+                              <MdCorporateFare className="text-xl" />
+                            </span>
+                            <span className="pl-2">CV. Wirya Media</span>
+                          </span>
+                        </a>
+                      </Link>
+                    </li>
+                    {/* <li className="flex items-center">
                       <Link href="#">
                         <a className="hover:border-b-2">
                           <span>
@@ -143,7 +156,7 @@ const Footer = () => {
                           </span>
                         </a>
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
@@ -198,8 +211,9 @@ const Footer = () => {
                 </div>
               </div>
             </div> */}
-            <div className="order-3 flex justify-center items-center text-white font-semibold text-xs xl:text-[16px] mb-2 mt-2">
-              Copyright © 2022 BridesVow, Inc. All rights reserved.
+            <div className="order-3 flex flex-col justify-center items-center text-white font-semibold text-xs xl:text-[16px] mb-2 mt-2">
+              <span>Copyright © 2022 CV. Wirya Media. All rights reserved.</span>
+              <span>Developed by <a rel="noreferrer" className="hover:opacity-80" target="_blank" href="https://radifanfariz.tech/">Radifan Fariz</a></span>
               {/* <div className="order-1 flex flex-row ml-2">
                                 <div className="text-5xl hover:opacity-25">
                                     <Link href={"#"}>

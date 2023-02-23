@@ -7,6 +7,9 @@ import { createContext, useEffect, useState } from "react";
 import { QueryClient, useMutation } from "react-query";
 import { createDataUndangan, updateDataUndangan } from "../../../adapters";
 import BridesTabs from "./BridesTabs";
+import LoadingPopUp from "../../Global/LoadingPopUp";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const DataContext = createContext(null)
 
@@ -42,18 +45,46 @@ const BridesForm = ({ undanganId, undanganSlug }) => {
     const { mutateAsync, isLoading } = useMutation(updateDataUndangan, {
         onSuccess: data => {
             console.log(data)
-            const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data)
-            alert(message)
+            // alert("'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data))
+            notifySuccess("SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)")
         },
         onError: (error) => {
-            alert("there was an error")
-            alert(error.response.data.error?.message)
-            console.log(error)
+            try {
+                // alert(error.response.data.error.message)
+                notifyError(error.response.data.error.message)
+            } catch (error) {
+                // alert("there was an error")
+                notifyError("there was an error")
+                console.log(error)
+            }
         },
         onSettled: () => {
             queryClient.invalidateQueries('create')
         }
     })
+
+    ///success toast
+    const notifySuccess = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+    ///error toast
+    const notifyError = (message) => toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
 
     const onSubmit = async (data) => {
 
@@ -149,19 +180,22 @@ const BridesForm = ({ undanganId, undanganSlug }) => {
         // alert('SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n' + JSON.stringify(dataSubmitTexts));
     }
     const onError = (errors, e) => {
-        alert('ERRORS!! Periksa lagi form nya !! ( ͡╥ ͜ʖ ͡╥)');
+        // alert('ERRORS!! Periksa lagi form nya !! ( ͡╥ ͜ʖ ͡╥)');
+        notifyError('ERRORS!! Periksa lagi form nya !! ( ͡╥ ͜ʖ ͡╥)')
         console.log(errors, e);
     }
 
     return (
         <>
-            <div className="w-full">
-                <DataContext.Provider value={{ 
-                    submitDataStructureContext: submitDataStructure, 
-                    dynamicDataStructureContext: dynamicDataStructure, 
-                    formStructureContext: formStructure ,
-                    }}>
-                    <section className="flex justify-center px-2 font-[poppins]">
+            <ToastContainer />
+            <LoadingPopUp openPopUp={isLoading} />
+            <section className="w-full">
+                <DataContext.Provider value={{
+                    submitDataStructureContext: submitDataStructure,
+                    dynamicDataStructureContext: dynamicDataStructure,
+                    formStructureContext: formStructure,
+                }}>
+                    <div className="flex justify-center px-2 font-[poppins]">
                         <FormProvider {...methods}>
                             <form onSubmit={methods.handleSubmit(onSubmit, onError)} className="mt-6 mb-0 xl:mb-6 space-y-4 rounded-lg p-8 xl:shadow-2xl w-full max-w-3xl bg-white">
                                 <div className="flex justify-center">
@@ -176,9 +210,9 @@ const BridesForm = ({ undanganId, undanganSlug }) => {
                                 </div>
                             </form>
                         </FormProvider>
-                    </section>
+                    </div>
                 </DataContext.Provider>
-            </div>
+            </section>
         </>
     )
 }

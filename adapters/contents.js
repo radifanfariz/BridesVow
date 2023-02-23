@@ -134,7 +134,7 @@ export const getWeddingContents = (data) => {
         },
 
         comment:{
-            dbName: data.Slug,
+            dbName: data.OrderID,
         },
     
         giving : {
@@ -148,7 +148,7 @@ export const getWeddingContents = (data) => {
         },
 
         rsvp:{
-            dbName: data.Slug,
+            dbName: data.OrderID,
         },
     
         outro : {

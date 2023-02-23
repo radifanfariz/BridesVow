@@ -3,6 +3,8 @@ import HelpButton from "../../../components/Global/HelpButton";
 import RegisterForm from "../../../components/Form/Auth/RegisterForm";
 import Layout from "../../../components/Global/Layout";
 
+
+////under development
 export default function RegisterPage() {
     const methods = useForm()
     return (

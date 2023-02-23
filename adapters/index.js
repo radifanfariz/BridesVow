@@ -25,9 +25,12 @@ import axios from "axios";
 
 /* GET */
 
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL
+
 export async function getDataUndangan(slug=""){
 
-    return await axios(getDataUndanganParams(slug))
+    return await axios(getDataUndanganParams(slug,strapiUrl))
     .then(function (response) {
         const res = response.data; // Response received from the API
         // console.log("test API: ",res)
@@ -93,7 +96,7 @@ export async function getDataListPayment(){
 
 export async function getDataOrder(orderId){
 
-    return await axios(getDataOrderParams(orderId))
+    return await axios(getDataOrderParams(orderId,strapiUrl))
     .then(function (response) {
         const res = response.data; // Response received from the API
         // console.log("test API: ",res)
@@ -109,7 +112,7 @@ export async function getDataOrder(orderId){
 /* POST */
 
 export async function createDataOrder(data){
-    return await axios(getCreateDataOrderParams(data))
+    return await axios(getCreateDataOrderParams(data,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -120,7 +123,7 @@ export async function createDataOrder(data){
     })
 }
 export async function createDataOrderByRecaptcha({dataOrderPost,captchaValue}){
-    return await axios(getDataOrderWithRecaptchaParams({dataOrderPost,captchaValue}))
+    return await axios(getDataOrderWithRecaptchaParams({dataOrderPost,captchaValue},strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -132,7 +135,7 @@ export async function createDataOrderByRecaptcha({dataOrderPost,captchaValue}){
 }
 
 export async function createSessionForgotPassword(data){
-    return await axios(getForgotPasswordSessionParams(data))
+    return await axios(getForgotPasswordSessionParams(data,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -144,7 +147,7 @@ export async function createSessionForgotPassword(data){
 }
 
 export async function createDataConfirmation(bodyFormData){
-    return await axios(getDataConfirmationParams(bodyFormData))
+    return await axios(getDataConfirmationParams(bodyFormData,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -156,7 +159,7 @@ export async function createDataConfirmation(bodyFormData){
 }
 
 export async function createDataUndangan(data){
-    return await axios(getCreateDataUndanganParams(data))
+    return await axios(getCreateDataUndanganParams(data,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -168,7 +171,7 @@ export async function createDataUndangan(data){
 }
 
 export async function createSessionDataUndangan(data){
-    return await axios(getDataUndanganSessionParams(data))
+    return await axios(getDataUndanganSessionParams(data,baseUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -179,7 +182,7 @@ export async function createSessionDataUndangan(data){
     })
 }
 export async function createDataPayment(data){
-    return await axios(getDataPaymentParams(data))
+    return await axios(getDataPaymentParams(data,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -192,7 +195,7 @@ export async function createDataPayment(data){
 
 /* PUT */
 export async function updateDataOrder(id, data){
-    return await axios(getUpdateDataOrderParams(id,data))
+    return await axios(getUpdateDataOrderParams(id,data,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -203,7 +206,7 @@ export async function updateDataOrder(id, data){
     })
 }
 export async function updateDataOrderByOrderId(orderId,data){
-    return await axios(getUpdateDataOrderByOrderIdParams(orderId,data))
+    return await axios(getUpdateDataOrderByOrderIdParams(orderId,data,strapiUrl))
     .then((response) => {
         const res = response.data
         return res
@@ -215,7 +218,7 @@ export async function updateDataOrderByOrderId(orderId,data){
 }
 
 export async function updateDataUndangan(bodyFormData){
-    return await axios(getUpdateDataUndanganParams(bodyFormData))
+    return await axios(getUpdateDataUndanganParams(bodyFormData=bodyFormData,strapiUrl))
     .then((response) => {
         const res = response.data
         return res

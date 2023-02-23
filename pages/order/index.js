@@ -13,6 +13,7 @@ import WarningPopUp from "../../components/Global/WarningPopUp"
 import { ToastContainer, toast } from "react-toastify"
 import LoadingPopUp from "../../components/Global/LoadingPopUp"
 import 'react-toastify/dist/ReactToastify.css';
+import { register } from "../../adapters/auth"
 
 export const DataContext = createContext(null)
 
@@ -44,6 +45,9 @@ const OrderPage = ({ data, paymentList }) => {
     //////////////
     const [openPopUp, setOpenPopUp] = useState(false)
 
+    /*---------------------------------------------------API Communications--------------------------------------------------------------*/
+
+    ////////////data payment///////////////////////
     const mutationDataPayment = useMutation(createDataPayment, {
         onSuccess: data => {
             console.log(data)
@@ -64,17 +68,26 @@ const OrderPage = ({ data, paymentList }) => {
                 const cipherText = encodeURIComponent(CryptoJS.AES.encrypt(JSON.stringify(dataToRedirect), aesSecretKey).toString())
                 router.push(`/order/status/?orderId=${data.Data.ReferenceId}&encryptedData=${cipherText}`)
             } else {
+                notifyError("Something went wrong !")
                 setOpenPopUp(true)
             }
         },
-        onError: () => {
-            // alert("there was an error")
-            notifyError("there was an error")
+        onError: (error) => {
+            try {
+                // alert(error.response.data.error.message)
+                notifyError(error.response.data.error.message)
+            } catch (error) {
+                // alert("there was an error")
+                notifyError("there was an error")
+                console.log(error)
+            }
         },
         onSettled: () => {
             queryClient.invalidateQueries('create')
         }
     })
+
+    //////////order/////////////
     const mutationDataOrder = useMutation(createDataOrderByRecaptcha, {
         onSuccess: async (data) => {
             console.log(data)
@@ -102,17 +115,49 @@ const OrderPage = ({ data, paymentList }) => {
                 console.log(dataPaymentParams)
                 await mutationDataPayment.mutateAsync(dataPaymentParams)
             } catch (error) {
-                throw error
+                notifyError("there was an error")
+                console.log(error)
             }
         },
-        onError: () => {
-            // alert("there was an error")
-            notifyError("there was an error")
+        onError: (error) => {
+            try {
+                // alert(error.response.data.error.message)
+                notifyError(error.response.data.error.message)
+            } catch (error) {
+                // alert("there was an error")
+                notifyError("there was an error")
+                console.log(error)
+            }
         },
         onSettled: () => {
             queryClient.invalidateQueries('create')
         }
     })
+
+    //////////register//////////
+    const mutationRegister = useMutation(register, {
+        onSuccess: (data) => {
+            console.log(data)
+            // const message = "'SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n'" + JSON.stringify(data)
+            // alert(message)
+            notifySuccess("SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)")
+        },
+        onError: (error) => {
+            try {
+                // alert(error.response.data.error.message)
+                notifyError(error.response.data.error.message)
+            } catch (error) {
+                // alert("there was an error")
+                notifyError("there was an error")
+                console.log(error)
+            }
+        },
+        onSettled: () => {
+            queryClient.invalidateQueries('create')
+        }
+    })
+
+    /*-----------------------------------------------------------------------------------------------------------------*/
 
     const onSubmit = async (data) => {
 
@@ -135,33 +180,46 @@ const OrderPage = ({ data, paymentList }) => {
             Metode_Pembayaran: orderDataContextRef.current.methodCode,
         }
 
+        const dataRegister = {
+            username: data.orderId,
+            email: data.email,
+            password: data.password
+        }
+
+        await mutationRegister.mutateAsync(dataRegister)
         await mutationDataOrder.mutateAsync({ dataOrderPost, captchaValue });
         // alert('SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n' + JSON.stringify(dataOrderPost));
         // alert('SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n' + captchaValue)
     }
 
-        ///success toast
-        const notifySuccess = (message) => toast.success(message, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
-        ///error toast
-        const notifyError = (message) => toast.error(message, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-        });
+    const onError = (errors, e) => {
+        // alert('ERRORS!! Periksa lagi form nya !! ( ͡╥ ͜ʖ ͡╥)');
+        notifyError('ERRORS!! Periksa lagi form nya !! ( ͡╥ ͜ʖ ͡╥)')
+        console.log(errors, e);
+    }
+
+    ///success toast
+    const notifySuccess = (message) => toast.success(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
+    ///error toast
+    const notifyError = (message) => toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
 
 
     return (
@@ -171,9 +229,9 @@ const OrderPage = ({ data, paymentList }) => {
             <LoadingPopUp openPopUp={mutationDataOrder.isLoading} />
             <LoadingPopUp openPopUp={mutationDataPayment.isLoading} />
             <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit(onSubmit)}>
+                <form onSubmit={methods.handleSubmit(onSubmit, onError)}>
                     <div className="flex flex-col xl:flex-row justify-center">
-                        <OrderForm data={data} onSubmit={onSubmit} setDataOrderForm={setDataOrderForm} orderId={orderId} setOrderId={setOrderId} />
+                        <OrderForm data={data} setDataOrderForm={setDataOrderForm} />
                         <OrderView paymentList={paymentList} dataOrderForm={dataOrderForm} setTotalHarga={setTotalHarga} setCaptchaValue={setCaptchaValue} />
                     </div>
                 </form>

@@ -61,7 +61,7 @@ const WaitingPayment = ({ data }) => {
     return (
         <>
             <WarningPopUp open={open} setOpen={setOpen} title={"Perhatian !"} message={"Masa pembayaran anda telah expired !!!"} />
-            <section className="flex justify-center px-2 font-[poppins]">
+            <section className="flex justify-center px-2 font-[poppins] text-black">
                 <div className="mt-6 mb-0 xl:mb-6 space-y-4 rounded-lg p-8 xl:shadow-2xl w-full max-w-xl bg-white">
                     <section className="bg-gray-50">
                         <div
@@ -94,6 +94,7 @@ const WaitingPayment = ({ data }) => {
                                     <div className="text-3xl font-extrabold flex justify-center">
                                         <a
                                             target="_blank"
+                                            rel="noreferrer"
                                             className="block w-full rounded-full bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-1/2"
                                             href={`https://sandbox.ipaymu.com/qr/template/89014`}
                                         >
@@ -132,12 +133,13 @@ const WaitingPayment = ({ data }) => {
                                 </h1>
 
                                 <p className="mt-4 sm:text-xl sm:leading-relaxed">
-                                    Halo <strong>{Nama}</strong>, setalah kamu melakukan pembayaran, kami akan kirim ke email <strong>{Email}</strong> untuk langkah selanjutnya. Terima Kasih 😉
+                                    Halo <strong>{Nama}</strong>, setalah kamu melakukan pembayaran, kami akan kirim ke email <strong>{Email}</strong> akun untuk kamu login ke dashboard. Terima Kasih 😉
                                 </p>
 
                                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                                     <a
                                         target="_blank"
+                                        rel="noreferrer"
                                         className="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
                                         href={paymentIntrucionsDoc}
                                     >
@@ -176,7 +178,7 @@ const SuccessPayment = ({ data }) => {
 
     return (
         <>
-            <section className="flex justify-center px-2 font-[poppins]">
+            <section className="flex justify-center px-2 font-[poppins] text-black">
                 <div className="mt-6 mb-0 xl:mb-6 space-y-4 rounded-lg p-8 xl:shadow-2xl w-full max-w-xl bg-white">
                     <section className="bg-gray-50">
                         <div
@@ -233,7 +235,7 @@ const OrderStatus = ({ data }) => {
 export async function getServerSideProps({ query }) {
     const { orderId } = query;
     const res = await getDataOrder(orderId)
-    const data = res.data.pemesanans.data[0].attributes
+    const data = res.data.pemesanans.data[0]?.attributes
     // console.log("Test: " + Object.keys(data))
 
     if (!data) {

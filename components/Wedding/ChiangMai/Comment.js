@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import moment from 'moment';
 import { toDateTime } from '../../../utils/formatDate'
+import { useCallback } from 'react'
 
 
 const CommentView = ({ name, isHadir, comment, createdAt }) => {

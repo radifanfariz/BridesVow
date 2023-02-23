@@ -20,7 +20,6 @@ class MyDocument extends Document {
                             <div />
                         </div>
                     </div>
-                    <div id='popUpPortal' />
                     <Main />
                     <NextScript />
                 </body>

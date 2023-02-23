@@ -5,7 +5,6 @@ import Layout from "../../../components/Global/Layout";
 import { withLoginSessionSsr } from "../../../utils/withSession";
 
 export default function LoginPage() {
-    const methods = useForm()
     return (
         <LoginForm/>
     )

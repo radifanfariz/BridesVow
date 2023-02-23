@@ -15,9 +15,9 @@ const LoadingPopUp = ({ openPopUp }) => {
         <Popup open={open} closeOnDocumentClick={false}
             {...{ overlayStyle }}
         >
-            <div class="flex justify-center items-center">
-                <div class="fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center">
-                    <div class="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-[#03385d]">
+            <div className="flex justify-center items-center">
+                <div className="fixed top-0 right-0 h-screen w-screen z-50 flex justify-center items-center">
+                    <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-[#03385d]">
                     </div>
                     <svg
                         className="h-10 w-10 flex-shrink-0 text-gray-500 absolute"

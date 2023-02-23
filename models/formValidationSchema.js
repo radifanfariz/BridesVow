@@ -45,6 +45,7 @@ export const orderFormSchema = Yup.object().shape({
   nama: Yup.string().required('Nama pemesan wajib diisi !'),
   noHP: Yup.string().required('No HP (No WA) wajib diisi !'),
   email: Yup.string().required('Email wajib diisi !'),
+  password: Yup.string().required('Password wajib diisi !'),
   kota: Yup.string().required('Kota/Kabupaten wajib diisi !'),
   alamat: Yup.string().required('Alamat wajib diisi !'),
 })
@@ -68,4 +69,9 @@ export const slugFormSchema = Yup.object().shape({
 export const loginFormSchema = Yup.object().shape({
   identifier: Yup.string().required('Masukkan OrderID/Email anda !'),
   password: Yup.string().required('Masukkan Passsword anda !'),
+})
+export const changePasswordFormSchema = Yup.object().shape({
+  currentPassword: Yup.string().required('Masukkan Passsword anda saat ini !'),
+  newPassword: Yup.string().required('Masukkan Passsword baru anda !'),
+  confirmationNewPassword: Yup.string().required('Masukkan Passsword baru anda !'),
 })

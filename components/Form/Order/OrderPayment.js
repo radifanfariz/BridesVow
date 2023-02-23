@@ -8,7 +8,7 @@ const PaymentMethod = ({ methodCode, methodDescription, children }) => {
 
     return (
         <>
-            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box dark:text-white mt-2">
                 <input type="checkbox" className="w-full" />
                 <div className="collapse-title text-md font-medium">
                     <span className="font-bold">{methodDescription}</span>
@@ -35,7 +35,7 @@ const PaymentChannel = ({ other, methodCode, channelCode, channelDescription }) 
         <>
             <div className="flex items-center">
                 <input {...register("paymentChannel")} type="radio" value={channelCode} className="radio" onChange={handleChange} required />
-                <span className="label-text px-2 text-black">{channelDescription}</span>
+                <span className="label-text px-2 text-black dark:text-white">{channelDescription}</span>
                 <Image className='' src={`/static/wallet/${channelCode}.png`} loader={imageLoader} width={50} height={50} alt='template' objectFit="contain" />
             </div>
         </>

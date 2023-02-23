@@ -5,13 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "lint": "next lint",
+    "export": "npm run build && next export -o _static"
   },
   "dependencies": {
+    "@dicebear/collection": "^5.3.4",
+    "@dicebear/core": "^5.3.4",
     "@googlemaps/js-api-loader": "^1.14.3",
     "@hookform/resolvers": "^2.9.10",
     "@radix-ui/react-tabs": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.0.3",
     "@sendgrid/mail": "^7.7.0",
     "@types/body-parser": "^1.19.2",
     "add-to-calendar-button": "^1.18.3",
@@ -43,6 +47,7 @@
     "react-toastify": "^9.1.1",
     "react-typed": "^1.2.0",
     "reactjs-popup": "^2.0.5",
+    "recharts": "^2.4.3",
     "swiper": "^8.3.2",
     "uniqid": "^5.4.0",
     "yup": "^0.32.11"

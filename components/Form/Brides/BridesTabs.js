@@ -1,11 +1,9 @@
 import * as Tabs from '@radix-ui/react-tabs';
 import { tabTriggerModels } from '../../../models/tabModels';
-import { useEffect } from 'react';
-import { useRef } from 'react';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-export default function ({ children, undanganSlug }) {
+export default function BridesTabs({ children, undanganSlug }) {
 
     return (
         <>
@@ -15,10 +13,10 @@ export default function ({ children, undanganSlug }) {
                         tabTriggerModels.map((item) => {
                             return (
                                 <Tabs.Trigger key={item.value} className="TabsTrigger" value={item.value}>
-                                    <a class="relative block p-4" >
-                                        <div class="flex items-center justify-center">
+                                    <a className="relative block p-4" >
+                                        <div className="flex items-center justify-center">
                                             {item.icon}
-                                            <span class="ml-3 text-sm font-medium text-gray-900">{item.label}</span>
+                                            <span className="ml-3 text-sm font-medium text-gray-900">{item.label}</span>
                                         </div>
                                     </a>
                                 </Tabs.Trigger>

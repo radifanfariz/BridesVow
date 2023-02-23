@@ -1,4 +1,3 @@
-import { QueryClient, useMutation } from "react-query";
 import Popup from "reactjs-popup"
 import { deleteSessionLogin } from "../../adapters/auth";
 import { useRouter } from "next/router";
@@ -7,7 +6,6 @@ const overlayStyle = { background: 'rgba(0,0,0,0.5)' };
 const LogOutPopUp = ({ open, setOpen }) => {
 
     const router = useRouter()
-    const queryClient = new QueryClient()
 
     const closeModal = () => setOpen(false)
     const handleClickNoButton = () => {
@@ -25,7 +23,7 @@ const LogOutPopUp = ({ open, setOpen }) => {
     return (
         <Popup open={open} closeOnDocumentClick={false} onClose={closeModal} {...{ overlayStyle }} contentStyle={{ width: '350px' }}>
             <div className="container">
-                <div className="rounded-lg bg-white p-8 shadow-2xl">
+                <div className="rounded-lg bg-white p-8 shadow-2xl text-black">
                     <h2 className="text-lg font-bold">Apakah kamu ingin Logout ?</h2>
                     {/* <p className="mt-2 text-sm text-gray-500">
                         Doing that could have cause some issues elsewhere, are you 100% sure it's
@@ -37,14 +35,14 @@ const LogOutPopUp = ({ open, setOpen }) => {
                             type="button"
                             className="rounded bg-green-50 px-4 py-2 font-medium text-green-600"
                         >
-                            Yes, I'm sure
+                            Ya, Saya yakin
                         </button>
                         <button
                             onClick={handleClickNoButton}
                             type="button"
                             className="ml-2 rounded bg-gray-50 px-4 py-2 font-medium text-gray-600"
                         >
-                            No, go back
+                            Tidak, kembali
                         </button>
                     </div>
                 </div>

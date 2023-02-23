@@ -1,4 +1,3 @@
-import { GrClose } from "react-icons/gr";
 import Popup from "reactjs-popup"
 
 const WarningPopUp = ({ open, setOpen,title, message }) => {

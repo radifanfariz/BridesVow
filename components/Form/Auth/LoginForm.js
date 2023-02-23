@@ -114,7 +114,7 @@ const LoginForm = () => {
                                     <input {...register("password")} type={isShowPassword ? "text" : "password"} placeholder="Password" className="input input-bordered w-full max-w-full bg-white text-black" required />
                                     <span className={`absolute right-0 px-2 text-2xl ${isShowPassword ? "opacity-100" : "opacity-50"}`} onClick={handleClick}>{isShowPassword ? <AiFillEye /> : <AiFillEyeInvisible />}</span>
                                 </div>
-                                <div className="py-2">
+                                <div className="py-2 text-gray-500 italic">
                                     <Link href={"/auth/forgot-password"}>
                                         <a target={""} className="opacity-80 hover:opacity-100 text-sm">Lupa password ?</a>
                                     </Link>

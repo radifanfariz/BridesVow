@@ -12,6 +12,7 @@ import Link from "next/link";
 import uniqid from 'uniqid';
 import copy from "copy-to-clipboard";
 import { DataContext } from "../../../pages/order";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const OrderForm = ({ data, setDataOrderForm }) => {
   // console.log(data)
@@ -23,13 +24,13 @@ const OrderForm = ({ data, setDataOrderForm }) => {
   const { register } = useFormContext();
 
   ////state////
-  const {orderDataContextRef} = useContext(DataContext)
+  const { orderDataContextRef } = useContext(DataContext)
   const [namaPaket, setNamaPaket] = useState("default");
   const orderIdRef = useRef(null)
-  if(orderIdRef.current === null){
+  if (orderIdRef.current === null) {
     orderIdRef.current = uniqid('bridesvow-')
   }
-  const orderIdRefValue = orderIdRef.current  
+  const orderIdRefValue = orderIdRef.current
   orderDataContextRef.current['orderId'] = orderIdRefValue
   /////////////
 
@@ -45,11 +46,16 @@ const OrderForm = ({ data, setDataOrderForm }) => {
   const copyToClipboard = (copyText) => {
     copy(copyText);
     alert(`You have copied "${copyText}"`);
-}
+  }
 
   useEffect(() => {
     setNamaPaket(paket?.toLowerCase());
   }, [paket]);
+
+  const [isShowPassword, setIsShowPassword] = useState(false)
+  const handleClickPassword = () => {
+      setIsShowPassword(!isShowPassword)
+  }
 
   return (
     <>
@@ -62,22 +68,22 @@ const OrderForm = ({ data, setDataOrderForm }) => {
           </div>
           <span className="divider"></span>
           <div className="flex flex-col items-center">
-              <label className="label">
-                <span className="label-text font-bold text-black">
-                  ORDER ID
-                </span>
-              </label>
-              <input
-                {...register("orderId",{ value: orderIdRefValue })}
-                name="orderId"
-                type="text"
-                placeholder="OrderId"
-                className="input input-bordered sm:w-1/2 w-full max-w-full text-center bg-black text-white cursor-pointer"
-                required
-                onClick={() => copyToClipboard(orderIdRefValue)}
-                readOnly={true}
-              />
-            </div>
+            <label className="label">
+              <span className="label-text font-bold text-black">
+                ORDER ID
+              </span>
+            </label>
+            <input
+              {...register("orderId", { value: orderIdRefValue })}
+              name="orderId"
+              type="text"
+              placeholder="OrderId"
+              className="input input-bordered sm:w-1/2 w-full max-w-full text-center bg-black text-white cursor-pointer"
+              required
+              onClick={() => copyToClipboard(orderIdRefValue)}
+              readOnly={true}
+            />
+          </div>
           <div className="form-control w-full">
             <div>
               <label className="label">
@@ -168,7 +174,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                         // console.log(namaPaket)
                         return (
                           <SwiperSlide key={template.data.nama}>
-                            <div className="flex flex-col pr-5">
+                            <div className="flex flex-col pr-5 text-black">
                               <div className="label">
                                 <Link href={`/preview/${template.data.slug}`}>
                                   <a target={"_blank"} className="relative">
@@ -254,8 +260,9 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                 </label>
               </div>
             </div>
-            <div className="relative">
-              <label className="label">
+            <div className="relative border-2 rounded-2xl p-5 mt-3">
+              <label className="text-white font-bold bg-black rounded-xl p-1 px-2">Akun untuk login ke Dashboard</label>
+              <label className="label mt-3">
                 <span className="label-text font-bold text-black">
                   E-mail{<span className="text-red-600">*</span>}
                 </span>
@@ -274,6 +281,15 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                     required
                   />
                 </label>
+              </div>
+              <div className="w-full">
+                <label className="label">
+                  <span className="label-text font-bold text-black">Password{<span className="text-red-600">*</span>}</span>
+                </label>
+                <div className="flex justify-center items-center relative">
+                  <input minLength={8} {...register("password")} type={isShowPassword ? "text" : "password"} placeholder="Password" className="input input-bordered w-full max-w-full bg-white text-black" required />
+                  <span className={`absolute right-0 px-2 text-2xl ${isShowPassword ? "opacity-100" : "opacity-50"}`} onClick={handleClickPassword}>{isShowPassword ? <AiFillEye /> : <AiFillEyeInvisible />}</span>
+                </div>
               </div>
             </div>
             <div>

@@ -1,13 +1,13 @@
 import CryptoJS from "crypto-js";
 
 // adjust with your iPaymu api key & va 
-const url = process.env.IPAYMUBASEURL+'/payment/direct'
-const apikey = process.env.IPAYMUAPIKEY
-const va = process.env.IPAYMUVA
+const url = process.env.IPAYMU_BASE_URL+'/payment/direct'
+const apikey = process.env.IPAYMU_API_KEY
+const va = process.env.IPAYMU_VA
 
 //next base url from env
 const nextUrl = process.env.NEXT_PUBLIC_BASE_URL
-const testUrl = "https://6a49-36-79-17-29.ap.ngrok.io"
+// const testUrl = "https://dfc9-36-79-17-29.ap.ngrok.io"
 
 
 export default function payment(req, res) {
@@ -18,7 +18,7 @@ export default function payment(req, res) {
         "phone":buyerPhone,
         "email":buyerEmail,
         "amount":amount,
-        "notifyUrl":testUrl+"/api/payment/callback",
+        "notifyUrl":nextUrl+"/api/payment/callback",
         "expired":"24",
         "expiredType":"hours",
         "comments":"Catatan",

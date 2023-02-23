@@ -1,21 +1,25 @@
-import Image from "next/image"
-import { useEffect, useMemo, useState } from "react"
-import imageLoader from "../../../utils/imageLoader"
+import { useEffect, useState } from "react"
 import { randomThreeNum } from "../../../utils/randomNum"
 import ReCAPTCHA from "react-google-recaptcha"
 import OrderPayment from "./OrderPayment"
+import { useCallback } from "react"
+import { useMemo } from "react"
 
 const OrderView = ({ paymentList, dataOrderForm, setTotalHarga, setCaptchaValue }) => {
 
     const [threeUniqueDigit, setThreeUniqueDigit] = useState(0)
 
-    const randomNum = useMemo(randomThreeNum, [])
+    const randomNum = useCallback(() => randomThreeNum, [])
+    const harga = dataOrderForm.harga
 
     useEffect(() => {
-        setThreeUniqueDigit(randomNum)
-        const totalHarga = dataOrderForm.harga + threeUniqueDigit
+        const totalHarga = harga + threeUniqueDigit
         setTotalHarga(totalHarga)
-    }, [dataOrderForm])
+    }, [harga,setTotalHarga,threeUniqueDigit])
+
+    useEffect(() => {
+        setThreeUniqueDigit(randomNum())
+    },[randomNum])
 
 
     return (
@@ -31,7 +35,7 @@ const OrderView = ({ paymentList, dataOrderForm, setTotalHarga, setCaptchaValue 
                         <div className="divider mt-0"></div>
                         <div className="flex justify-between">
                             <span>{`${dataOrderForm.paket} - ${dataOrderForm.template}`}</span>
-                            <span className="font-bold">{`Rp.${dataOrderForm.harga}`}</span>
+                            <span className="font-bold">{`Rp.${harga}`}</span>
                         </div>
                         <div className="flex justify-between pt-2">
                             <span>Kode Unik Pesanan</span>
@@ -40,7 +44,7 @@ const OrderView = ({ paymentList, dataOrderForm, setTotalHarga, setCaptchaValue 
                         <div className="divider my-0"></div>
                         <div className="flex justify-between pt-2 font-bold">
                             <span>Total</span>
-                            <span className="font-bold">{`Rp.${threeUniqueDigit + dataOrderForm.harga}`}</span>
+                            <span className="font-bold">{`Rp.${threeUniqueDigit + harga}`}</span>
                         </div>
                         <div className="divider mt-2"></div>
                         <OrderPayment paymentList={paymentList} />

@@ -10,30 +10,30 @@ const RSVP = ({ contents }) => {
     const dbInstance = collection(database, `rsvp_${contents.dbName}`)
 
     const [name, setName] = useState('')
-    const [isHadir, setIsHadir] = useState(false)
+    const [isAttending, setIsAttending] = useState(false)
     const [createdAt, setCreatedAt] = useState(Timestamp.now().toDate())
     const [userChoice, setUserChoice] = useState('tidakHadir')
 
     const [disabledClass, setDisabledClass] = useState('')
 
-    const hadirFunc = (value) => {
+    const attendingFunc = (value) => {
         setUserChoice(value)
         if (value == 'tidakHadir') {
-            setIsHadir(false)
+            setIsAttending(false)
         } else {
-            setIsHadir(true)
+            setIsAttending(true)
         }
     }
 
     const addRSVP = () => {
 
         setName('')
-        setIsHadir(false)
+        setIsAttending(false)
         setCreatedAt(Timestamp.now().toDate())
 
         let rsvpData = {
             name: name,
-            isHadir: isHadir,
+            isAttending: isAttending,
             createdAt: createdAt,
         }
 
@@ -67,7 +67,7 @@ const RSVP = ({ contents }) => {
                                     <input onChange={(e) => setName(e.target.value)} className="w-full px-5 py-2 rounded-xl" type="text" name="nama" id="nama" placeholder="Nama" value={name} />
                                 </div>
                                 <div className="flex items-center mt-5">
-                                    <select name="" id="" className="rounded-xl p-2 w-full bg-white" defaultValue={userChoice} onChange={(e) => hadirFunc(e.target.value)}>
+                                    <select name="" id="" className="rounded-xl p-2 w-full bg-white" defaultValue={userChoice} onChange={(e) => attendingFunc(e.target.value)}>
                                         <option value="hadir">Hadir</option>
                                         <option value="tidakHadir">Tidak Hadir</option>
                                     </select>

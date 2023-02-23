@@ -9,12 +9,17 @@ import AddForms from "./AddForm";
 import { getDataAmplopAddedForm } from "../../models/formModels";
 import { DataContext } from "../Form/Brides/BridesForm";
 import * as Tabs from '@radix-ui/react-tabs';
+import InfoTooltip from "./InfoTooltip";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 function useReferencedForm(methodForm, formName, referencedFormName, valueCallback = (v) => v) {
     const value = useWatch({ name: referencedFormName })
-    const formattedValue = valueCallback(value)
-    methodForm.setValue(formName, valueCallback(value))
-    return formattedValue
+    if (typeof referencedFormName !== 'undefined' && referencedFormName !== "") {
+        const formattedValue = valueCallback(value)
+        methodForm.setValue(formName, valueCallback(value))
+        return formattedValue
+    }
+    return value
 }
 
 const InputText = ({ name, label, placeholder, required, register, errors }) => {
@@ -35,10 +40,8 @@ const InputTextArea = ({ name, label, placeholder, required, register, errors, r
 
     const methodForm = useFormContext()
 
-    if (typeof referencedForm.name !== 'undefined' && referencedForm.name !== "") {
-        const value = useReferencedForm(methodForm, name, referencedForm.name, referencedForm.valueCallback)
-        // console.log(value)
-    }
+    const value = useReferencedForm(methodForm, name, referencedForm.name, referencedForm.valueCallback)
+    // console.log(value)
 
     return (
 
@@ -55,9 +58,17 @@ const InputTextArea = ({ name, label, placeholder, required, register, errors, r
 const InputDate = ({ name, label, placeholder, required }) => {
 
     const { register, setValue, setError, formState: { errors }, getValues } = useFormContext()
+    const [dateValue, setDateValue] = useState(null)
+
+    if (dateValue) {
+        setValue(name, dateValue)
+    }
 
     useEffect(() => {
         register(name, { required: required })
+        if (getValues(name)) {
+            setDateValue(getValues(name))
+        }
     }, [])
 
     let inputProps = {
@@ -68,16 +79,16 @@ const InputDate = ({ name, label, placeholder, required }) => {
     };
 
     return (
-        <div className="w-full">
+        <div className="w-full text-black">
             <label className="label">
                 <span className="label-text font-bold text-black">{label}{required ? <span className="text-red-600">*</span> : ""}</span>
             </label>
-            <Datetime dateFormat={"YYYY-MM-DD"} timeFormat={false} closeOnSelect={true} inputProps={inputProps} onChange={
+            <Datetime value={dateValue} dateFormat={"YYYY-MM-DD"} timeFormat={false} closeOnSelect={true} inputProps={inputProps} onChange={
                 (value) => {
                     try {
-                        setValue(name, value.format("YYYY-MM-DD"))
+                        setDateValue(value.format("YYYY-MM-DD"))
                     } catch (error) {
-                        setValue(name, null)
+                        setValue(null)
                         setError("formatError" + name, { type: 'custom', message: 'Format Waktu Salah !!!' })
                     }
                 }
@@ -187,13 +198,18 @@ const Form = ({ formStructure }) => {
                         submitDataStructureContext[structure.apiCollectionName] = {}
                     }
                     return (
-                        <Tabs.Content className="TabsContent" value={structure.radixTabsValue}>
+                        <Tabs.Content key={structure.radixTabsValue} className="TabsContent" value={structure.radixTabsValue}>
                             <div className="form-control w-full" key={structure.key}>
                                 <label className="label">
                                     <span className="label-text font-bold text-black">{structure.title}</span>
                                     {structure.addForm?.isExist && <AddForms key={structure.addForm.key} currentIndex={index} formRendered={formRendered} formToAddStructure={getDataAmplopAddedForm("Dynamic-")} setFormRendered={setFormRendered} setIsFormChange={setIsFormChange} />}
                                 </label>
                                 <div className="form-control w-full p-5 bg-slate-300 rounded-3xl">
+                                    <div className="flex justify-end">
+                                        <InfoTooltip messsage={`Isi data dengan baik dan lengkap ! <br/>Jika ingin melakukan perubahan data <br/> maka harus diisi lagi semua dari awal !`}>
+                                            <AiOutlineInfoCircle className="w-6 h-6 text-red-500" />
+                                        </InfoTooltip>
+                                    </div>
                                     {
                                         structure.forms.map((form) => {
                                             return (

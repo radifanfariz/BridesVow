@@ -1,4 +1,4 @@
-import { updateDataOrder, updateDataOrderByOrderId } from "../../../adapters";
+import { updateDataOrderByOrderId } from "../../../adapters";
 import formidable from 'formidable'
 
 export const config = {
