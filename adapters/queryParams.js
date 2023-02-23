@@ -2,6 +2,7 @@ const URL = process.env.NEXT_PUBLIC_STRAPI_URL
 const NEXT_URL = process.env.NEXT_PUBLIC_BASE_URL
 const APIKEY = process.env.STRAPI_API_KEY
 
+///// "Accept-Encoding": "gzip,deflate,compress" is required /////
 export const getDataUndanganParams = (slug, url, apikey) => {
 
   return {
@@ -11,6 +12,7 @@ export const getDataUndanganParams = (slug, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
