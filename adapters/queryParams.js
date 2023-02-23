@@ -433,6 +433,7 @@ export const dataListPaymentParams = {
   url: `${NEXT_URL}/api/payment/list`,
   headers: {
     "Content-Type": "application/json",
+    "Accept-Encoding": "gzip,deflate,compress"
   },
   data: {}
 }

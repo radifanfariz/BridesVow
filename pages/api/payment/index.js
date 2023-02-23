@@ -45,9 +45,7 @@ export default function payment(req, res) {
         {
             method: "POST",
             headers: {
-                'Accept': 'application/json', 
-                'Content-Type': 'application/json',
-                "Accept-Encoding": "gzip,deflate,compress",
+                'Accept': 'application/json', 'Content-Type': 'application/json',
                 'va': va,
                 'signature': signature,
                 'timestamp': Date.now()

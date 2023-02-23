@@ -17,7 +17,6 @@ export default function paymentList(req,res){
         headers: {
             'Accept': 'application/json', 
             'Content-Type': 'application/json',
-            "Accept-Encoding": "gzip,deflate,compress",
             'va': va,
             'signature': signature,
             'timestamp': Date.now()
