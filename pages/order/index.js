@@ -247,7 +247,7 @@ const OrderPage = ({ data, paymentList }) => {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await getDataPaketUndangan()
     const data = []
     res.data.paketUndangans.data.map((item) => {
