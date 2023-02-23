@@ -2,7 +2,7 @@ const URL = process.env.NEXT_PUBLIC_STRAPI_URL
 const NEXT_URL = process.env.NEXT_PUBLIC_BASE_URL
 const APIKEY = process.env.STRAPI_API_KEY
 
-export const getDataUndanganParams = (slug = "", url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataUndanganParams = (slug, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -359,7 +359,7 @@ export const dataPaketUndanganParams = {
   }
 }
 
-export const getDataOrderParams = (orderId, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataOrderParams = (orderId, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -432,7 +432,7 @@ export const dataListPaymentParams = {
   data: {}
 }
 
-export const getCreateDataOrderParams = (data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getCreateDataOrderParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -495,7 +495,7 @@ export const getCreateDataOrderParams = (data, url = "http://localhost:1338", ap
     }
   }
 }
-export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue }, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue }, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   console.log("ada apa " + captchaValue)
   return {
@@ -563,7 +563,7 @@ export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue },
   }
 }
 
-export const getUpdateDataOrderParams = (id, data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getUpdateDataOrderParams = (id, data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -626,7 +626,7 @@ export const getUpdateDataOrderParams = (id, data, url = "http://localhost:1338"
     }
   }
 }
-export const getUpdateDataOrderByOrderIdParams = (orderId, data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getUpdateDataOrderByOrderIdParams = (orderId, data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -691,7 +691,7 @@ export const getUpdateDataOrderByOrderIdParams = (orderId, data, url = "http://l
   }
 }
 
-export const getForgotPasswordSessionParams = (data, url = "http://localhost:3000") => {
+export const getForgotPasswordSessionParams = (data, url) => {
 
   return {
 
@@ -717,7 +717,7 @@ export const forgotPasswordSessionDestroyParams = {
   }
 }
 
-export const getDataConfirmationParams = (bodyFormData, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataConfirmationParams = (bodyFormData, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -732,7 +732,7 @@ export const getDataConfirmationParams = (bodyFormData, url = "http://localhost:
   }
 }
 
-export const getUpdateDataUndanganParams = (data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getUpdateDataUndanganParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -747,7 +747,7 @@ export const getUpdateDataUndanganParams = (data, url = "http://localhost:1338",
   }
 }
 
-export const getCreateDataUndanganParams = (data, url = "http://localhost:1338", apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getCreateDataUndanganParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
 
   return {
 
@@ -762,7 +762,7 @@ export const getCreateDataUndanganParams = (data, url = "http://localhost:1338",
   }
 }
 
-export const getDataUndanganSessionParams = (data, url = "http://localhost:3000") => {
+export const getDataUndanganSessionParams = (data, url) => {
 
   return {
 
@@ -789,7 +789,7 @@ export const dataUndanganSessionDestroyParams = {
   }
 }
 
-export const getDataPaymentParams = (data, url = "http://localhost:3000") => {
+export const getDataPaymentParams = (data, url) => {
 
   return {
 
