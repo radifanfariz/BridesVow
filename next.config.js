@@ -5,7 +5,7 @@ const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
   images:{
-    domains:['localhost','flowbite.com','http://localhost:1338','https://sandbox.ipaymu.com'],
+    domains:['localhost','flowbite.com','res.cloudinary.com'],
   },
   async rewrites() {
     return [

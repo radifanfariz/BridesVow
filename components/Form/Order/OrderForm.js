@@ -183,7 +183,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                                       layout="intrinsic"
                                       width={120}
                                       height={250}
-                                      src={`http://localhost:1338${template.data.url}`}
+                                      src={`${template.data.url}`}
                                       alt="Template"
                                       objectFit="contain"
                                     />
