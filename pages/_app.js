@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import '../styles/globals.css'
 // import { useRouter } from 'next/router'
+
+const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }) {
   // Hide splash screen shen we are server side 
@@ -21,7 +24,13 @@ function MyApp({ Component, pageProps }) {
   //   }
   // },[router])
 
-  return <Component {...pageProps} />
+  const getLayout = Component.getLayout || ((page) => page)
+
+  return getLayout(
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+    </QueryClientProvider>
+  )
 }
 
 export default MyApp

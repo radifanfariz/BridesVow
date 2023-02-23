@@ -47,6 +47,7 @@ module.exports = {
       paradise: 'Paradise',
       playfair: 'Playfair',
       playfairBlack: 'Playfair-black',
+      playfairDisplay: 'Playfair Display',
       adela: 'Adela',
       adelia: 'Adelia',
       lobster: 'Lobster',
@@ -55,8 +56,13 @@ module.exports = {
       richard: 'Richard',
       damion: 'Damion',
       belgrano: 'Belgrano',
-      poppins: [
+      // poppins: [
+      //   'Poppins',
+      //   'Poppins-Extrabold',
+      // ],
+      Poppins: [
         'Poppins',
+        'sans-serif',
         'Poppins-Extrabold'
       ],
       abhayalibre: [
@@ -84,11 +90,31 @@ module.exports = {
           '100%': {
             transform: 'translateY(-100%)'
           }
-        }
+        },
+        slideDownAndFade: {
+          from: { opacity: 0, transform: 'translateY(-2px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        slideLeftAndFade: {
+          from: { opacity: 0, transform: 'translateX(2px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
+        },
+        slideUpAndFade: {
+          from: { opacity: 0, transform: 'translateY(2px)' },
+          to: { opacity: 1, transform: 'translateY(0)' },
+        },
+        slideRightAndFade: {
+          from: { opacity: 0, transform: 'translateX(2px)' },
+          to: { opacity: 1, transform: 'translateX(0)' },
+        },
       },
       animation: {
         'fall': 'fall 1s ease-out 1',
-        'fly': 'fly 1s ease-out 1'
+        'fly': 'fly 1s ease-out 1',
+        slideDownAndFade: 'slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideLeftAndFade: 'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideUpAndFade: 'slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
+        slideRightAndFade: 'slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
       }
     },
     variants: {
@@ -99,6 +125,7 @@ module.exports = {
   },
   plugins: [
     require("daisyui"),
+    require('@tailwindcss/forms'),
   ],
 
     // daisyUI config (optional)

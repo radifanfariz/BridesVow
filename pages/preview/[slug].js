@@ -1,8 +1,6 @@
-import Header from '../../components/Landing/Header'
-import { useRouter } from 'next/router'
-import { getDataUndangan } from '../../utils';
-import { defaultContents, getDefaultContents, previewPages, previewSlug } from '../../utils/defaultContents';
-import { templateAllDefault } from '../../templates/TemplateAll';
+import { getDefaultContents } from '../../adapters/defaultContents';
+import { templateAllDefault } from '../../templates/templateAll';
+import Custom404 from '../404';
 
 
 export async function getStaticProps({params}) {
@@ -50,11 +48,16 @@ export async function getStaticPaths() {
 
 const Preview = ({ data, slug }) => {
 
-    const getTemplateDefault = templateAllDefault[slug]
-
-    return(
-        getTemplateDefault(data)
-    )
+    try {
+        const getTemplateDefault = templateAllDefault[slug]
+        return(
+            getTemplateDefault(data)
+        )
+    } catch (error) {
+        return(
+            <Custom404/>
+        )
+    }
 }
 
 export default Preview

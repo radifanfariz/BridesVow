@@ -1,9 +1,11 @@
+const { redirect } = require('next/dist/server/api-utils')
+
 /** @type {import('next').NextConfig} **/
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   images:{
-    domains:['localhost','flowbite.com'],
+    domains:['localhost','flowbite.com','http://localhost:1338','https://sandbox.ipaymu.com'],
   },
   async rewrites() {
     return [
@@ -16,7 +18,7 @@ const nextConfig = {
         destination: '/preview/:slug',
       }
     ]
-  }
+  },
 }
 
 module.exports = nextConfig
