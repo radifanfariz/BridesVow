@@ -10,63 +10,63 @@
 
 @font-face {
   font-family: Paradise;
-  src: url('../assets/Paradise.otf');
+  src: url('/assets/Paradise.otf');
 }
 @font-face {
   font-family: Montserrat;
-  src: url('../assets/Montserrat.TTF');
+  src: url('/assets/Montserrat.TTF');
 }
 @font-face {
   font-family: Montserrat-Extrabold;
-  src: url('../assets/Montserrat-Extrabold.TTF');
+  src: url('/assets/Montserrat-Extrabold.TTF');
 }
 @font-face {
   font-family: Montserrat-Variable;
-  src: url('../assets/Montserrat-Variable.ttf');
+  src: url('/assets/Montserrat-Variable.ttf');
 }
 @font-face {
   font-family: Playfair;
-  src: url('../assets/Playfair.otf');
+  src: url('/assets/Playfair.otf');
 }
 @font-face {
   font-family: Playfair;
-  src: url('../assets/Playfair-Black.otf');
+  src: url('/assets/Playfair-Black.otf');
 }
 @font-face {
   font-family: Adela;
-  src: url('../assets/adela.ttf');
+  src: url('/assets/adela.ttf');
 }
 @font-face {
   font-family: Adelia;
-  src: url('../assets/adelia.ttf');
+  src: url('/assets/adelia.ttf');
 }
 @font-face {
   font-family: Lobster;
-  src: url('../assets/Lobster.otf');
+  src: url('/assets/Lobster.otf');
 }
 @font-face {
   font-family: Antonio;
-  src: url('../assets/Antonio-Regular.ttf');
+  src: url('/assets/Antonio-Regular.ttf');
 }
 @font-face {
   font-family: Honey;
-  src: url('../assets/hello-honey.otf');
+  src: url('/assets/hello-honey.otf');
 }
 @font-face {
   font-family: Richard;
-  src: url('../assets/Richards-Frederick.otf');
+  src: url('/assets/Richards-Frederick.otf');
 }
 @font-face {
   font-family: Honey;
-  src: url('../assets/hello-honey.otf');
+  src: url('/assets/hello-honey.otf');
 }
 @font-face {
   font-family: Damion;
-  src: url('../assets/Damion-Regular.ttf');
+  src: url('/assets/Damion-Regular.ttf');
 }
 @font-face {
   font-family: Belgrano;
-  src: url('../assets/Belgrano-Regular.ttf');
+  src: url('/assets/Belgrano-Regular.ttf');
 }
 /* @font-face {
   font-family: Poppins;
@@ -74,15 +74,15 @@
 } */
 @font-face {
   font-family: Poppins-Extrabold;
-  src: url('../assets/Poppins-ExtraBold.ttf');
+  src: url('/assets/Poppins-ExtraBold.ttf');
 }
 @font-face {
   font-family: AbhayaLibre;
-  src: url('../assets/AbhayaLibre-Regular.ttf');
+  src: url('/assets/AbhayaLibre-Regular.ttf');
 }
 @font-face {
   font-family: AbhayaLibre-Bold;
-  src: url('../assets/AbhayaLibre-Bold.ttf');
+  src: url('/assets/AbhayaLibre-Bold.ttf');
 }
 
 html, body {

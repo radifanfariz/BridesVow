@@ -72,7 +72,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'wedd': "url('../public/static/bg.jpg')",
+        'wedd': "url('../static/bg.jpg')",
       },
       keyframes: {
         fall: {

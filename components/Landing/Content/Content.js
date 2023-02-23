@@ -25,7 +25,7 @@ const LongFeatureContainer = ({ title = "Title", content = "Content" }) => {
     return (
         <>
             <div className="relative xl:w-full w-full h-full">
-                <div className="flex justify-center w-full max-w-[600px] xl:h-full xl:max-h-[100%] xl:max-w-[100%] h-[28vh] max-h-[28vh] mt-8 p-6 py-3 rounded-3xl bg-[url('../public/static/landing/longfiturbg.png')] bg-cover bg-center">
+                <div className="flex justify-center w-full max-w-[600px] xl:h-full xl:max-h-[100%] xl:max-w-[100%] h-[28vh] max-h-[28vh] mt-8 p-6 py-3 rounded-3xl bg-[url('../static/landing/longfiturbg.png')] bg-cover bg-center">
                     <div className="flex flex-col justify-start max-w-[600px] xl:max-w-[100%]">
                         <span className="max-w-[300px] xl:max-w-[100%] font-[poppins] capitalize font-bold xl:text-[40px] xl:mt-10 text-xl text-[#003153]">{title}</span>
                         <span className="max-w-[300px] xl:max-w-[70%] [word-wrap:break-word] xl:w-[950px] w-[60vw] font-[poppins] xl:text-[30px] xl:leading-10 text-sm xl:my-5 text-black mt-1 z-20">{content}</span>
