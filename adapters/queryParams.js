@@ -11,7 +11,6 @@ export const getDataUndanganParams = (slug, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -151,8 +150,7 @@ export const dataUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": `bearer ${APIKEY},
-    "Accept-Encoding": "gzip,deflate,compress"`
+    "Authorization": `bearer ${APIKEY}`
   },
   data: {
     query: `
@@ -278,7 +276,6 @@ export const dataTemplateUndanganParams = {
   headers: {
     "Content-Type": "application/json",
     "Authorization": `bearer ${APIKEY}`,
-    "Accept-Encoding": "gzip,deflate,compress"
   },
   data: {
     query: `
@@ -323,7 +320,6 @@ export const dataPaketUndanganParams = {
   headers: {
     "Content-Type": "application/json",
     "Authorization": `bearer ${APIKEY}`,
-    "Accept-Encoding": "gzip,deflate,compress"
   },
   data: {
     query: `
@@ -372,7 +368,6 @@ export const getDataOrderParams = (orderId, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -427,6 +422,8 @@ export const getDataOrderParams = (orderId, url, apikey) => {
   }
 }
 
+
+///// "Accept-Encoding": "gzip,deflate,compress" is required /////
 export const dataListPaymentParams = {
 
   method: "post",
@@ -447,7 +444,6 @@ export const getCreateDataOrderParams = (data, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -504,7 +500,7 @@ export const getCreateDataOrderParams = (data, url, apikey) => {
 }
 export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue }, url, apikey) => {
 
-  console.log("ada apa " + captchaValue)
+  // console.log("ada apa " + captchaValue)
   return {
 
     method: "post",
@@ -512,7 +508,6 @@ export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue },
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -580,7 +575,6 @@ export const getUpdateDataOrderParams = (id, data, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -644,7 +638,6 @@ export const getUpdateDataOrderByOrderIdParams = (orderId, data, url, apikey) =>
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -738,7 +731,6 @@ export const getDataConfirmationParams = (bodyFormData, url, apikey) => {
     headers: {
       "Content-Type": "multipart/form-data",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: bodyFormData
 
@@ -754,7 +746,6 @@ export const getUpdateDataUndanganParams = (data, url, apikey) => {
     headers: {
       "Content-Type": "multipart/form-data",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data.bodyFormData
 
@@ -770,7 +761,6 @@ export const getCreateDataUndanganParams = (data, url, apikey) => {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `bearer ${apikey}`,
-      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data
 
