@@ -3,9 +3,10 @@ import { getAuthParams, getAuthRegisterParams, getChangePasswordParams, getCheck
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL
+const strapiApiKey = process.env.STRAPI_API_KEY
 
 export async function login(data){
-    return await axios(getAuthParams(data,strapiUrl))
+    return await axios(getAuthParams(data,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -16,7 +17,7 @@ export async function login(data){
     })
 }
 export async function register(data){
-    return await axios(getAuthRegisterParams(data,strapiUrl))
+    return await axios(getAuthRegisterParams(data,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -29,7 +30,7 @@ export async function register(data){
 
 /* CHECK PEMESANAN */
 export async function checkPemesanan(identifier){
-    return await axios(getCheckPemesananParams(identifier,strapiUrl))
+    return await axios(getCheckPemesananParams(identifier,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -42,7 +43,7 @@ export async function checkPemesanan(identifier){
 
 /* CHECK DATA UNDANGAN ORDER ID */
 export async function getDataUndanganIdByOrderId(orderId){
-    return await axios(getDataUndanganIdByOrderIdParams(orderId,strapiUrl))
+    return await axios(getDataUndanganIdByOrderIdParams(orderId,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res

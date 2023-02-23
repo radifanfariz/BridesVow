@@ -7,46 +7,31 @@ import Custom404 from '../404';
 export async function getStaticProps({ params }) {
 
 
-    try {
+    const { slug } = params
 
-        const { slug } = params
+    const data = await getDataUndangan(slug)
 
-        const data = await getDataUndangan(slug)
-
-        return {
-            props: data,
-            revalidate: 10,
-        };
-    } catch (err) {
-        return {
-            notFound: true,
-            revalidate: 10,
-        };
-    }
+    return {
+        props: data,
+        revalidate: 10,
+    };
 }
 
 export async function getStaticPaths() {
 
-    try {
 
-        const data = await getDataUndangan()
-        const actualData = data.data.dataUndangans.data
+    const data = await getDataUndangan()
+    const actualData = data.data.dataUndangans.data
 
-        const paths = actualData.map((item) => ({
-            params: { slug: item.attributes.Slug },
-        }))
+    const paths = actualData.map((item) => ({
+        params: { slug: item.attributes.Slug },
+    }))
 
-        return {
-            paths,
-            fallback: 'blocking',
-        };
+    return {
+        paths,
+        fallback: 'blocking',
+    };
 
-    } catch (err) {
-        console.log(err)
-        return {
-            notFound: true,
-        };
-    }
 }
 
 
@@ -54,13 +39,13 @@ const Post = ({ data }) => {
 
     try {
         const templateId = data.dataUndangans.data[0].attributes.template_undangan.data.attributes.TemplateID
-        const getTemplate = templateAll[templateId] 
+        const getTemplate = templateAll[templateId]
         return (
             getTemplate(data.dataUndangans.data[0].attributes)
-        )  
+        )
     } catch (error) {
         return (
-            <Custom404/>
+            <Custom404 />
         )
     }
 }

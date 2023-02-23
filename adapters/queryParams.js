@@ -2,7 +2,7 @@ const URL = process.env.NEXT_PUBLIC_STRAPI_URL
 const NEXT_URL = process.env.NEXT_PUBLIC_BASE_URL
 const APIKEY = process.env.STRAPI_API_KEY
 
-export const getDataUndanganParams = (slug, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataUndanganParams = (slug, url, apikey) => {
 
   return {
 
@@ -10,7 +10,8 @@ export const getDataUndanganParams = (slug, url, apikey = "b6255b6a277f1d924a0c8
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -150,7 +151,8 @@ export const dataUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": `bearer ${APIKEY}`
+    "Authorization": `bearer ${APIKEY},
+    "Accept-Encoding": "gzip,deflate,compress"`
   },
   data: {
     query: `
@@ -275,7 +277,8 @@ export const dataTemplateUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": `bearer ${APIKEY}`
+    "Authorization": `bearer ${APIKEY}`,
+    "Accept-Encoding": "gzip,deflate,compress"
   },
   data: {
     query: `
@@ -319,7 +322,8 @@ export const dataPaketUndanganParams = {
   url: `${URL}/graphql`,
   headers: {
     "Content-Type": "application/json",
-    "Authorization": `bearer ${APIKEY}`
+    "Authorization": `bearer ${APIKEY}`,
+    "Accept-Encoding": "gzip,deflate,compress"
   },
   data: {
     query: `
@@ -359,7 +363,7 @@ export const dataPaketUndanganParams = {
   }
 }
 
-export const getDataOrderParams = (orderId, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataOrderParams = (orderId, url, apikey) => {
 
   return {
 
@@ -367,7 +371,8 @@ export const getDataOrderParams = (orderId, url, apikey = "b6255b6a277f1d924a0c8
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -432,7 +437,7 @@ export const dataListPaymentParams = {
   data: {}
 }
 
-export const getCreateDataOrderParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getCreateDataOrderParams = (data, url, apikey) => {
 
   return {
 
@@ -440,7 +445,8 @@ export const getCreateDataOrderParams = (data, url, apikey = "b6255b6a277f1d924a
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -495,7 +501,7 @@ export const getCreateDataOrderParams = (data, url, apikey = "b6255b6a277f1d924a
     }
   }
 }
-export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue }, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue }, url, apikey) => {
 
   console.log("ada apa " + captchaValue)
   return {
@@ -504,7 +510,8 @@ export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue },
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -563,7 +570,7 @@ export const getDataOrderWithRecaptchaParams = ({ dataOrderPost, captchaValue },
   }
 }
 
-export const getUpdateDataOrderParams = (id, data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getUpdateDataOrderParams = (id, data, url, apikey) => {
 
   return {
 
@@ -571,7 +578,8 @@ export const getUpdateDataOrderParams = (id, data, url, apikey = "b6255b6a277f1d
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -626,7 +634,7 @@ export const getUpdateDataOrderParams = (id, data, url, apikey = "b6255b6a277f1d
     }
   }
 }
-export const getUpdateDataOrderByOrderIdParams = (orderId, data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getUpdateDataOrderByOrderIdParams = (orderId, data, url, apikey) => {
 
   return {
 
@@ -634,7 +642,8 @@ export const getUpdateDataOrderByOrderIdParams = (orderId, data, url, apikey = "
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -717,7 +726,7 @@ export const forgotPasswordSessionDestroyParams = {
   }
 }
 
-export const getDataConfirmationParams = (bodyFormData, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataConfirmationParams = (bodyFormData, url, apikey) => {
 
   return {
 
@@ -725,14 +734,15 @@ export const getDataConfirmationParams = (bodyFormData, url, apikey = "b6255b6a2
     url: `${url}/api/konfirmasis`,
     headers: {
       "Content-Type": "multipart/form-data",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: bodyFormData
 
   }
 }
 
-export const getUpdateDataUndanganParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getUpdateDataUndanganParams = (data, url, apikey) => {
 
   return {
 
@@ -740,14 +750,15 @@ export const getUpdateDataUndanganParams = (data, url, apikey = "b6255b6a277f1d9
     url: `${url}/api/data-undangans/${data.id}`,
     headers: {
       "Content-Type": "multipart/form-data",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data.bodyFormData
 
   }
 }
 
-export const getCreateDataUndanganParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getCreateDataUndanganParams = (data, url, apikey) => {
 
   return {
 
@@ -755,7 +766,8 @@ export const getCreateDataUndanganParams = (data, url, apikey = "b6255b6a277f1d9
     url: `${url}/api/data-undangans`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data
 

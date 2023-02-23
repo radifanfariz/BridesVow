@@ -27,10 +27,11 @@ import axios from "axios";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL
+const strapiApiKey = process.env.STRAPI_API_KEY
 
 export async function getDataUndangan(slug=""){
 
-    return await axios(getDataUndanganParams(slug,strapiUrl))
+    return await axios(getDataUndanganParams(slug,strapiUrl,strapiApiKey))
     .then(function (response) {
         const res = response.data; // Response received from the API
         // console.log("test API: ",res)
@@ -96,7 +97,7 @@ export async function getDataListPayment(){
 
 export async function getDataOrder(orderId){
 
-    return await axios(getDataOrderParams(orderId,strapiUrl))
+    return await axios(getDataOrderParams(orderId,strapiUrl,strapiApiKey))
     .then(function (response) {
         const res = response.data; // Response received from the API
         // console.log("test API: ",res)
@@ -112,7 +113,7 @@ export async function getDataOrder(orderId){
 /* POST */
 
 export async function createDataOrder(data){
-    return await axios(getCreateDataOrderParams(data,strapiUrl))
+    return await axios(getCreateDataOrderParams(data,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -123,7 +124,7 @@ export async function createDataOrder(data){
     })
 }
 export async function createDataOrderByRecaptcha({dataOrderPost,captchaValue}){
-    return await axios(getDataOrderWithRecaptchaParams({dataOrderPost,captchaValue},strapiUrl))
+    return await axios(getDataOrderWithRecaptchaParams({dataOrderPost,captchaValue},strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -147,7 +148,7 @@ export async function createSessionForgotPassword(data){
 }
 
 export async function createDataConfirmation(bodyFormData){
-    return await axios(getDataConfirmationParams(bodyFormData,strapiUrl))
+    return await axios(getDataConfirmationParams(bodyFormData,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -159,7 +160,7 @@ export async function createDataConfirmation(bodyFormData){
 }
 
 export async function createDataUndangan(data){
-    return await axios(getCreateDataUndanganParams(data,strapiUrl))
+    return await axios(getCreateDataUndanganParams(data,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -195,7 +196,7 @@ export async function createDataPayment(data){
 
 /* PUT */
 export async function updateDataOrder(id, data){
-    return await axios(getUpdateDataOrderParams(id,data,strapiUrl))
+    return await axios(getUpdateDataOrderParams(id,data,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -206,7 +207,7 @@ export async function updateDataOrder(id, data){
     })
 }
 export async function updateDataOrderByOrderId(orderId,data){
-    return await axios(getUpdateDataOrderByOrderIdParams(orderId,data,strapiUrl))
+    return await axios(getUpdateDataOrderByOrderIdParams(orderId,data,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res
@@ -218,7 +219,7 @@ export async function updateDataOrderByOrderId(orderId,data){
 }
 
 export async function updateDataUndangan(bodyFormData){
-    return await axios(getUpdateDataUndanganParams(bodyFormData=bodyFormData,strapiUrl))
+    return await axios(getUpdateDataUndanganParams(bodyFormData=bodyFormData,strapiUrl,strapiApiKey))
     .then((response) => {
         const res = response.data
         return res

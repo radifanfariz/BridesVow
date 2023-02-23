@@ -1,4 +1,4 @@
-export const getAuthParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getAuthParams = (data, url, apikey) => {
 
   return {
 
@@ -6,7 +6,8 @@ export const getAuthParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c959
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -29,7 +30,7 @@ export const getAuthParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c959
   }
 }
 
-export const getAuthRegisterParams = (data, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getAuthRegisterParams = (data, url, apikey) => {
 
   return {
 
@@ -37,14 +38,15 @@ export const getAuthRegisterParams = (data, url, apikey = "b6255b6a277f1d924a0c8
     url: `${url}/api/auth/local/register`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data
   }
 }
 
 ////check from pemesanan field//////
-export const getCheckPemesananParams = (identifier, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getCheckPemesananParams = (identifier, url, apikey) => {
 
   return {
 
@@ -52,7 +54,8 @@ export const getCheckPemesananParams = (identifier, url, apikey = "b6255b6a277f1
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
@@ -99,7 +102,8 @@ export const getChangePasswordParams = (data, url) => {
     url: `${url}/api/auth/change-password`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${data.jwt}`
+      "Authorization": `bearer ${data.jwt}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: data.dataChangePassword
   }
@@ -129,7 +133,7 @@ export const loginSessionDestroyParams = {
   }
 }
 
-export const getDataUndanganIdByOrderIdParams = (orderId, url, apikey = "b6255b6a277f1d924a0c8f447c9598bf844b8cdea5494761254d896d381efbae94510657cee77518f4655673f4fd2c1e80433d0be0ffd550e4929f0c7fa30874dfcea70b0a9365258a723651f913be5c9eac9c4c8a44e5bff443a21de0b682c7c1fb91761fe7a297430d3e41a24b1063302037b4f8a6bb8b18a88748d14e3fda") => {
+export const getDataUndanganIdByOrderIdParams = (orderId, url, apikey) => {
 
   return {
 
@@ -137,7 +141,8 @@ export const getDataUndanganIdByOrderIdParams = (orderId, url, apikey = "b6255b6
     url: `${url}/graphql`,
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `bearer ${apikey}`
+      "Authorization": `bearer ${apikey}`,
+      "Accept-Encoding": "gzip,deflate,compress"
     },
     data: {
       query: `
