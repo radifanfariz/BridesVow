@@ -1,6 +1,6 @@
 const URL = process.env.NEXT_PUBLIC_STRAPI_URL
 const NEXT_URL = process.env.NEXT_PUBLIC_BASE_URL
-const APIKEY = process.env.STRAPI_API_KEY
+const APIKEY = process.env.NEXT_PUBLIC_STRAPI_API_KEY
 
 export const getDataUndanganParams = (slug, url, apikey) => {
 
