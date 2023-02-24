@@ -3,7 +3,7 @@ import { getAuthParams, getAuthRegisterParams, getChangePasswordParams, getCheck
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 const strapiUrl = process.env.NEXT_PUBLIC_STRAPI_URL
-const strapiApiKey = process.env.STRAPI_API_KEY
+const strapiApiKey = process.env.NEXT_PUBLIC_STRAPI_API_KEY
 
 export async function login(data){
     return await axios(getAuthParams(data,strapiUrl,strapiApiKey))
