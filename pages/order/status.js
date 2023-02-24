@@ -88,7 +88,7 @@ const WaitingPayment = ({ data }) => {
                                     </strong>
                                 </h1>
                                 <div className="text-3xl font-extrabold">
-                                    <Image className='' src={`/static/wallet/${channelCode}.png`} loader={imageLoader} width={200} height={200} alt='template' objectFit="contain" />
+                                    <Image className='' src={`/static/wallet/${channelCode.toLowerCase()}.png`} loader={imageLoader} width={200} height={200} alt='template' objectFit="contain" />
                                 </div>
                                 {channelCode.toLowerCase() === "qris" ?
                                     <div className="text-3xl font-extrabold flex justify-center">
