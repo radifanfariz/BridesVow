@@ -54,48 +54,19 @@ const StepContainer = () => {
             <div className="flex justify-start max-w-[600px] xl:max-w-[100%] w-[90vw] xl:w-[800px] xl:h-[1020px] h-[90vh] p-6 rounded-3xl bg-[#F1F1F1]">
                 <div className="flex flex-col justify-start xl:text-[30px]">
                     <span className="font-[poppins] capitalize font-bold xl:text-[40px] text-2xl text-black mt-2 mb-4">Tahap Pemesanan</span>
-                    <div className="flex justify-start items-start mt-1">
-                        <div className="flex flex-col justify-center items-center">
-                            <AiFillCheckCircle />
-                            <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
-                        </div>
-                        <span className="font-[poppins] px-2 text-black">Silahkan pilih paket yang telah
-                            disediakan oleh BridesVow dengan scroll ke bawah
-                            atau klik menu Paket.    </span>
-                    </div>
-                    <div className="flex justify-start items-start">
-                        <div className="flex flex-col justify-center items-center">
-                            <AiFillCheckCircle />
-                            <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
-                        </div>
-                        <span className="font-[poppins] px-2 text-black">Pilih desain undangan yang menurut kamu sesuai dengan
-                            selera kamu pada halaman paket yang telah kamu pilih.</span>
-                    </div>
-                    <div className="flex justify-start items-start">
-                        <div className="flex flex-col justify-center items-center">
-                            <AiFillCheckCircle />
-                            <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
-                        </div>
-                        <span className="font-[poppins] px-2 text-black">Isi form pemesanan setelah memilih desain. Jangan
-                            lupa untuk mengecek kembali data yang telah diinput.</span>
-                    </div>
-                    <div className="flex justify-start items-start">
-                        <div className="flex flex-col justify-center items-center">
-                            <AiFillCheckCircle />
-                            <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
-                        </div>
-                        <span className="font-[poppins] px-2 text-black">Lakukan pembayaran sesuai dengan pilihan yang ada.
-                            Dapat dilakukan melalui Bank Transfer, E-Wallet, dll.</span>
-                    </div>
-                    <div className="flex justify-start items-start">
-                        <div className="flex flex-col justify-center items-center">
-                            <AiFillCheckCircle />
-                            <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
-                        </div>
-                        <span className="font-[poppins] px-2 text-black">Setelah pembayaran dikonfirmasi, silahkan tunggu
-                            informasi selanjutnya yang akan disampaikan melalui WA atau
-                            E-mail.</span>
-                    </div>
+                    {
+                        StepContents.map((item,index) => {
+                            return (
+                                <div key={`step-${index}`} className="flex justify-start items-start mt-1">
+                                    <div className="flex flex-col justify-center items-center">
+                                        <AiFillCheckCircle />
+                                        <div className="w-[2px] xl:h-[150px] h-[12vh] border-l-2 border-[#003153] border-dotted"></div>
+                                    </div>
+                                    <span className="font-[poppins] px-2 text-black">{item.text}</span>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>
@@ -105,6 +76,30 @@ const StepContainer = () => {
 // const uniqueId = () => {
 //     return "id" + Math.random().toString(16).slice(2)
 // }
+
+const StepContents = [
+    {
+        text: `Silahkan pilih paket yang telah
+        disediakan oleh BridesVow dengan scroll ke bawah
+        atau klik menu Paket.`
+    },
+    {
+        text: `Pilih desain undangan yang menurut kamu sesuai dengan
+        selera kamu pada halaman paket yang telah kamu pilih.`
+    },
+    {
+        text: `Isi form pemesanan setelah memilih desain. Jangan
+        lupa untuk mengecek kembali data yang telah diinput.`
+    },
+    {
+        text: `Lakukan pembayaran sesuai dengan pilihan yang ada.
+        Dapat dilakukan melalui Virtual Account atau Qris.`
+    },
+    {
+        text: `Setelah melakukan pembayaran, maka anda dapat login ke dashboard
+        menggunakan OrderID/Email dan Password yang diisi pada form pemesanan.`
+    },
+]
 
 const featureContents = [
     {
@@ -147,7 +142,8 @@ const featureContents = [
 
 const Content = () => {
     return (
-        <section className="relative bg-gradient-to-r from-[#2c82b7] to-[#589ccd]">
+        // <section className="relative bg-gradient-to-r from-[#2c82b7] to-[#589ccd]">
+        <section className="relative overflow-y-hidden rounded-[2rem] xl:rounded-[5rem]">
             <div className="flex flex-col justify-center items-center pt-10 bg-white rounded-t-3xl">
                 <div id="fitur" className="flex justify-center">
                     <span className="font-[poppins] font-bold xl:text-[58px] text-[1.3rem] text-black xl:my-20 my-5">Fitur yang kamu dapat</span>

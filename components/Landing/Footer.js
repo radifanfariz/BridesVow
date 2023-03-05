@@ -1,7 +1,4 @@
 import Image from "next/image";
-import AvaRed from "../../public/static/landing/avaredcircle.svg";
-import AvaBlue from "../../public/static/landing/avabluecircle.svg";
-import AvaYellow from "../../public/static/landing/avayellowcircle.svg";
 import BridesVowIcon from "../../public/static/bridesvow.svg";
 import Link from "next/link";
 import { MdCorporateFare } from "react-icons/md";
@@ -37,7 +34,7 @@ const Footer = () => {
                   <h1 className="text-xl font-bold py-5">Product</h1>
                   <ul>
                     <li>
-                      <Link href="#">
+                      <Link href="/collections">
                         <a className="hover:border-b-2">All product</a>
                       </Link>
                     </li>
@@ -62,7 +59,7 @@ const Footer = () => {
                   <h1 className="text-xl font-bold py-5">Information</h1>
                   <ul>
                     <li>
-                      <Link href="#">
+                      <Link href="/faq">
                         <a className="hover:border-b-2">FAQ</a>
                       </Link>
                     </li>
