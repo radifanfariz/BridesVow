@@ -29,7 +29,7 @@ export const TextAreaPopUp = ({ open, setOpen, callback }) => {
                             <label className="label">
                                 <span className="label-text font-bold text-black">Pesan</span>
                             </label>
-                            <textarea {...register('pesan')} rows={15} cols={100} className="textarea textarea-bordered w-full max-w-full bg-white text-black" placeholder="Messages">
+                            <textarea {...register('pesan')} rows={15} cols={100} className="textarea textarea-bordered w-full max-w-full h-80 md:h-full bg-white text-black" placeholder="Messages">
                             </textarea>
                         </div>
                     </div>

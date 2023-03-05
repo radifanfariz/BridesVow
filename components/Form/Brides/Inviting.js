@@ -3,21 +3,21 @@ import { FormProvider, useForm, useWatch } from "react-hook-form"
 import { BsWhatsapp } from "react-icons/bs"
 import { TextAreaPopUp } from "../../Global/InputPopUp"
 import { AiOutlineInfoCircle } from "react-icons/ai"
-import InfoTooltip from "../../Global/InfoTooltip"
+import InfoPopOver from "../../Global/InfoPopOver"
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-const invitingTemplate = (namaPenerima, undanganSlug, pesan = "") => {
+const invitingTemplate = (namaPenerima, undanganSlug, pesan) => {
     const toParams = encodeURIComponent(namaPenerima)
     // const regex = '/#[A-Za-z]+#/i';
-    const newPesan = pesan.replace(new RegExp('#undanganSlug#'), undanganSlug).replace(new RegExp('#namaPenerima#'), namaPenerima).replace(new RegExp('#namaPenerima#'), toParams)
+    const newPesan = pesan.replaceAll('#undangan_slug#', undanganSlug).replaceAll('#nama_penerima#', namaPenerima)
     return newPesan
 }
-const defaultPesan = `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i #namaPenerima# untuk menghadiri acara kami.
+const defaultPesan = `Tanpa mengurangi rasa hormat, perkenankan kami mengundang Bapak/Ibu/Saudara/i #nama_penerima# untuk menghadiri acara kami.
 
  *Berikut link undangan kami*, untuk info lengkap dari acara bisa kunjungi :
  
- ${baseUrl}/#undanganSlug#?to=#namaPenerima#
+ ${baseUrl}/#undangan_slug#?to=#nama_penerima#
  
  Merupakan suatu kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan untuk hadir dan memberikan doa restu.
  
@@ -69,14 +69,14 @@ const Inviting = ({ undanganSlug }) => {
                                     <label className="label">
                                         <span className="label-text font-bold text-black">Nama{<span className="text-red-600">*</span>}</span>
                                     </label>
-                                    <input {...register('nama')} type="text" placeholder="Nama Pemesan" className="input input-bordered w-full max-w-full bg-white text-black" required />
+                                    <input {...register('nama')} type="text" placeholder="Nama Penerima" className="input input-bordered w-full max-w-full bg-white text-black" required />
                                 </div>
                                 <div className="w-full">
                                     <label className="label">
                                         <span className="label-text font-bold text-black">Nomor WA{<span className="text-red-600">*</span>}</span>
-                                        <InfoTooltip messsage={`Hilangkan "0,+,{},-" ketika menginput nomor ! <br/><strong><i>(contoh: 6281122334455)</i></strong>`}>
+                                        <InfoPopOver messsage={`Hilangkan "0,+,{},-" ketika menginput nomor ! <br/><strong><i>(contoh: 6281122334455)</i></strong>`}>
                                             <AiOutlineInfoCircle className="w-6 h-6 text-red-500" />
-                                        </InfoTooltip>
+                                        </InfoPopOver>
                                     </label>
                                     <div className="w-full max-w-full">
                                         <label className="input-group">
@@ -86,13 +86,23 @@ const Inviting = ({ undanganSlug }) => {
                                     </div>
                                 </div>
                                 <div className="w-full">
-                                    <label className="label">
-                                        <span className="label-text font-bold text-black">Pesan</span>
+                                    <div className="flex justify-between py-2">
+                                        <label className="label">
+                                            <div className="flex justify-center items-center">
+                                                <span className="label-text font-bold text-black mr-1">Pesan</span>
+                                                <InfoPopOver messsage={`<strong>Tambahkan keyword: </strong><ul>
+                                                <li><strong>#nama_slug#</strong> -> untuk url undangan anda, <strong><i>contoh: bridesvow.com/#nama_slug#</i></strong></li>
+                                                <li><strong>#nama_penerima#</strong> -> untuk nama penerima undangan anda, <strong><i>contoh: bridesvow.com/#nama_slug#/?to= #nama_penrima#</strong>, <strong>kepada saudara #nama_penerima#</i></strong></li></li>
+                                                </ul>`}>
+                                                    <AiOutlineInfoCircle className="w-6 h-6 text-red-500" />
+                                                </InfoPopOver>
+                                            </div>
+                                        </label>
                                         <button onClick={handleClickSetPesan} className="btn btn-sm sm:btn-sm md:btn-md text-white">Set Pesan</button>
-                                    </label>
+                                    </div>
                                     <div className="p-4">
                                         <div className="-mt-2 border-4 border-dashed rounded h-96">
-                                            <textarea value= {getValues("pesan")} {...register('viewPesan')} readOnly className="textarea textarea-bordered w-full h-full border-0 max-w-full bg-white text-black" placeholder="Messages">
+                                            <textarea value={invitingTemplate(watchFormNama, undanganSlug, pesan)} {...register('viewPesan')} readOnly className="textarea textarea-bordered w-full h-full border-0 max-w-full bg-white text-black" placeholder="Messages">
                                             </textarea>
                                         </div>
                                     </div>

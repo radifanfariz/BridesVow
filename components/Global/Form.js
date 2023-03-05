@@ -9,8 +9,8 @@ import AddForms from "./AddForm";
 import { getDataAmplopAddedForm } from "../../models/formModels";
 import { DataContext } from "../Form/Brides/BridesForm";
 import * as Tabs from '@radix-ui/react-tabs';
-import InfoTooltip from "./InfoTooltip";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import InfoPopOver from "./InfoPopOver";
 
 function useReferencedForm(methodForm, formName, referencedFormName, valueCallback = (v) => v) {
     const value = useWatch({ name: referencedFormName })
@@ -206,9 +206,9 @@ const Form = ({ formStructure }) => {
                                 </label>
                                 <div className="form-control w-full p-5 bg-slate-300 rounded-3xl">
                                     <div className="flex justify-end">
-                                        <InfoTooltip messsage={`Isi data dengan baik dan lengkap ! <br/>Jika ingin melakukan perubahan data <br/> maka harus diisi lagi semua dari awal !`}>
+                                        <InfoPopOver messsage={`Isi data dengan baik dan lengkap ! <br/>Jika ingin melakukan perubahan data <br/> maka harus diisi lagi semua dari awal !`}>
                                             <AiOutlineInfoCircle className="w-6 h-6 text-red-500" />
-                                        </InfoTooltip>
+                                        </InfoPopOver>
                                     </div>
                                     {
                                         structure.forms.map((form) => {

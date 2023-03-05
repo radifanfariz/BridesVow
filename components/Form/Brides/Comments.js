@@ -52,10 +52,10 @@ const Comments = ({ orderId }) => {
                 <div className="flex justify-center">
                     <span className="font-[Poppins-Extrabold] font-bold text-xl bg-[#ebf7ff] px-5 py-2 rounded-full text-black border-2 border-black">Komentar</span>
                 </div>
-                <div className="flex justify-center p-5 pt-10 font-[poppins]">
+                <div className="flex justify-center items-center p-5 pt-10 font-[poppins]">
                     <div className="overflow-x-auto overflow-y-auto xl:w-3/4">
                         <div className='flex justify-end items-center font-bold'>
-                            <div className='fixed text-black'>
+                            <div className='fixed text-black flex justify-center items-center'>
                                 <span className='pr-2'>Refresh</span>
                                 <button onClick={() => getData()} className="btn btn-circle btn-outline">
                                     <GrRefresh className='text-xl' />

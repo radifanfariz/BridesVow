@@ -731,7 +731,7 @@ const iconTabs = [
 
 ]
 
-export const tabTriggerModels = [
+export const bridesTabTriggerModels = [
     {
         label: "Data Pengantin Cewek",
         icon: iconTabs[1],

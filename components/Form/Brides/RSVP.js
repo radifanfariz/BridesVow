@@ -86,7 +86,7 @@ const RSVP = ({ orderId }) => {
                     <span className="divider"></span>
                     <div className="flex flex-col md:flex-row justify-center items-center w-full font-[poppins]">
                         <div className='flex flex-col items-center w-full'>
-                            <div className='flex justify-start items-center font-bold xl:w-full w-3/4'>
+                            <div className='flex justify-start items-center font-bold xl:w-full w-full'>
                                 <div className='flex w-full items-center text-black'>
                                     <div className='flex w-full'>
                                         <span>Jumlah Tamu: {hadir + tidakHadir}</span>

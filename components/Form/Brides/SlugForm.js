@@ -26,6 +26,8 @@ const WarningPopUp = dynamic(
 //     { ssr: false }
 // )
 
+const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL
+
 const SlugForm = ({ undanganId }) => {
 
     const formOptions = { resolver: yupResolver(slugFormSchema) }
@@ -85,7 +87,7 @@ const SlugForm = ({ undanganId }) => {
         // alert('SUCCESS!! ( ͡🔥 ͜ʖ ͡🔥)\n\n' + JSON.stringify(data));
 
         const bodyFormData = new FormData()
-        bodyFormData.append("data", JSON.stringify({"Slug":data.slug}))
+        bodyFormData.append("data", JSON.stringify({ "Slug": data.slug }))
         const dataSubmitAll = {
             id: undanganId,
             bodyFormData: bodyFormData
@@ -143,7 +145,10 @@ const SlugForm = ({ undanganId }) => {
                         </div>
                         <span className="pb-5 text-xl lg:text-3xl text-black font-bold font-[poppins]">Mohon masukkan Slug Undangan</span>
                         <form onSubmit={handleSubmit(onSubmit, onError)} className="pb-5 flex flex-col justify-center items-center">
-                            <input {...register("slug")} type="text" placeholder="Slug" className="input input-bordered rounded-full lg:w-72 bg-white text-black" required />
+                            <label className="input-group">
+                                <span className="text-white">{baseUrl+"/"}</span>
+                                <input {...register("slug")} type="text" placeholder="Slug" className="input input-bordered rounded-full lg:w-72 bg-white text-black" required />
+                            </label>
                             <button type="submit" className="btn btn-sm rounded-full w-40 m-5 bg-[#003153] text-white">Submit</button>
                         </form>
                     </div>

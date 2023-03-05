@@ -29,7 +29,6 @@ const OrderPage = ({ data, paymentList }) => {
     ////State/////
     const [totalHarga, setTotalHarga] = useState(999999)
     const [captchaValue, setCaptchaValue] = useState("");
-    const [orderId, setOrderId] = useState("")
     const [dataOrderForm, setDataOrderForm] = useState({
         paket: "Null",
         template: "Null",
@@ -204,6 +203,8 @@ const OrderPage = ({ data, paymentList }) => {
         notifyError('ERRORS!! Periksa lagi form nya !! ( ͡╥ ͜ʖ ͡╥)')
         console.log(errors, e);
     }
+
+    /*-----------------------------------------------------------------------------------------------------------------*/
 
     ///success toast
     const notifySuccess = (message) => toast.success(message, {

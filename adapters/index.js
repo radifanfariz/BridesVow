@@ -1,4 +1,4 @@
-import { dataUndanganParams,getDataUndanganParams, getDataOrderParams, dataTemplateUndanganParams, dataPaketUndanganParams, getDataOrderWithRecaptchaParams, getForgotPasswordEmailParam, getForgotPasswordSessionParam, forgotPasswordSessionDestroyParam, getForgotPasswordSessionParams, forgotPasswordSessionDestroyParams, getDataConfirmationParams, getDataUndanganPostParams, getDataUndanganSlugPostParam, getDataUndanganSessionParams, dataUndanganSessionDestroyParams, getUpdateDataOrderParams, dataListPaymentParams, getCreateDataOrderParams, getDataPaymentParams, getUpdateDataOrderByOrderIdParams, getCreateDataUndanganParams, getUpdateDataUndanganParams } from "./queryParams";
+import { dataUndanganParams,getDataUndanganParams, getDataOrderParams, dataTemplateUndanganParams, dataPaketUndanganParams, getDataOrderWithRecaptchaParams, getForgotPasswordEmailParam, getForgotPasswordSessionParam, forgotPasswordSessionDestroyParam, getForgotPasswordSessionParams, forgotPasswordSessionDestroyParams, getDataConfirmationParams, getDataUndanganPostParams, getDataUndanganSlugPostParam, getDataUndanganSessionParams, dataUndanganSessionDestroyParams, getUpdateDataOrderParams, dataListPaymentParams, getCreateDataOrderParams, getDataPaymentParams, getUpdateDataOrderByOrderIdParams, getCreateDataUndanganParams, getUpdateDataUndanganParams, dataFaqParams } from "./queryParams";
 
 // const URL = process.env.STRAPIBASEURL
 
@@ -98,6 +98,19 @@ export async function getDataListPayment(){
 export async function getDataOrder(orderId){
 
     return await axios(getDataOrderParams(orderId,strapiUrl,strapiApiKey))
+    .then(function (response) {
+        const res = response.data; // Response received from the API
+        // console.log("test API: ",res)
+        return res
+    })
+    .catch(function (error) {
+        console.error(error);
+        throw error
+    });
+}
+export async function getDataFaq(){
+
+    return await axios(dataFaqParams)
     .then(function (response) {
         const res = response.data; // Response received from the API
         // console.log("test API: ",res)

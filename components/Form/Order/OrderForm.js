@@ -114,7 +114,6 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                           value={item.paket_undangan.nama.toLowerCase()}
                         >{`${item.paket_undangan.nama} (Rp.${item.paket_undangan.harga}) 🟡`}</option>
                       );
-                      break;
                     case "Platinum":
                       return (
                         <option
@@ -122,7 +121,6 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                           value={item.paket_undangan.nama.toLowerCase()}
                         >{`${item.paket_undangan.nama} (Rp.${item.paket_undangan.harga}) ⚪`}</option>
                       );
-                      break;
                     case "Diamond":
                       return (
                         <option
@@ -130,7 +128,6 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                           value={item.paket_undangan.nama.toLowerCase()}
                         >{`${item.paket_undangan.nama} (Rp.${item.paket_undangan.harga}) ⚫`}</option>
                       );
-                      break;
                     default:
                       break;
                   }

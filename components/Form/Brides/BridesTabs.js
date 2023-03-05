@@ -1,5 +1,5 @@
 import * as Tabs from '@radix-ui/react-tabs';
-import { tabTriggerModels } from '../../../models/tabModels';
+import { bridesTabTriggerModels } from '../../../models/bridesTabModels';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
@@ -10,7 +10,7 @@ export default function BridesTabs({ children, undanganSlug }) {
             <Tabs.Root className="TabsRoot" defaultValue="tab1">
                 <Tabs.List className="TabsList" aria-label="Manage your account">
                     {
-                        tabTriggerModels.map((item) => {
+                        bridesTabTriggerModels.map((item) => {
                             return (
                                 <Tabs.Trigger key={item.value} className="TabsTrigger" value={item.value}>
                                     <a className="relative block p-4" >

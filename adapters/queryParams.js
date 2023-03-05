@@ -420,9 +420,9 @@ export const getDataOrderParams = (orderId, url, apikey) => {
             
 
         `,
-        variables: {
-          orderId: orderId
-        }
+      variables: {
+        orderId: orderId
+      }
     }
   }
 }
@@ -818,5 +818,36 @@ export const getDataPaymentParams = (data, url) => {
     },
     data: data
 
+  }
+}
+
+export const dataFaqParams = {
+  method: "post",
+  url: `${URL}/graphql`,
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `bearer ${APIKEY}`,
+    "Accept-Encoding": "gzip,deflate,compress"
+  },
+  data: {
+    query: `
+    {
+      faqs{
+        data{
+          id
+          attributes{
+            Kategori
+            Faq{
+              id
+              Pertanyaan
+              Jawaban
+            }
+          }
+        }
+      }
+    }
+            
+
+       `
   }
 }
