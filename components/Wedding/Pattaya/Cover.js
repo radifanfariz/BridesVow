@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import BgTexture from '../../../public/static/2/cover-bg.png'
+import BgTexture from '../../../public/static/pattaya/cover-bg.png'
 import { HiOutlineMailOpen } from 'react-icons/hi'
 
 const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
@@ -42,7 +42,7 @@ const Cover = ({ contents, isPlayerReady, playMusicCallback }) => {
     return (
         <header className={open}>
             <div className="absolute h-full min-h-screen w-full flex flex-col justify-between">
-                <Image layout='fill' priority='true' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image layout='fill' priority={true} src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <div className="flex flex-col h-full min-h-screen justify-center">
                 <div className="flex z-10 justify-center items-center">

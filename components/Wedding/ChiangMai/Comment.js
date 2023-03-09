@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/1/New/comment-bg.png'
-import { AiFillCheckCircle } from "react-icons/ai"
+import BgBase from '../../../public/static/chiangmai/comment-bg.png'
 import { BiTimeFive } from "react-icons/bi"
 import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
@@ -8,7 +7,6 @@ import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import moment from 'moment';
 import { toDateTime } from '../../../utils/formatDate'
-import { useCallback } from 'react'
 
 
 const CommentView = ({ name, isHadir, comment, createdAt }) => {
@@ -94,7 +92,7 @@ const Comment = ({ contents }) => {
         <>
             <section className="relative">
                 <div className="absolute h-full w-full min-h-screen">
-                    <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='top' />
+                    <Image priority={true} layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='top' />
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                     <div className="flex flex-col items-center mt-10">

@@ -4,7 +4,7 @@ import { EffectCoverflow, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import Image from 'next/image'
-import BgBase from "../../../public/static/2/album-bg.png"
+import BgBase from "../../../public/static/pattaya/album-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from "../../../utils/imageLoader";
 import MapsLocation from "../../Extra/MapsLocation";
@@ -15,7 +15,7 @@ const Album = ({ contents }) => {
     return (
         <section className="relative">
             <div className="absolute h-full w-full min-h-screen">
-                <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image priority={true} className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <MapsLocation contents={contents.maps} btnColor='bg-[#C9A663]'></MapsLocation>

@@ -3,7 +3,7 @@ import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
-import ContentImage from "../../../public/static/6/rsvp-giving-border-up.png"
+import ContentImage from "../../../public/static/shanghai/rsvp-giving-border-up.png"
 
 const RSVP = ({ contents }) => {
 
@@ -52,7 +52,7 @@ const RSVP = ({ contents }) => {
                 <div className="absolute h-full w-full min-h-screen bg-[#763B13]">
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
-                <Image priority='true' className="" width="500px" height="25px" src={ContentImage.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
+                <Image priority={true} className="" width="500px" height="25px" src={ContentImage.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
                     <div className={`flex flex-col items-center mt-10 ${disabledClass} `}>
                         <div className="flex justify-center mt-8 z-10">
                             <div className="bg-black rounded-full px-32 font-bold z-10 text-white text-2xl font-[poppins]">RSVP</div>

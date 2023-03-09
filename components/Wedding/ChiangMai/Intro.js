@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import Bunga from '../../../public/static/1/New/intro-bunga.png'
-import BgBase from '../../../public/static/1/New/intro-bg.png'
+import Bunga from '../../../public/static/chiangmai/intro-bunga.png'
+import BgBase from '../../../public/static/chiangmai/intro-bg.png'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from '../../../utils/imageLoader'
 
@@ -22,7 +22,7 @@ const Intro = ({contents}) => {
 
     return (
         <section className="relative">
-            <Image layout='fill' priority='true' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <Image layout='fill' priority={true} src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col h-full min-h-screen justify-start">
                 <div>
                     <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
@@ -34,11 +34,11 @@ const Intro = ({contents}) => {
                                 <div className="relative">
                                     <div className="flex justify-center p-28 pb-20">
                                         <div className="relative">
-                                            <Image layout="fixed" priority='true' className="rounded-full" loader={imageLoader} src={contents.cewek.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
+                                            <Image layout="fixed" priority={true} className="rounded-full" loader={imageLoader} src={contents.cewek.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
                                         </div>
                                         <div className="absolute">
                                             <div className="relative top-[120px] left-[-80px] rotate-[64deg] transform-gpu">
-                                                <Image priority='true' className="" src={Bunga.src} alt='bunga' width={132} height={82} />
+                                                <Image priority={true} className="" src={Bunga.src} alt='bunga' width={132} height={82} />
                                             </div>
                                         </div>
                                     </div>
@@ -62,11 +62,11 @@ const Intro = ({contents}) => {
                                 <div className="relative">
                                     <div className="flex justify-center p-28 pb-20 pt-0">
                                         <div className="relative">
-                                            <Image layout="fixed" priority='true' className="rounded-full" loader={imageLoader} src={contents.cowok.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
+                                            <Image layout="fixed" priority={true} className="rounded-full" loader={imageLoader} src={contents.cowok.src} alt='avatar' width={200} height={200} objectFit='cover' objectPosition='top' />
                                         </div>
                                         <div className="absolute">
                                             <div className="relative top-[120px] left-[-80px] rotate-[64deg] transform-gpu">
-                                                <Image priority='true' className="" src={Bunga.src} alt='bunga' width={132} height={82} />
+                                                <Image priority={true} className="" src={Bunga.src} alt='bunga' width={132} height={82} />
                                             </div>
                                         </div>
                                     </div>

@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/5/comment-bg.png'
-import { AiFillCheckCircle } from "react-icons/ai"
+import BgBase from '../../../public/static/manila/comment-bg.png'
 import { BiTimeFive } from "react-icons/bi"
 import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
@@ -89,10 +88,9 @@ const Comment = ({ contents }) => {
     }
 
     return (
-        <>
             <section className="relative min-h-screen">
                 <div className="absolute h-full w-full min-h-screen">
-                    <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                    <Image priority={true} layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                     <div className="flex flex-col items-center mt-10">
@@ -133,7 +131,6 @@ const Comment = ({ contents }) => {
                     </div>
                 </AnimationOnScroll>
             </section>
-        </>
     )
 }
 

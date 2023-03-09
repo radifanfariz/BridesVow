@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/4/comment-bg.png'
+import BgBase from '../../../public/static/songkhla/comment-bg.png'
 import { AiFillCheckCircle } from "react-icons/ai"
 import { BiTimeFive } from "react-icons/bi"
 import { app, database } from '../../../firebaseConsole'
@@ -97,7 +97,7 @@ const Comment = ({contents}) => {
     return (
         <section className="relative">
             <div className="absolute h-full w-full min-h-screen">
-                <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image priority={true} layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col items-center mt-10">

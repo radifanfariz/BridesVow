@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Link from 'next/link';
 import Image from 'next/image'
-import BgBase from "../../../public/static/3/album-bg.png"
+import BgBase from "../../../public/static/chonburi/album-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import MapsLocation from "../../Extra/MapsLocation";
 import { PhotoProvider, PhotoView } from "react-photo-view";
@@ -16,7 +16,7 @@ const Album = ({ contents }) => {
     return (
         <section className="relative">
             <div className="absolute h-full w-full min-h-screen">
-                <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image priority={true} className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="mt-20">

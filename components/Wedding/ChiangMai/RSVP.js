@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/1/New/rsvp-bg.png'
+import BgBase from '../../../public/static/chiangmai/rsvp-bg.png'
 import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
@@ -50,7 +50,7 @@ const RSVP = ({ contents }) => {
         <>
             <section className="relative">
                 <div className="absolute h-full w-full min-h-screen">
-                    <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='top' />
+                    <Image priority={true} layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='top' />
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                     <div className={`flex flex-col items-center mt-10 ${disabledClass} mt-14`}>

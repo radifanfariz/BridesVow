@@ -1,12 +1,12 @@
 import { AiFillHeart } from "react-icons/ai"
 import Image from "next/image"
-import BgBase from "../../../public/static/4/storyboards-bg.png"
+import BgBase from "../../../public/static/songkhla/storyboards-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Storyboards = ({ contents }) => {
     return (
         <section className="relative">
-            <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <Image priority={true} className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col h-full min-h-screen relative">
                     <div className="flex px-10 pt-10 pb-3 z-10">

@@ -14,6 +14,8 @@ import copy from "copy-to-clipboard";
 import { DataContext } from "../../../pages/order";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
+const env = process.env.NODE_ENV
+
 const OrderForm = ({ data, setDataOrderForm }) => {
   // console.log(data)
   // const contents = {
@@ -180,7 +182,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                                       layout="intrinsic"
                                       width={120}
                                       height={250}
-                                      src={`${template.data.url}`}
+                                      src={(env = "development") ? `http://localhost:1338${template.data.url}`:`${template.data.url}`}
                                       alt="Template"
                                       objectFit="contain"
                                     />

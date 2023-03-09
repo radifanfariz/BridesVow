@@ -1,8 +1,7 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/2/comment-bg.png'
-import { AiFillCheckCircle } from "react-icons/ai"
+import BgBase from '../../../public/static/pattaya/comment-bg.png'
 import { BiTimeFive } from "react-icons/bi"
-import { app, database } from '../../../firebaseConsole'
+import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
@@ -17,19 +16,13 @@ const CommentView = ({ name, isHadir, comment, createdAt }) => {
     return (
         <div className="bg-white">
             <div className="flex border-t-[1px] border-black w-full px-5 py-4">
-                <div className="w-[20px] h-[20px] rounded-full bg-[#000000]"></div>
+                <div className="w-[20px] h-[20px] rounded-full bg-[#35584B]"></div>
                 <div className="flex flex-col px-2">
                     <div className="flex flex-col">
                         <div className="flex text-xs">
-                            <span className="font-extrabold text-[#000000]">
+                            <span className="font-extrabold text-[#35584B]">
                                 {name}
                             </span>
-                            <div className="flex justify-center items-center w-[80px] ml-2 pr-2 text-white bg-[#000000] rounded-full">
-                                <span className='pr-1 pl-1'><AiFillCheckCircle /></span>
-                                <span className="text-[7px] font-extrabold">
-                                    {isHadir === true ? "Hadir" : "Tidak Hadir"}
-                                </span>
-                            </div>
                         </div>
                         <div className="flex items-center text-[8px]">
                             <span className="pr-1"><BiTimeFive /></span>
@@ -97,7 +90,7 @@ const Comment = ({ contents }) => {
     return (
         <section className="relative">
             <div className="absolute h-full w-full min-h-screen">
-                <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image priority={true} layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <div className="flex flex-col items-center mt-2">

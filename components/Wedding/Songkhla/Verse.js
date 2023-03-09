@@ -1,12 +1,12 @@
 import Image from "next/image"
-import Ring from "../../../public/static/4/verse-ring.svg"
-import BgTexture from "../../../public/static/4/verse-bg.png"
+import Ring from "../../../public/static/songkhla/verse-ring.svg"
+import BgTexture from "../../../public/static/songkhla/verse-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Verse = ({ contents }) => {
     return (
         <section className="relative">
-            <Image priority='true' className="" layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <Image priority={true} className="" layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="relative py-6 px-4">
                     <div className="flex flex-col justify-between relative items-center mx-5 px-2 py-2 rounded-3xl bg-[#D9D9D9]">

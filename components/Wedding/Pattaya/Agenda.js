@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import BgTexture from '../../../public/static/2/agenda-bg.png'
+import BgTexture from '../../../public/static/pattaya/agenda-bg.png'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Agenda = ({ contents }) => {
     return (
         <section className="relative">
             <div className="absolute h-full min-h-[600px] w-full flex flex-col justify-between">
-                <Image layout='fill' priority='true' src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image layout='fill' priority={true} src={BgTexture.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <div className="flex flex-col h-full min-h-[600px] justify-center">

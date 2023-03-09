@@ -1,11 +1,12 @@
 import Head from "next/head";
-import ImagePreview from "../components/Global/ImagePreview";
+import ImagePreview from "../components/Landing/Decor/ImagePreview";
 import Content from "../components/Landing/Content/Content";
 import MainContent from "../components/Landing/Content/MainContent";
 import Product from "../components/Landing/Content/Product";
 import Layout from "../components/Landing/Layout";
+import { getDataPaketUndangan } from "../adapters";
 
-export default function Home() {
+export default function LandingPage({ data }) {
   return (
     <>
       <Head>
@@ -18,7 +19,7 @@ export default function Home() {
       </Head>
       <Layout>
         <MainContent>
-          <ImagePreview />
+          <ImagePreview data={data} />
         </MainContent>
         <Content />
         <Product />
@@ -26,3 +27,34 @@ export default function Home() {
     </>
   );
 }
+
+export async function getStaticProps() {
+  const res = await getDataPaketUndangan()
+  const data = []
+  res.data.paketUndangans.data.map((item) => {
+    item.attributes.template_undangans.data.map((item) => {
+      return (
+        data.push(
+          {
+            id: item.id,
+            data: {
+              nama: item.attributes.Nama,
+              slug: item.attributes.Slug,
+              isCreatorChoice: item.attributes.IsCreatorChoice,
+              template_id: item.attributes.TemplateID,
+              url: item.attributes.Gambar.data.attributes.url
+            }
+
+          }
+        )
+      )
+    })
+  })
+  return {
+    props: {
+      data
+    }
+  }
+}
+
+

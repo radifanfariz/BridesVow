@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Ring from "../../../public/static/6/verse-ring.svg"
-import BgTexture from "../../../public/static/6/verse-bg.png"
+import Ring from "../../../public/static/shanghai/verse-ring.svg"
+import BgTexture from "../../../public/static/shanghai/verse-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Verse = ({contents}) => {
@@ -9,7 +9,7 @@ const Verse = ({contents}) => {
             <div className="py-2 px-4">
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                     <div className="flex flex-col justify-between relative items-center px-2 py-10 rounded-full">
-                        <Image priority='true' className='' layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
+                        <Image priority={true} className='' layout='fill' src={BgTexture.src} alt='BgTexture' objectFit='contain' objectPosition='center' />
                         <div className="flex z-10">
                             <div className="flex justify-center w-[25px] mb-2">
                                 <Image src={Ring.src} alt={"ring"} width={100} height={100} />

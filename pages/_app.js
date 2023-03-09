@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
     if (typeof window !== 'undefined') {
       const loader = document.getElementById('globalLoader');
       if (loader)
-        loader.style.display = 'none';
+        loader.remove()
     }
   }, []);
 

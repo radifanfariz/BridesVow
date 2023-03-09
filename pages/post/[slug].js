@@ -1,6 +1,6 @@
 
 import { getDataUndangan } from '../../adapters';
-import { templateAll } from '../../templates/templateAll';
+import { templateAll } from '../../templates/TemplateAll';
 import Custom404 from '../404';
 
 

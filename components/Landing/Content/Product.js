@@ -105,17 +105,17 @@ const featuresThree = [
 const Product = () => {
     return (
         // <section className="relative w-full bg-[#F1F1F1]">
-        <section className="relative w-full">
+        <section className="relative w-full" id="paket">
             <div className="flex flex-col justify-center items-center">
                 <div className="container px-6 mx-auto">
-                    <div className="p-36 font-[poppins]">
+                    <div className="xl:p-36 py-10 font-[poppins]">
                         <h1 className="text-2xl xl:text-[58px] font-semibold text-center text-white capitalize lg:text-3xl">
                             Pilihan Paket
                         </h1>
                         <p className="max-w-2xl mx-auto mt-4 text-center text-white xl:mt-6 xl:text-xl">
                             Pilihan paket ditetapkan berdasarkan desain. Untuk fitur pada undangan, tenang saja semua fitur kami berikan, tidak ada fitur yang kami batasi.
                         </p>
-                        <div className="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3 border-4 border-black p-20 rounded-3xl">
+                        <div className="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3 lg:border-4 border-black lg:p-20 rounded-3xl">
                             <div className="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700 bg-white">
                                 <p className="font-medium text-yellow-500 uppercase ">
                                     Gold

@@ -1,5 +1,5 @@
 import Image from "next/image"
-import BgBase from "../../../public/static/6/agenda-bg.png"
+import BgBase from "../../../public/static/shanghai/agenda-bg.png"
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from "../../../utils/imageLoader"
 
@@ -7,7 +7,7 @@ const Agenda = ({ contents }) => {
 
     return (
         <section className="relative">
-            <Image priority='true' layout="fill" src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <Image priority={true} layout="fill" src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col justify-around items-center h-full min-h-screen relative pb-32 pt-10 px-10 mt-20 font-[poppins]">
                     <div className="flex flex-col px-10 pb-20 z-10 rounded-t-[4rem] bg-white">

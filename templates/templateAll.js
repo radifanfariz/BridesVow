@@ -2,10 +2,12 @@
 import { getWeddingContents } from "../adapters/contents";
 import Manila from "./diamond/Manila";
 import Shanghai from "./diamond/Shanghai";
+import Tokyo from "./diamond/Tokyo";
 import Chonburi from "./gold/Chonburi";
 import Pattaya from "./gold/Pattaya";
-import Songkhla from "./gold/Songkhla";
 import ChiangMai from "./platinum/ChiangMai";
+import Fukuoka from "./platinum/Fukuoka";
+import Songkhla from "./platinum/Songkhla";
 
 export const templateAll = {
     'p01': (data) => {
@@ -25,6 +27,12 @@ export const templateAll = {
     },
     'p06': (data) => {
         return <Shanghai contents={getWeddingContents(data)} />
+    },
+    'p07': (data) => {
+        return <Tokyo contents={getWeddingContents(data)} />
+    },
+    'p08': (data) => {
+        return <Fukuoka contents={getWeddingContents(data)} />
     },
 }
 
@@ -46,6 +54,12 @@ export const templateAllDefault = {
     },
     "shanghai": (data) => {
         return <Shanghai contents={data} />
+    },
+    "tokyo": (data) => {
+        return <Tokyo contents={data} />
+    },
+    "fukuoka": (data) => {
+        return <Fukuoka contents={data} />
     },
 }
 
@@ -71,7 +85,7 @@ export const templateMetaData = [
     },
     {
         name:"Songkhla",
-        type:"gold",
+        type:"platinum",
         slug:"/preview/songkhla",
         img:"../../public/static/landing/mokap4.png"
     },
@@ -86,5 +100,17 @@ export const templateMetaData = [
         type:"diamond",
         slug:"/preview/shanghai",
         img:"../../public/static/landing/mokap6.png"
+    },
+    {
+        name:"Tokyo",
+        type:"diamond",
+        slug:"/preview/tokyo",
+        img:"../../public/static/landing/mokap7.png"
+    },
+    {
+        name:"Fukuoka",
+        type:"platinum",
+        slug:"/preview/fukuoka",
+        img:"../../public/static/landing/mokap8.png"
     },
 ]

@@ -1,13 +1,13 @@
 import { AiFillHeart } from "react-icons/ai"
 import Image from "next/image"
-import BgBase from "../../../public/static/6/storyboards-bg.png"
-import Road from '../../../public/static/5/storyboards-road.svg'
+import BgBase from "../../../public/static/shanghai/storyboards-bg.png"
+import Road from '../../../public/static/shanghai/storyboards-road.svg'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 
 const Storyboards = ({ contents }) => {
     return (
         <section className="relative">
-            <Image priority='true' className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <Image priority={true} className="" layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex flex-col h-full min-h-screen relative overflow-hidden min-w-full my-10">
                     <div className="flex justify-center pt-10 pb-3 z-10">
@@ -15,7 +15,7 @@ const Storyboards = ({ contents }) => {
                     </div>
                     <div className="flex flex-col px-10 z-10 relative">
                         <div className="absolute w-full h-full top-[2.5rem] lg:right-16 right-2 z-50">
-                            <Image priority='true' layout='fill' src={Road.src} alt='BgTexture' objectFit='contain' objectPosition='top' />
+                            <Image priority={true} layout='fill' src={Road.src} alt='BgTexture' objectFit='contain' objectPosition='top' />
                         </div>
                         <div className="flex mt-[-0.5rem] relative top-[4rem] right-4">
                             <div className="flex flex-col">

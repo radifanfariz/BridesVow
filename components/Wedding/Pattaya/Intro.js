@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/2/intro-bg.png'
+import BgBase from '../../../public/static/pattaya/intro-bg.png'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import imageLoader from '../../../utils/imageLoader'
 
@@ -21,7 +21,7 @@ const Intro = ({contents}) => {
 
     return (
         <section className="relative">
-            <Image layout='fill' priority='true' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+            <Image layout='fill' priority={true} src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col h-full min-h-screen justify-start">
                 <div>
                     <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
@@ -31,7 +31,7 @@ const Intro = ({contents}) => {
                             </div>
                                 <div className="flex justify-between mt-20 relative">
                                     <div className="p-5">
-                                        <Image priority='true' className="rounded-full max-w-full h-auto" loader={imageLoader} src={contents.cewek.src} alt='avatar' width={500} height={500} objectFit='cover' objectPosition='top' />
+                                        <Image priority={true} className="rounded-full max-w-full h-auto" loader={imageLoader} src={contents.cewek.src} alt='avatar' width={500} height={500} objectFit='cover' objectPosition='top' />
                                     </div>
                                     <div className="flex justify-end items-center p-10">
                                         <div className="text-[60px] font-['richard'] text-[#FFFDE3] my-2">{contents.cewek.name}</div>
@@ -53,7 +53,7 @@ const Intro = ({contents}) => {
                                         <div className="text-[60px] font-['richard'] text-[#FFFDE3] my-2">{contents.cowok.name}</div>
                                     </div>
                                     <div className="p-5">
-                                        <Image priority='true' className="rounded-full max-w-full h-auto" loader={imageLoader} src={contents.cowok.src} alt='avatar' width={500} height={500} objectFit='cover' objectPosition='top' />
+                                        <Image priority={true} className="rounded-full max-w-full h-auto" loader={imageLoader} src={contents.cowok.src} alt='avatar' width={500} height={500} objectFit='cover' objectPosition='top' />
                                     </div>
                                 </div>
                             <div className="flex flex-col z-10 relative">

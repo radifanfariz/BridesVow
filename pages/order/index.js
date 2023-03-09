@@ -15,9 +15,9 @@ import LoadingPopUp from "../../components/Global/LoadingPopUp"
 import 'react-toastify/dist/ReactToastify.css';
 import { register } from "../../adapters/auth"
 
-export const DataContext = createContext(null)
-
 const aesSecretKey = process.env.NEXT_PUBLIC_AES_SECRET_KEY
+
+export const DataContext = createContext(null)
 
 const OrderPage = ({ data, paymentList }) => {
 

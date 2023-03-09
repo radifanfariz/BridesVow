@@ -2,8 +2,8 @@ import { FaRegCalendarAlt } from "react-icons/fa"
 import { useTimer } from "react-timer-hook"
 import React, { useEffect, useState } from 'react';
 import Image from "next/image";
-import Ring from '../../../public/static/5/countdown-ring.png'
-// import Vline from '../../../public/static/5/countdown-vline.png'
+import Ring from '../../../public/static/manila/countdown-ring.png'
+// import Vline from '../../../public/static/manila/countdown-vline.png'
 import imageLoader from "../../../utils/imageLoader";
 import { atcb_action } from "add-to-calendar-button";
 import 'add-to-calendar-button/assets/css/atcb.css';
@@ -53,14 +53,14 @@ const Countdown = ({ contents }) => {
 
     return (
         <section className={"relative"}>
-            <Image layout='fill' priority='true' loader={imageLoader} src={contents.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
+            <Image layout='fill' priority={true} loader={imageLoader} src={contents.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col justify-center pt-56 h-full min-h-screen">
                 <div className="flex justify-center z-10">
                     <div className="text-lg text-center font-semibold text-white">Nantikan hari bahagia kami</div>
                 </div>
                 <div className="flex justify-center mt-4 z-10">
                     <div className="flex justify-center items-center text-white font-[paradise] text-5xl">
-                        {contents.cewekName} <span className="px-2"><Image priority='true' className="" width="80px" height="80px" src={Ring.src} alt='Ring' objectFit="contain" objectPosition="center" /></span> {contents.cowokName}
+                        {contents.cewekName} <span className="px-2"><Image priority={true} className="" width="80px" height="80px" src={Ring.src} alt='Ring' objectFit="contain" objectPosition="center" /></span> {contents.cowokName}
                     </div>
                 </div>
                 <div className="flex justify-center z-10">

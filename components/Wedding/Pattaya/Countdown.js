@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Image from "next/image";
-import Ring from '../../../public/static/2/countdown-ring.png'
+import Ring from '../../../public/static/pattaya/countdown-ring.png'
 import { GrClose } from "react-icons/gr";
 import imageLoader from "../../../utils/imageLoader";
 import { atcb_action } from "add-to-calendar-button";
@@ -50,14 +50,14 @@ const Countdown = ({ contents }) => {
 
     return (
         <section className={"relative"}>
-            <Image layout='fill' priority='true' loader={imageLoader} src={contents.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
+            <Image layout='fill' priority={true} loader={imageLoader} src={contents.src} alt='BgPhoto' objectFit='cover' objectPosition='center' />
             <div className="flex flex-col justify-center pt-56 h-full min-h-screen">
                 <div className="flex justify-center z-10">
                     <div className="text-lg text-center font-semibold text-white">Nantikan hari bahagia kami</div>
                 </div>
                 <div className="flex justify-center mt-4 z-10">
                     <div className="flex justify-center items-center text-white font-[paradise] text-5xl">
-                        {contents.cewekName} <span className="px-2"><Image priority='true' className="" width="80px" height="80px" src={Ring.src} alt='Ring' objectFit="contain" objectPosition="center" /></span> {contents.cowokName}
+                        {contents.cewekName} <span className="px-2"><Image priority={true} className="" width="80px" height="80px" src={Ring.src} alt='Ring' objectFit="contain" objectPosition="center" /></span> {contents.cowokName}
                     </div>
                 </div>
                 <div className="flex justify-center z-10">

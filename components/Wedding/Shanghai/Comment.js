@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import BgBase from '../../../public/static/6/comment-bg-2.png'
-import { AiFillCheckCircle } from "react-icons/ai"
+import BgBase from '../../../public/static/shanghai/comment-bg-2.png'
 import { BiTimeFive } from "react-icons/bi"
 import { database } from '../../../firebaseConsole'
 import { collection, addDoc, getDocs, Timestamp, orderBy, query } from 'firebase/firestore'
@@ -8,7 +7,7 @@ import { useEffect, useState } from 'react'
 import { AnimationOnScroll } from 'react-animation-on-scroll'
 import moment from 'moment';
 import { toDateTime } from '../../../utils/formatDate'
-import Covid from "../../../public/static/6/giving-covid.png"
+import Covid from "../../../public/static/shanghai/giving-covid.png"
 
 
 const CommentView = ({ name, isHadir, comment, createdAt }) => {
@@ -93,11 +92,11 @@ const Comment = ({ contents }) => {
         <>
             <section className="relative min-h-screen">
                 <div className="absolute h-full w-full min-h-screen">
-                    <Image priority='true' layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                    <Image priority={true} layout='fill' src={BgBase.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                 </div>
                 <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInUpBig">
                 <div className="flex justify-center items-center my-20 ml-5">
-                        <Image priority='true' className="" width="400px" height="500px" src={Covid.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                        <Image priority={true} className="" width="400px" height="500px" src={Covid.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
                     </div>
                     <div className="flex flex-col items-center mb-72">
                         <div className="flex justify-center mt-8 z-10">

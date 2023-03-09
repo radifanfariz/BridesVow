@@ -6,10 +6,10 @@ const Outro = ({ contents }) => {
     return (
         <section className="relative">
             {/* <div className="absolute h-full w-full min-h-screen flex flex-col justify-start">
-                <Image priority='true' className="" src={BgBawah.src} width={500} height={200} alt='BgTexture' />
+                <Image priority={true} className="" src={BgBawah.src} width={500} height={200} alt='BgTexture' />
             </div> */}
             <div className="absolute h-full w-full flex flex-col justify-center grayscale">
-                <Image priority='true' width={500} height={1200} loader={imageLoader} src={contents.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
+                <Image priority={true} width={500} height={1200} loader={imageLoader} src={contents.src} alt='BgTexture' objectFit='cover' objectPosition='center' />
             </div>
             <AnimationOnScroll animateOnce={false} animateIn="animate__fadeInLeftBig">
                 <div className="flex flex-col justify-center items-center relative m-10">

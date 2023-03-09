@@ -33,7 +33,7 @@ const MainContent = ({ children }) => {
                     </div>
                     {children}
                     <Link href="/collections">
-                        <a className="text-3xl text-white font-bold font-Poppins pt-5 hover:border-b-2 border-white">View all</a>
+                        <a className="xl:text-3xl text-xl text-white font-bold font-Poppins pt-5 hover:border-b-2 border-white">View all</a>
                     </Link>
                     <div className="mt-10 mb-16 z-10">
                         <Link href="/order">
