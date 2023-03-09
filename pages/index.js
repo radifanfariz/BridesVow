@@ -6,7 +6,7 @@ import Product from "../components/Landing/Content/Product";
 import Layout from "../components/Landing/Layout";
 import { getDataPaketUndangan } from "../adapters";
 
-export default function LandingPage({ data }) {
+export default function LandingPage({ dataPaket, dataTemplate }) {
   return (
     <>
       <Head>
@@ -19,10 +19,10 @@ export default function LandingPage({ data }) {
       </Head>
       <Layout>
         <MainContent>
-          <ImagePreview data={data} />
+          <ImagePreview data={dataTemplate} />
         </MainContent>
         <Content />
-        <Product />
+        <Product data={dataPaket} />
       </Layout>
     </>
   );
@@ -30,11 +30,42 @@ export default function LandingPage({ data }) {
 
 export async function getStaticProps() {
   const res = await getDataPaketUndangan()
-  const data = []
+  const dataPaket = {}
+  const dataTemplate = []
   res.data.paketUndangans.data.map((item) => {
+    switch (item.attributes.Nama) {
+      case "Gold":
+        dataPaket["gold"] = {
+          id: item.id,
+          nama: item.attributes.Nama,
+          harga: item.attributes.Harga,
+          fitur: item.attributes.Fitur
+        }
+        break;
+      case "Platinum":
+        dataPaket["platinum"] = {
+          id: item.id,
+          nama: item.attributes.Nama,
+          harga: item.attributes.Harga,
+          fitur: item.attributes.Fitur
+        }
+        break;
+      case "Diamond":
+        dataPaket["diamond"] = {
+          id: item.id,
+          nama: item.attributes.Nama,
+          harga: item.attributes.Harga,
+          fitur: item.attributes.Fitur
+        }
+        break;
+
+      default:
+        break;
+    }
+
     item.attributes.template_undangans.data.map((item) => {
       return (
-        data.push(
+        dataTemplate.push(
           {
             id: item.id,
             data: {
@@ -52,7 +83,8 @@ export async function getStaticProps() {
   })
   return {
     props: {
-      data
+      dataPaket,
+      dataTemplate
     }
   }
 }

@@ -102,7 +102,7 @@ const featuresThree = [
 //         </section>
 //     )
 // }
-const Product = () => {
+const Product = ({ data }) => {
     return (
         // <section className="relative w-full bg-[#F1F1F1]">
         <section className="relative w-full" id="paket">
@@ -118,13 +118,13 @@ const Product = () => {
                         <div className="grid grid-cols-1 gap-8 mt-6 xl:mt-12 xl:gap-12 md:grid-cols-2 lg:grid-cols-3 lg:border-4 border-black lg:p-20 rounded-3xl">
                             <div className="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700 bg-white">
                                 <p className="font-medium text-yellow-500 uppercase ">
-                                    Gold
+                                    {data.gold.nama}
                                 </p>
                                 <h2 className="text-4xl font-semibold text-gray-800 uppercase ">
-                                    Rp.189.000
+                                    {data.gold.harga}
                                 </h2>
                                 <p className="font-medium text-gray-500 ">
-                                    Good Design
+                                    {data.gold.fitur}
                                 </p>
                                 <Link href="/order?paket=gold">
                                     <a>
@@ -136,13 +136,13 @@ const Product = () => {
                             </div>
                             <div className="w-full p-8 space-y-8 text-center border border-gray-200 dark:border-gray-700 bg-[#267AAD] rounded-lg">
                                 <p className="font-medium text-black uppercase">
-                                    Diamond
+                                    {data.platinum.nama}
                                 </p>
                                 <h2 className="text-4xl font-bold text-white uppercase dark:text-gray-100">
-                                    Rp.279.000
+                                    {data.platinum.harga}
                                 </h2>
                                 <p className="font-medium text-gray-200">
-                                    Elite and Luxury design
+                                    {data.platinum.fitur}
                                     <Link href="/order?paket=diamond">
                                         <a>
                                             <button className="w-full px-4 py-2 mt-10 tracking-wide text-[#267AAD] capitalize transition-colors duration-300 transform bg-white rounded-md hover:bg-black focus:outline-none focus:bg-black focus:ring focus:ring-black focus:ring-opacity-80">
@@ -154,13 +154,13 @@ const Product = () => {
                             </div>
                             <div className="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700 bg-white">
                                 <p className="font-medium text-gray-500 uppercase">
-                                    Platinum
+                                    {data.diamond.nama}
                                 </p>
                                 <h2 className="text-4xl font-semibold text-gray-800 uppercase">
-                                    Rp.229.000
+                                    {data.diamond.harga}
                                 </h2>
                                 <p className="font-medium text-gray-500">
-                                    Elegant design
+                                    {data.diamond.fitur}
                                 </p>
                                 <Link href="/order?paket=platinum">
                                     <a>
