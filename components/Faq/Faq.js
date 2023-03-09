@@ -16,7 +16,7 @@ const Faq = ({ data }) => {
                 <FaqTabs>
                     {data.map((item) => {
                         return (
-                            <Tabs.Content className="TabsContent" value={item.kategori}>
+                            <Tabs.Content key={item.kategori} className="TabsContent" value={item.kategori}>
                                 {
                                     item.faqs.map((faq) => {
                                         return (
