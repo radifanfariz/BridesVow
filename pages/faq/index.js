@@ -1,5 +1,5 @@
 import { getDataFaq } from "../../adapters";
-import Faq from "../../components/Faq/faq";
+import Faq from "../../components/Faq/Faq";
 import Layout from "../../components/Global/Layout";
 
 export default function FaqPage({ data }) {

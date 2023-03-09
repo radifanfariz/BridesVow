@@ -1,5 +1,5 @@
 import { getDefaultContents } from '../../adapters/defaultContents';
-import { templateAllDefault } from '../../templates/TemplateAll';
+import { templateAllDefault } from '../../templates/templateAll';
 import Custom404 from '../404';
 
 
