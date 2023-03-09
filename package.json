@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "env-cmd -f .env next start -H 0.0.0.0 -p ${PORT:-8080}",
+    "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
     "lint": "next lint",
     "export": "npm run build && next export -o _static"
   },
@@ -24,7 +24,6 @@
     "axios": "^1.2.1",
     "crypto-js": "^4.1.1",
     "daisyui": "^2.27.0",
-    "env-cmd": "^10.1.0",
     "firebase": "^9.12.1",
     "formidable": "^2.1.1",
     "iron-session": "^6.3.1",
