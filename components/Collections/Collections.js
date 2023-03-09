@@ -61,12 +61,12 @@ const Collections = ({ data }) => {
                                                             <div className="camera"></div>
                                                             <div className="display h-full w-full">
                                                                 <Link href={`/preview/${templateItem.data.slug}`}>
-                                                                    <a target={"_blank"} className="group">
+                                                                    <a target={"_blank"} className="group backdrop-blur-sm">
                                                                         <Image
                                                                             priority={true}
                                                                             className=""
                                                                             layout="fill"
-                                                                            src={(env == "development")?`http://localhost:1338${templateItem.data.url}`:`${templateItem.data.url}`}
+                                                                            src={(env == "development")?`http://localhost:1338/${templateItem.data.url}`:`${templateItem.data.url}`}
                                                                             loader={imageLoader}
                                                                             alt="product"
                                                                         />

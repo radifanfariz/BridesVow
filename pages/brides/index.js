@@ -9,6 +9,7 @@ import RSVP from "../../components/Form/Brides/RSVP";
 import Comments from "../../components/Form/Brides/Comments";
 import SettingTabs from "../../components/Form/Brides/SettingTabs";
 import ChangePassword from "../../components/Form/Brides/Settings/ChangePassword";
+import Head from "next/head";
 
 // export const DataContext = createContext(null)
 
@@ -23,17 +24,17 @@ const BridesPage = ({ data }) => {
           <BridesForm undanganId={data.undanganId} undanganSlug={data.undanganSlug} />
         </Tabs.Content>
         <Tabs.Content className="TabsContent" value={"sideBarTabRsvp"}>
-          <RSVP orderId={data.orderId}/>
+          <RSVP orderId={data.orderId} />
         </Tabs.Content>
         <Tabs.Content className="TabsContent" value={"sideBarTabComments"}>
-          <Comments orderId={data.orderId}/>
+          <Comments orderId={data.orderId} />
         </Tabs.Content>
         <Tabs.Content className="TabsContent" value={"sideBarTabInviting"}>
           <Inviting undanganSlug={data.undanganSlug} />
         </Tabs.Content>
         <Tabs.Content className="TabsContent" value={"sideBarTabSettings"}>
           <SettingTabs>
-            <ChangePassword jwt={data.jwt}/>
+            <ChangePassword jwt={data.jwt} />
           </SettingTabs>
         </Tabs.Content>
       </>
@@ -45,7 +46,19 @@ const BridesPage = ({ data }) => {
 };
 
 BridesPage.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
+  return (
+    <>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="description" content="Website Undangan Pernikahan" />
+        <meta name="keywords" content="BridesVow, Undangan, Menikah" />
+        <meta name="author" content="Radifan Fariz" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BridesVow - Brides</title>
+      </Head>
+      <Layout>{page}</Layout>
+    </>
+  );
 };
 
 export const getServerSideProps = withLoginSessionSsr(

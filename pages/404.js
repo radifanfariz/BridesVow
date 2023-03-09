@@ -1,7 +1,16 @@
+import Head from "next/head";
 import Link from "next/link";
 
 export default function Custom404() {
   return <>
+    <Head>
+      <meta charSet="UTF-8" />
+      <meta name="description" content="Website Undangan Pernikahan" />
+      <meta name="keywords" content="BridesVow, Undangan, Menikah" />
+      <meta name="author" content="Radifan Fariz" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>BridesVow - Error 404</title>
+    </Head>
     <div className="grid h-screen px-4 bg-white place-content-center">
       <div className="text-center">
         <h1 className="font-black text-gray-200 text-9xl">404</h1>

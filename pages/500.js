@@ -1,8 +1,17 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Custom500() {
   return <>
+    <Head>
+      <meta charSet="UTF-8" />
+      <meta name="description" content="Website Undangan Pernikahan" />
+      <meta name="keywords" content="BridesVow, Undangan, Menikah" />
+      <meta name="author" content="Radifan Fariz" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>BridesVow - Error 500</title>
+    </Head>
     <div className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
       <div className="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
         <div className="relative">
@@ -19,12 +28,12 @@ export default function Custom500() {
             </div>
           </div>
           <div>
-            <Image layout="fill"  alt="error" src="https://i.ibb.co/G9DC8S0/404-2.png" />
+            <Image layout="fill" alt="error" src="https://i.ibb.co/G9DC8S0/404-2.png" />
           </div>
         </div>
       </div>
       <div>
-        <Image layout="fill"  alt="error" src="https://i.ibb.co/ck1SGFJ/Group.png" />
+        <Image layout="fill" alt="error" src="https://i.ibb.co/ck1SGFJ/Group.png" />
       </div>
     </div>
   </>

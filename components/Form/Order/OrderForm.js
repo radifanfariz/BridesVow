@@ -142,7 +142,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                 centeredSlidesBounds={true}
                 mousewheel={true}
                 grabCursor={false}
-                navigation={false}
+                navigation={true}
                 modules={[Pagination, Navigation, Mousewheel]}
                 spaceBetween={0}
                 breakpoints={{
@@ -162,9 +162,9 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                     spaceBetween: 0,
                   },
                 }}
-                slidesPerView={1}
+                slidesPerView={2}
                 pagination={true}
-                className="mySwiper"
+                className="mySwiper flex-1"
               >
                 {data.map((paket) => {
                   if (namaPaket === paket.paket_undangan.nama.toLowerCase()) {
@@ -173,7 +173,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                         // console.log(namaPaket)
                         return (
                           <SwiperSlide key={template.data.nama}>
-                            <div className="flex flex-col pr-5 text-black">
+                            <div className="flex flex-col justify-center items-center pr-5 text-black">
                               <div className="label">
                                 <Link href={`/preview/${template.data.slug}`}>
                                   <a target={"_blank"} className="relative">
@@ -182,7 +182,7 @@ const OrderForm = ({ data, setDataOrderForm }) => {
                                       layout="intrinsic"
                                       width={120}
                                       height={250}
-                                      src={(env = "development") ? `http://localhost:1338${template.data.url}`:`${template.data.url}`}
+                                      src={(env = "development") ? `http://localhost:1338/${template.data.url}`:`${template.data.url}`}
                                       alt="Template"
                                       objectFit="contain"
                                     />

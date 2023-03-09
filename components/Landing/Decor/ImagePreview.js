@@ -93,12 +93,12 @@ const ImagePreview = ({data}) => {
                         <div className="camera"></div>
                         <div className="display h-full">
                           <Link href={`/preview/${itemImage.data.slug}`}>
-                            <a target={"_blank"} className="group">
+                            <a target={"_blank"} className="group backdrop-blur-sm">
                               <Image
                                 priority={true}
                                 className=""
                                 layout="fill"
-                                src={(env == "development") ?`http://localhost:1338${itemImage.data.url}`:`${itemImage.data.url}`}
+                                src={(env == "development") ? `http://localhost:1338/${itemImage.data.url}`:`${itemImage.data.url}`}
                                 loader={imageLoader}
                                 alt="product"
                               />

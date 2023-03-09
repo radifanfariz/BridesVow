@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify"
 import LoadingPopUp from "../../components/Global/LoadingPopUp"
 import 'react-toastify/dist/ReactToastify.css';
 import { register } from "../../adapters/auth"
+import Head from "next/head"
 
 const aesSecretKey = process.env.NEXT_PUBLIC_AES_SECRET_KEY
 
@@ -289,7 +290,19 @@ export async function getServerSideProps() {
 }
 
 OrderPage.getLayout = function getLayout(page) {
-    return <Layout>{page}</Layout>;
+    return (
+        <>
+            <Head>
+                <meta charSet="UTF-8" />
+                <meta name="description" content="Website Undangan Pernikahan" />
+                <meta name="keywords" content="BridesVow, Undangan, Menikah" />
+                <meta name="author" content="Radifan Fariz" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>BridesVow - Order</title>
+            </Head>
+            <Layout>{page}</Layout>
+        </>
+    );
 };
 
 export default OrderPage

@@ -1,8 +1,7 @@
-import { FormProvider, useForm } from "react-hook-form";
 import LoginForm from "../../../components/Form/Auth/LoginForm";
-import HelpButton from "../../../components/Global/HelpButton";
 import Layout from "../../../components/Global/Layout";
 import { withLoginSessionSsr } from "../../../utils/withSession";
+import Head from "next/head";
 
 export default function LoginPage() {
     return (
@@ -11,7 +10,19 @@ export default function LoginPage() {
 }
 
 LoginPage.getLayout = function getLayout(page){
-    return <Layout>{page}</Layout>;
+  return (
+    <>
+        <Head >
+            <meta charSet="UTF-8" />
+            <meta name="description" content="Website Undangan Pernikahan" />
+            <meta name="keywords" content="BridesVow, Undangan, Menikah" />
+            <meta name="author" content="Radifan Fariz" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>BridesVow - Login</title>
+        </Head>
+        <Layout>{page}</Layout>
+    </>
+);
 }
 
 export const getServerSideProps = withLoginSessionSsr(
