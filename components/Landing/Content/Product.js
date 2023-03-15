@@ -121,7 +121,7 @@ const Product = ({ data }) => {
                                     {data.gold.nama}
                                 </p>
                                 <h2 className="text-4xl font-semibold text-gray-800 uppercase ">
-                                    {data.gold.harga}
+                                    Rp.{data.gold.harga}
                                 </h2>
                                 <p className="font-medium text-gray-500 ">
                                     {data.gold.fitur}
@@ -136,13 +136,13 @@ const Product = ({ data }) => {
                             </div>
                             <div className="w-full p-8 space-y-8 text-center border border-gray-200 dark:border-gray-700 bg-[#267AAD] rounded-lg">
                                 <p className="font-medium text-black uppercase">
-                                    {data.platinum.nama}
+                                    {data.diamond.nama}
                                 </p>
                                 <h2 className="text-4xl font-bold text-white uppercase dark:text-gray-100">
-                                    {data.platinum.harga}
+                                    Rp.{data.diamond.harga}
                                 </h2>
                                 <p className="font-medium text-gray-200">
-                                    {data.platinum.fitur}
+                                    {data.diamond.fitur}
                                     <Link href="/order?paket=diamond">
                                         <a>
                                             <button className="w-full px-4 py-2 mt-10 tracking-wide text-[#267AAD] capitalize transition-colors duration-300 transform bg-white rounded-md hover:bg-black focus:outline-none focus:bg-black focus:ring focus:ring-black focus:ring-opacity-80">
@@ -154,13 +154,13 @@ const Product = ({ data }) => {
                             </div>
                             <div className="w-full p-8 space-y-8 text-center border border-gray-200 rounded-lg dark:border-gray-700 bg-white">
                                 <p className="font-medium text-gray-500 uppercase">
-                                    {data.diamond.nama}
+                                    {data.platinum.nama}
                                 </p>
                                 <h2 className="text-4xl font-semibold text-gray-800 uppercase">
-                                    {data.diamond.harga}
+                                    Rp.{data.platinum.harga}
                                 </h2>
                                 <p className="font-medium text-gray-500">
-                                    {data.diamond.fitur}
+                                    {data.platinum.fitur}
                                 </p>
                                 <Link href="/order?paket=platinum">
                                     <a>

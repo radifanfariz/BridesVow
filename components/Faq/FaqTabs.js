@@ -13,7 +13,7 @@ export default function FaqTabs({ children }) {
                                 <Tabs.Trigger key={item.value} className="TabsTrigger flex-grow" value={item.value}>
                                     <a className="relative block p-4" >
                                         <div className="flex items-center justify-center">
-                                            <span className="ml-3 text-sm font-medium text-gray-900">{item.label}</span>
+                                            <span className="ml-3 text-sm font-medium text-black">{item.label}</span>
                                         </div>
                                     </a>
                                 </Tabs.Trigger>

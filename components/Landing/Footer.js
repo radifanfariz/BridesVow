@@ -30,7 +30,7 @@ const Footer = () => {
             </div>
             <div className="col-span-1 w-full flex justify-center">
               <div className="grid grid-cols-2 md:grid-cols-3 justify-items-center font-Poppins text-white">
-                <div className="p-5 md:px-5 px-10 w-full">
+                <div className="p-5 md:px-5 w-full">
                   <h1 className="text-xl font-bold py-5">Product</h1>
                   <ul>
                     <li>
@@ -55,7 +55,7 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="p-5 md:px-5 px-10 w-full">
+                <div className="p-5 md:px-5 w-full">
                   <h1 className="text-xl font-bold py-5">Information</h1>
                   <ul>
                     <li>
@@ -75,10 +75,10 @@ const Footer = () => {
                     </li>
                   </ul>
                 </div>
-                <div className="p-5 md:px-5 px-10 w-full">
+                <div className="p-5 md:px-5 w-full">
                   <h1 className="text-xl font-bold py-5">About</h1>
                   <ul>
-                    <li className="flex items-center">
+                    <li className="flex items-center ">
                       <Link href="#">
                         <a className="hover:border-b-2">
                           <span>

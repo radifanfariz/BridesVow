@@ -23,7 +23,7 @@ const Faq = ({ data }) => {
                                             <div key={`faq-${faq.id}`} className="space-y-4">
                                                 <details className="group [&_summary::-webkit-details-marker]:hidden" open="">
                                                     <summary className="flex items-center justify-between p-4 rounded-lg cursor-pointer bg-gray-50">
-                                                        <h2 className="font-bold text-gray-900">
+                                                        <h2 className="font-bold text-black">
                                                             {faq.Pertanyaan}
                                                         </h2>
                                                         <svg
@@ -41,7 +41,7 @@ const Faq = ({ data }) => {
                                                             />
                                                         </svg>
                                                     </summary>
-                                                    <div className="px-4 mt-4 leading-relaxed text-gray-700">
+                                                    <div className="px-4 mt-4 leading-relaxed text-black">
                                                         <ReactMarkdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>
                                                             {DOMPurify.sanitize(faq.Jawaban)}
                                                         </ReactMarkdown>

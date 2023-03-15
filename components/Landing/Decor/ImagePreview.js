@@ -17,38 +17,38 @@ const ImagePreview = ({data}) => {
   //     }
   // }
 
-  const imageData = [
-    {
-      id: "1",
-      name: "mokap",
-      src: "/static/landing/mokap1.png",
-      link: "/preview/first",
-    },
-    {
-      id: "2",
-      name: "mokap2",
-      src: "/static/landing/mokap1.png",
-      link: "/preview/first",
-    },
-    {
-      id: "3",
-      name: "mokap3",
-      src: "/static/landing/mokap1.png",
-      link: "/preview/first",
-    },
-    {
-      id: "4",
-      name: "mokap4",
-      src: "/static/landing/mokap1.png",
-      link: "/preview/first",
-    },
-    {
-      id: "5",
-      name: "mokap5",
-      src: "/static/landing/mokap1.png",
-      link: "/preview/first",
-    },
-  ];
+  // const imageData = [
+  //   {
+  //     id: "1",
+  //     name: "mokap",
+  //     src: "/static/landing/mokap1.png",
+  //     link: "/preview/first",
+  //   },
+  //   {
+  //     id: "2",
+  //     name: "mokap2",
+  //     src: "/static/landing/mokap1.png",
+  //     link: "/preview/first",
+  //   },
+  //   {
+  //     id: "3",
+  //     name: "mokap3",
+  //     src: "/static/landing/mokap1.png",
+  //     link: "/preview/first",
+  //   },
+  //   {
+  //     id: "4",
+  //     name: "mokap4",
+  //     src: "/static/landing/mokap1.png",
+  //     link: "/preview/first",
+  //   },
+  //   {
+  //     id: "5",
+  //     name: "mokap5",
+  //     src: "/static/landing/mokap1.png",
+  //     link: "/preview/first",
+  //   },
+  // ];
 
   const env = process.env.NODE_ENV
 
@@ -98,11 +98,11 @@ const ImagePreview = ({data}) => {
                                 priority={true}
                                 className=""
                                 layout="fill"
-                                src={(env == "development") ? `http://localhost:1338/${itemImage.data.url}`:`${itemImage.data.url}`}
+                                src={(env === "development") ? `http://localhost:1338/${itemImage.data.url}`:`${itemImage.data.url}`}
                                 loader={imageLoader}
                                 alt="product"
                               />
-                              <div className="flex flex-col justify-center items-center w-full h-full px-8 py-4 transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
+                              <div className="flex flex-col justify-center items-center w-full h-full px-8 py-4 rounded-[2rem] transition-opacity duration-700 opacity-0 backdrop-blur-sm bg-gray-800/60 group-hover:opacity-100">
                                 <h2 className="mt-4 text-xl font-semibold text-white capitalize">
                                   {itemImage.data.nama}
                                 </h2>
